@@ -1,0 +1,2 @@
+E:/Old Projects 2024/Portfolio v2/port_folio/android/app/.cxx/Debug/5s4ye3m3/x86/CMakeFiles/edit_cache.dir
+E:/Old Projects 2024/Portfolio v2/port_folio/android/app/.cxx/Debug/5s4ye3m3/x86/CMakeFiles/rebuild_cache.dir
