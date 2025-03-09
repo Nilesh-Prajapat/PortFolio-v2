@@ -73,7 +73,7 @@ class _NavbarState extends State<Navbar> {
   void _scrollToSection(GlobalKey sectionKey) {
     Scrollable.ensureVisible(
       sectionKey.currentContext!,
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 400),
       curve: Curves.easeInOut,
     );
   }
@@ -110,7 +110,7 @@ class _NavbarState extends State<Navbar> {
                           style: TextStyle(
                             fontSize: headingFontSize,
                             fontFamily: "Space",
-                            letterSpacing: 2.0,
+                            letterSpacing: 1.0,
                             fontWeight: FontWeight.w500,
                             color: isDarkMode ? Colors.white : Colors.black,
                           ),
@@ -269,7 +269,8 @@ class _NavbarState extends State<Navbar> {
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
             style: TextStyle(
-              color: selectedIndex == index ? Colors.red : (isDarkMode ? Colors.white : Colors.black),
+              color: selectedIndex == index ? isDarkMode ? primaryColor : primaryColorLight
+                : (isDarkMode ? Colors.white : Colors.black),
               fontFamily: "Space",
               letterSpacing: 2.0,
               fontSize: textSize,
@@ -312,7 +313,7 @@ Widget _buildThemeToggleButton() {
             key: ValueKey<bool>(isDark),
             icon: Icon(
               isDark ? Icons.dark_mode_outlined : Icons.light_mode_outlined,
-              color: isDark ? Colors.amber : Colors.black,
+              color: isDark ? primaryColor : primaryColorLight,
               size: 28,
             ),
             onPressed: () {

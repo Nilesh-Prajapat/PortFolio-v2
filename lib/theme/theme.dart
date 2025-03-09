@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-const Color primaryColor = Color(0xFFDC3545); // Bootstrap Red
-const Color primaryColorLight = Color(0xFF003A75 ); // Material Indigo Blue
+const Color primaryColor = Color(0xFFD32F2F);
+const Color primaryColorLight = Color(0xFF17A2B8   );
 
-const Color lightBackground = Color(0xFFF2F2F2); // Warm off-white
-const Color darkBackground = Colors.black; // True dark
+const Color lightBackground = Color(0xFFF2F2F2);
+const Color darkBackground = Colors.black;
 
-const Color lightTextColor = Color(0xFF212121); // Soft dark gray
+const Color lightTextColor = Color(0xFF212121);
 const Color darkTextColor = Colors.white;
 
 TextStyle baseTextStyle(double fontSize, Color color) {
