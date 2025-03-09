@@ -157,7 +157,7 @@ class _NavbarState extends State<Navbar> {
                       child: Row(
                         children: [
                           ..._buildNavItems(navItemFontSize, isDarkMode),
-                          _buildThemeToggleButton(),
+                          _buildThemeToggleButton(isMobile),
                         ],
                       ),
                     ),
@@ -240,7 +240,7 @@ class _NavbarState extends State<Navbar> {
                         );
                       }).toList(),
                       const Divider(),
-                      Center(child: _buildThemeToggleButton()),
+                      Center(child: _buildThemeToggleButton(isMobile)),
                     ],
                   ),
                 ),
@@ -325,7 +325,7 @@ class _NavbarState extends State<Navbar> {
   }
 
 
-  Widget _buildThemeToggleButton() {
+  Widget _buildThemeToggleButton(bool isMobile) {
     return Consumer<ThemeProvider>(
       builder: (context, themeProvider, child) {
         bool isDark = Theme
@@ -350,6 +350,9 @@ class _NavbarState extends State<Navbar> {
               ),
               onPressed: () {
                 themeProvider.toggleTheme();
+                if(isMobile){
+                  showDropdown = !showDropdown;
+                }
               },
             ),
           ),
