@@ -158,18 +158,18 @@ class _NavbarState extends State<Navbar> {
                         Container(
                             key: _homeKey,
                             child: const MainBody(appBarHeight: kToolbarHeight)),
-                        Container(
-                            key: _expertiseKey,
-                            child:
-                                _buildExpertisePage(screenWidth, screenHeight)),
-                        Container(
-                            key: _projectKey,
-                            child:
-                                _buildProjectPage(screenWidth, screenHeight)),
-                        Container(
-                            key: _contactKey,
-                            child:
-                                _buildContactPage(screenWidth, screenHeight)),
+                        // Container(
+                        //     key: _expertiseKey,
+                        //     child:
+                        //         _buildExpertisePage(screenWidth, screenHeight)),
+                        // Container(
+                        //     key: _projectKey,
+                        //     child:
+                        //         _buildProjectPage(screenWidth, screenHeight)),
+                        // Container(
+                        //     key: _contactKey,
+                        //     child:
+                        //         _buildContactPage(screenWidth, screenHeight)),
                       ],
                     ),
                   ),

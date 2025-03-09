@@ -26,80 +26,82 @@ class AboutMeEditor extends StatelessWidget {
       child: Scaffold(
         backgroundColor: isDarkMode ? Colors.black : Colors.white,
         body: Center(
-          child: GestureDetector(
-            onTap: () {}, // Prevents closing when clicking inside
-            child: Container(
-              width: containerWidth,
-              decoration: BoxDecoration(
-                color: isDarkMode ? const Color(0xFF1E1E1E) : const Color(0xFFF5F5F5),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Top File Tab Bar
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    decoration: BoxDecoration(
-                      color: isDarkMode ? const Color(0xFF252526) : const Color(0xFFE0E0E0),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10),
+          child: SingleChildScrollView(
+            child: GestureDetector(
+              onTap: () {}, // Prevents closing when clicking inside
+              child: Container(
+                width: containerWidth,
+                decoration: BoxDecoration(
+                  color: isDarkMode ? const Color(0xFF1E1E1E) : const Color(0xFFF5F5F5),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Top File Tab Bar
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      decoration: BoxDecoration(
+                        color: isDarkMode ? const Color(0xFF252526) : const Color(0xFFE0E0E0),
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(Icons.description,
+                              color: isDarkMode ? Colors.white : Colors.black, size: iconSize),
+                          const SizedBox(width: 5),
+                          Text(
+                            "about_me.dart",
+                            style: TextStyle(
+                              fontFamily: 'Space',
+                              color: isDarkMode ? Colors.white : Colors.black,
+                              fontSize: baseFontSize,
+                            ),
+                          ),
+                          const Spacer(),
+                          IconButton(
+                            icon: Icon(Icons.copy,
+                                color: isDarkMode ? Colors.white : Colors.black, size: iconSize),
+                            onPressed: () {
+                              Clipboard.setData(ClipboardData(text: aboutMeText));
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text("Copied to clipboard!",
+                                      style: TextStyle(
+                                          color: isDarkMode ? Colors.white : Colors.black)),
+                                  backgroundColor: isDarkMode ? Colors.grey[900] : Colors.grey[300],
+                                ),
+                              );
+                            },
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.close,
+                                color: isDarkMode ? Colors.white : Colors.black, size: iconSize),
+                            onPressed: () => Navigator.of(context).pop(), // Close on press
+                          ),
+                        ],
                       ),
                     ),
-                    child: Row(
-                      children: [
-                        Icon(Icons.description,
-                            color: isDarkMode ? Colors.white : Colors.black, size: iconSize),
-                        const SizedBox(width: 5),
-                        Text(
-                          "about_me.dart",
+                    // Code Editor Content with Bold Text Formatting
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: RichText(
+                        text: TextSpan(
+                          children: _getFormattedText(aboutMeText, isDarkMode, baseFontSize),
                           style: TextStyle(
                             fontFamily: 'Space',
                             color: isDarkMode ? Colors.white : Colors.black,
                             fontSize: baseFontSize,
                           ),
                         ),
-                        const Spacer(),
-                        IconButton(
-                          icon: Icon(Icons.copy,
-                              color: isDarkMode ? Colors.white : Colors.black, size: iconSize),
-                          onPressed: () {
-                            Clipboard.setData(ClipboardData(text: aboutMeText));
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text("Copied to clipboard!",
-                                    style: TextStyle(
-                                        color: isDarkMode ? Colors.white : Colors.black)),
-                                backgroundColor: isDarkMode ? Colors.grey[900] : Colors.grey[300],
-                              ),
-                            );
-                          },
-                        ),
-                        IconButton(
-                          icon: Icon(Icons.close,
-                              color: isDarkMode ? Colors.white : Colors.black, size: iconSize),
-                          onPressed: () => Navigator.of(context).pop(), // Close on press
-                        ),
-                      ],
-                    ),
-                  ),
-                  // Code Editor Content with Bold Text Formatting
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: RichText(
-                      text: TextSpan(
-                        children: _getFormattedText(aboutMeText, isDarkMode, baseFontSize),
-                        style: TextStyle(
-                          fontFamily: 'Space',
-                          color: isDarkMode ? Colors.white : Colors.black,
-                          fontSize: baseFontSize,
-                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
