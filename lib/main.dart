@@ -59,8 +59,8 @@ class _MyAppState extends State<MyApp> {
         }
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          theme: lightTheme(16.0), // Use separate light theme
-          darkTheme: darkTheme(16.0), // Use separate dark theme
+          theme: lightTheme(16.0),
+          darkTheme: darkTheme(16.0),
           themeMode: themeProvider.themeMode,
           home: const Navbar(),
         );
