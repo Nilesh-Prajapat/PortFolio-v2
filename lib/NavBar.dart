@@ -56,9 +56,11 @@ class _NavbarState extends State<Navbar> {
 
     for (int i = 0; i < keys.length; i++) {
       final RenderBox? box =
-          keys[i].currentContext?.findRenderObject() as RenderBox?;
+      keys[i].currentContext?.findRenderObject() as RenderBox?;
       if (box != null) {
-        double offset = box.localToGlobal(Offset.zero).dy;
+        double offset = box
+            .localToGlobal(Offset.zero)
+            .dy;
         double distance = (offset - kToolbarHeight).abs();
         if (distance < minDistance) {
           minDistance = distance;
@@ -80,10 +82,21 @@ class _NavbarState extends State<Navbar> {
 
   @override
   Widget build(BuildContext context) {
-    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    final isMobile = MediaQuery.of(context).size.width < 850;
-    double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidth = MediaQuery.of(context).size.width;
+    final bool isDarkMode = Theme
+        .of(context)
+        .brightness == Brightness.dark;
+    final isMobile = MediaQuery
+        .of(context)
+        .size
+        .width < 850;
+    double screenHeight = MediaQuery
+        .of(context)
+        .size
+        .height;
+    double screenWidth = MediaQuery
+        .of(context)
+        .size
+        .width;
 
     double headingFontSize = isMobile
         ? max(14, min(screenWidth * 0.045, 24))
@@ -102,7 +115,7 @@ class _NavbarState extends State<Navbar> {
                 AppBar(
                   title: Padding(
                     padding:
-                        EdgeInsets.symmetric(horizontal: screenWidth * 0.009),
+                    EdgeInsets.symmetric(horizontal: screenWidth * 0.009),
                     child: Row(
                       children: [
                         Text(
@@ -123,7 +136,7 @@ class _NavbarState extends State<Navbar> {
                             letterSpacing: 2.0,
                             fontWeight: FontWeight.w700,
                             color:
-                                isDarkMode ? primaryColor : primaryColorLight,
+                            isDarkMode ? primaryColor : primaryColorLight,
                           ),
                         ),
                       ],
@@ -131,24 +144,24 @@ class _NavbarState extends State<Navbar> {
                   ),
                   actions: isMobile
                       ? [
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: screenWidth * 0.009),
-                            child: _buildMobileMenuButton(isDarkMode),
-                          ),
-                        ]
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: screenWidth * 0.009),
+                      child: _buildMobileMenuButton(isDarkMode),
+                    ),
+                  ]
                       : [
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: screenWidth * 0.009),
-                            child: Row(
-                              children: [
-                                ..._buildNavItems(navItemFontSize, isDarkMode),
-                                _buildThemeToggleButton(),
-                              ],
-                            ),
-                          ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: screenWidth * 0.009),
+                      child: Row(
+                        children: [
+                          ..._buildNavItems(navItemFontSize, isDarkMode),
+                          _buildThemeToggleButton(),
                         ],
+                      ),
+                    ),
+                  ],
                 ),
                 Expanded(
                   child: SingleChildScrollView(
@@ -157,7 +170,8 @@ class _NavbarState extends State<Navbar> {
                       children: [
                         Container(
                             key: _homeKey,
-                            child: const MainBody(appBarHeight: kToolbarHeight)),
+                            child: const MainBody(
+                                appBarHeight: kToolbarHeight)),
                         // Container(
                         //     key: _expertiseKey,
                         //     child:
@@ -186,7 +200,10 @@ class _NavbarState extends State<Navbar> {
                   color: isDarkMode ? darkBackground : lightBackground,
                   child: Column(
                     children: [
-                      ...navItems.asMap().entries.map((entry) {
+                      ...navItems
+                          .asMap()
+                          .entries
+                          .map((entry) {
                         int index = entry.key;
                         String item = entry.value;
                         return Padding(
@@ -195,7 +212,7 @@ class _NavbarState extends State<Navbar> {
                           child: TextButton(
                             style: ButtonStyle(
                                 overlayColor:
-                                    WidgetStateProperty.all(Colors.transparent),
+                                WidgetStateProperty.all(Colors.transparent),
                                 splashFactory: NoSplash.splashFactory),
                             onPressed: () {
                               setState(() {
@@ -209,11 +226,11 @@ class _NavbarState extends State<Navbar> {
                               style: TextStyle(
                                 color: selectedIndex == index
                                     ? isDarkMode
-                                        ? primaryColor
-                                        : primaryColorLight
+                                    ? primaryColor
+                                    : primaryColorLight
                                     : isDarkMode
-                                        ? Colors.white
-                                        : Colors.black,
+                                    ? Colors.white
+                                    : Colors.black,
                                 fontFamily: "Space",
                                 letterSpacing: 2.0,
                                 fontSize: navItemFontSize * 1.1,
@@ -248,8 +265,12 @@ class _NavbarState extends State<Navbar> {
         return _homeKey;
     }
   }
+
   List<Widget> _buildNavItems(double textSize, bool isDarkMode) {
-    return navItems.asMap().entries.map((entry) {
+    return navItems
+        .asMap()
+        .entries
+        .map((entry) {
       int index = entry.key;
       String item = entry.value;
       return Padding(
@@ -269,8 +290,10 @@ class _NavbarState extends State<Navbar> {
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
             style: TextStyle(
-              color: selectedIndex == index ? isDarkMode ? primaryColor : primaryColorLight
-                : (isDarkMode ? Colors.white : Colors.black),
+              color: selectedIndex == index ? isDarkMode
+                  ? primaryColor
+                  : primaryColorLight
+                  : (isDarkMode ? Colors.white : Colors.black),
               fontFamily: "Space",
               letterSpacing: 2.0,
               fontSize: textSize,
@@ -286,8 +309,11 @@ class _NavbarState extends State<Navbar> {
   Widget _buildMobileMenuButton(bool isDarkMode) {
     return IconButton(
       icon: ImageIcon(
-        AssetImage(showDropdown ? "assets/icon/menu.svg" : "assets/icon/close.svg"), // Use correct asset paths
-        color: isDarkMode ? Colors.white : Colors.black, // Color should be inside ImageIcon
+        AssetImage(
+            showDropdown ? "assets/icon/menu.svg" : "assets/icon/close.svg"),
+        // Use correct asset paths
+        color: isDarkMode ? Colors.white : Colors
+            .black, // Color should be inside ImageIcon
       ),
       onPressed: () {
         setState(() {
@@ -298,56 +324,60 @@ class _NavbarState extends State<Navbar> {
   }
 
 
-Widget _buildThemeToggleButton() {
-  return Consumer<ThemeProvider>(
-    builder: (context, themeProvider, child) {
-      bool isDark = Theme.of(context).brightness == Brightness.dark;
+  Widget _buildThemeToggleButton() {
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) {
+        bool isDark = Theme
+            .of(context)
+            .brightness == Brightness.dark;
 
-      return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 6),
-        child: AnimatedSwitcher(
-          duration: const Duration(milliseconds: 400),
-          transitionBuilder: (child, animation) => RotationTransition(
-            turns: animation,
-            child: FadeTransition(opacity: animation, child: child),
-          ),
-          child: IconButton(
-            key: ValueKey<bool>(isDark),
-            icon: Icon(
-              isDark ? Icons.dark_mode_outlined : Icons.light_mode_outlined,
-              color: isDark ? primaryColor : primaryColorLight,
-              size: 28,
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 6),
+          child: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 400),
+            transitionBuilder: (child, animation) =>
+                RotationTransition(
+                  turns: animation,
+                  child: FadeTransition(opacity: animation, child: child),
+                ),
+            child: IconButton(
+              key: ValueKey<bool>(isDark),
+              icon: Icon(
+                isDark ? Icons.dark_mode_outlined : Icons.light_mode_outlined,
+                color: isDark ? primaryColor : primaryColorLight,
+                size: 28,
+              ),
+              onPressed: () {
+                themeProvider.toggleTheme();
+              },
             ),
-            onPressed: () {
-              themeProvider.toggleTheme();
-            },
           ),
-        ),
-      );
-    },
-  );
-}
+        );
+      },
+    );
+  }
 
-Widget _buildExpertisePage(double screenWidth, double screenHeight) {
-  return SizedBox(
-    width: screenWidth * 0.8,
-    height: screenHeight * 0.8,
-    child: const Center(child: Text('Expertise Page')),
-  );
-}
+  Widget _buildExpertisePage(double screenWidth, double screenHeight) {
+    return SizedBox(
+      width: screenWidth * 0.8,
+      height: screenHeight * 0.8,
+      child: const Center(child: Text('Expertise Page')),
+    );
+  }
 
-Widget _buildProjectPage(double screenWidth, double screenHeight) {
-  return SizedBox(
-    width: screenWidth * 0.8,
-    height: screenHeight * 0.8,
-    child: const Center(child: Text('Project Page')),
-  );
-}
+  Widget _buildProjectPage(double screenWidth, double screenHeight) {
+    return SizedBox(
+      width: screenWidth * 0.8,
+      height: screenHeight * 0.8,
+      child: const Center(child: Text('Project Page')),
+    );
+  }
 
-Widget _buildContactPage(double screenWidth, double screenHeight) {
-  return SizedBox(
-    width: screenWidth * 0.8,
-    height: screenHeight * 0.8,
-    child: const Center(child: Text('Contact Me Page')),
-  );
+  Widget _buildContactPage(double screenWidth, double screenHeight) {
+    return SizedBox(
+      width: screenWidth * 0.8,
+      height: screenHeight * 0.8,
+      child: const Center(child: Text('Contact Me Page')),
+    );
+  }
 }
