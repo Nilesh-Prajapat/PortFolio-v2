@@ -310,7 +310,7 @@ class _NavbarState extends State<Navbar> {
     return IconButton(
       icon: ImageIcon(
         AssetImage(
-            showDropdown ? "assets/icon/menu.png" : "assets/icon/close.png" ),
+            showDropdown ? "assets/icon/close.png" : "assets/icon/menu.png" ),
         color: isDarkMode ? Colors.white : Colors
             .black,
         // Use correct asset paths
