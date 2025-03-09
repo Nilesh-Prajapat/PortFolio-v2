@@ -310,10 +310,11 @@ class _NavbarState extends State<Navbar> {
     return IconButton(
       icon: ImageIcon(
         AssetImage(
-            showDropdown ? "assets/icon/menu.svg" : "assets/icon/close.svg"),
-        // Use correct asset paths
+            showDropdown ? "assets/icon/menu.png" : "assets/icon/close.png" ),
         color: isDarkMode ? Colors.white : Colors
-            .black, // Color should be inside ImageIcon
+            .black,
+        // Use correct asset paths
+
       ),
       onPressed: () {
         setState(() {
