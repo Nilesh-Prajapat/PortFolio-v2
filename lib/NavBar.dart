@@ -285,8 +285,10 @@ class _NavbarState extends State<Navbar> {
 
   Widget _buildMobileMenuButton(bool isDarkMode) {
     return IconButton(
-      icon: Icon(showDropdown ? Icons.close : Icons.menu,
-          color: isDarkMode ? Colors.white : Colors.black),
+      icon: ImageIcon(
+        AssetImage(showDropdown ? "assets/icon/menu.svg" : "assets/icon/close.svg"), // Use correct asset paths
+        color: isDarkMode ? Colors.white : Colors.black, // Color should be inside ImageIcon
+      ),
       onPressed: () {
         setState(() {
           showDropdown = !showDropdown;
@@ -294,7 +296,7 @@ class _NavbarState extends State<Navbar> {
       },
     );
   }
-}
+
 
 Widget _buildThemeToggleButton() {
   return Consumer<ThemeProvider>(
