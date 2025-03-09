@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ContactSection extends StatelessWidget {
+  const ContactSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -8,29 +10,29 @@ class ContactSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             "Contact Me",
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Row(
             children: [
               IconButton(
-                icon: Icon(Icons.email),
+                icon: const Icon(Icons.email),
                 color: Colors.deepPurple,
                 onPressed: () {
                   // Handle email action
                 },
               ),
               IconButton(
-                icon: Icon(Icons.linked_camera), // Example LinkedIn icon
+                icon: const Icon(Icons.linked_camera), // Example LinkedIn icon
                 color: Colors.deepPurple,
                 onPressed: () {
                   // Handle LinkedIn link
                 },
               ),
               IconButton(
-                icon: Icon(Icons.photo_camera), // Example Instagram icon
+                icon: const Icon(Icons.photo_camera), // Example Instagram icon
                 color: Colors.deepPurple,
                 onPressed: () {
                   // Handle Instagram link

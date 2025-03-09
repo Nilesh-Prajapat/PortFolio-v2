@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:port_folio/theme/theme.dart';
 import 'widgets/avatar.dart';
 import 'widgets/introduction.dart';
 
@@ -21,7 +20,8 @@ class _MainBodyState extends State<MainBody> {
     final isLargeScreen = screenWidth > 850;
     double bodyHeight = screenHeight - widget.appBarHeight;
 
-    return Container(
+
+    return SizedBox(
       height: bodyHeight,
       width: screenWidth,
       child: LayoutBuilder(
@@ -35,10 +35,15 @@ class _MainBodyState extends State<MainBody> {
                         isDarkMode: isDarkMode,
                         isLargeScreen: isLargeScreen)),
                 Flexible(
-                  child: IntroWidget(
-                      screenWidth: screenWidth,
-                      isLargeScreen: isLargeScreen,
-                      isDarkMode: isDarkMode),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IntroWidget(
+                          screenWidth: screenWidth,
+                          isLargeScreen: isLargeScreen,
+                          isDarkMode: isDarkMode),
+                    ],
+                  ),
                 ),
               ],
             );
@@ -55,6 +60,7 @@ class _MainBodyState extends State<MainBody> {
                     screenWidth: screenWidth,
                     isLargeScreen: isLargeScreen,
                     isDarkMode: isDarkMode),
+
               ],
             );
           }

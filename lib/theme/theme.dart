@@ -1,58 +1,120 @@
 import 'package:flutter/material.dart';
 
 const Color primaryColor = Color(0xFFD32F2F);
-const Color primaryColorLight = Color(0xFF17A2B8   );
+const Color primaryColorLight = Color(0xFF17A2B8);
 
 const Color lightBackground = Color(0xFFF2F2F2);
 const Color darkBackground = Colors.black;
 
-const Color lightTextColor = Color(0xFF212121);
+const Color lightTextColor = Colors.black;
 const Color darkTextColor = Colors.white;
 
-TextStyle baseTextStyle(double fontSize, Color color) {
-  return TextStyle(
-    fontFamily: 'Space',
-    fontSize: fontSize,
-    color: color,
-    fontWeight: FontWeight.normal,
-  );
-}
-
-TextStyle headerTextStyle(double fontSize, Color color) {
-  return TextStyle(
-    fontFamily: 'Space',
-    fontSize: fontSize,
-    color: color,
-    fontWeight: FontWeight.bold,
-    letterSpacing: 2,
-  );
-}
-
-ThemeData appTheme(double screenWidth, bool isDarkMode) {
+ThemeData lightTheme(double screenWidth) {
   return ThemeData(
-    brightness: isDarkMode ? Brightness.dark : Brightness.light,
-    primaryColor: primaryColor,
-    scaffoldBackgroundColor: isDarkMode ? darkBackground : lightBackground,
+    brightness: Brightness.light,
+    primaryColor: primaryColorLight,
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: primaryColorLight,
+      brightness: Brightness.light,
+    ),
+    scaffoldBackgroundColor: lightBackground,
     textTheme: TextTheme(
-      bodyLarge: baseTextStyle(screenWidth * 0.02, isDarkMode ? darkTextColor : lightTextColor),
-      bodyMedium: baseTextStyle(screenWidth * 0.02, isDarkMode ? darkTextColor : lightTextColor),
-      displayLarge: headerTextStyle(screenWidth * 0.03, isDarkMode ? darkTextColor : lightTextColor),
+      bodyLarge: TextStyle(
+        fontFamily: 'Space',
+        fontSize: screenWidth * 0.02,
+        color: lightTextColor,
+        fontWeight: FontWeight.normal,
+      ),
+      bodyMedium: TextStyle(
+        fontFamily: 'Space',
+        fontSize: screenWidth * 0.02,
+        color: lightTextColor,
+        fontWeight: FontWeight.normal,
+      ),
+      displayLarge: TextStyle(
+        fontFamily: 'Space',
+        fontSize: screenWidth * 0.03,
+        color: lightTextColor,
+        fontWeight: FontWeight.bold,
+        letterSpacing: 2,
+      ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: primaryColor,
+        backgroundColor: primaryColorLight,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
-          side: BorderSide(color: primaryColor, width: 3),
+          side: const BorderSide(color: primaryColorLight, width: 3),
         ),
       ),
     ),
     appBarTheme: AppBarTheme(
       elevation: 0,
       scrolledUnderElevation: 0,
-      backgroundColor: isDarkMode ? Colors.black : lightBackground,
-      iconTheme: IconThemeData(color: isDarkMode ? Colors.white : Colors.black),
-      titleTextStyle: headerTextStyle(screenWidth * 0.03, isDarkMode ? Colors.white : Colors.black),
+      backgroundColor: lightBackground,
+      iconTheme: const IconThemeData(color: Colors.black),
+      titleTextStyle: TextStyle(
+        fontFamily: 'Space',
+        fontSize: screenWidth * 0.03,
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+        letterSpacing: 2,
+      ),
+    ),
+  );
+}
+
+ThemeData darkTheme(double screenWidth) {
+  return ThemeData(
+    brightness: Brightness.dark,
+    primaryColor: primaryColor,
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: primaryColor,
+      brightness: Brightness.dark,
+    ),
+    scaffoldBackgroundColor: darkBackground,
+    textTheme: TextTheme(
+      bodyLarge: TextStyle(
+        fontFamily: 'Space',
+        fontSize: screenWidth * 0.02,
+        color: darkTextColor,
+        fontWeight: FontWeight.normal,
+      ),
+      bodyMedium: TextStyle(
+        fontFamily: 'Space',
+        fontSize: screenWidth * 0.02,
+        color: darkTextColor,
+        fontWeight: FontWeight.normal,
+      ),
+      displayLarge: TextStyle(
+        fontFamily: 'Space',
+        fontSize: screenWidth * 0.03,
+        color: darkTextColor,
+        fontWeight: FontWeight.bold,
+        letterSpacing: 2,
+      ),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: primaryColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+          side: const BorderSide(color: primaryColor, width: 3),
+        ),
+      ),
+    ),
+    appBarTheme: AppBarTheme(
+      elevation: 0,
+      scrolledUnderElevation: 0,
+      backgroundColor: darkBackground,
+      iconTheme: const IconThemeData(color: Colors.white),
+      titleTextStyle: TextStyle(
+        fontFamily: 'Space',
+        fontSize: screenWidth * 0.03,
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        letterSpacing: 2,
+      ),
     ),
   );
 }

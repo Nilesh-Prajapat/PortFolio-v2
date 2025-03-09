@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:port_folio/theme/theme.dart';
+import 'package:port_folio/utils/textParse.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SocialLinksWidget extends StatelessWidget {
@@ -16,10 +17,8 @@ class SocialLinksWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
-    double iconSize = (screenWidth * (isLargeScreen ? 0.025 : 0.072))
-        .clamp(24.0, 45.0);
+    double iconSize =
+        (screenWidth * (isLargeScreen ? 0.025 : 0.072)).clamp(24.0, 45.0);
     final textStyle = TextStyle(
       fontSize: (iconSize * 0.6).clamp(12.0, 20.0),
       color: isDarkMode ? Colors.white : Colors.black,
@@ -49,23 +48,23 @@ class SocialLinksWidget extends StatelessWidget {
 
     return isLargeScreen
         ? Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: socialItems
-          .map((item) => Padding(
-        padding: EdgeInsets.only(bottom: screenWidth * 0.01),
-        child: item,
-      ))
-          .toList(),
-    )
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: socialItems
+                .map((item) => Padding(
+                      padding: EdgeInsets.only(bottom: screenWidth * 0.01),
+                      child: item,
+                    ))
+                .toList(),
+          )
         : Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: socialItems
-          .map((item) => Padding(
-        padding: EdgeInsets.only(right: screenWidth * 0.05),
-        child: item,
-      ))
-          .toList(),
-    );
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: socialItems
+                .map((item) => Padding(
+                      padding: EdgeInsets.only(right: screenWidth * 0.05),
+                      child: item,
+                    ))
+                .toList(),
+          );
   }
 
   Widget _socialItem(String icon, String url, String name, double iconSize,
@@ -88,7 +87,11 @@ class SocialLinksWidget extends StatelessWidget {
           ),
           if (isLargeScreen) ...[
             SizedBox(width: iconSize * 0.5),
-            Text(name, style: textStyle),
+            SymbolHighlighter(
+              text: name,
+              style: textStyle,
+              highlightColor: isDarkMode ? primaryColor : primaryColorLight,
+            ),
           ],
         ],
       ),

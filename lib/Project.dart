@@ -24,6 +24,8 @@ class ProjectsSection extends StatelessWidget {
     },
   ];
 
+   ProjectsSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -31,11 +33,11 @@ class ProjectsSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             "Projects",
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style:  TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Column(
             children: projects
                 .map((project) => ProjectCard(
@@ -59,9 +61,9 @@ class ProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(vertical: 8),
+      margin: const EdgeInsets.symmetric(vertical: 8),
       child: ListTile(
-        title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
         subtitle: Text(description),
       ),
     );

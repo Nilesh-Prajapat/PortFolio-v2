@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.port_folio.app-mergeDebugResources-39:/values-large-v4/values-large-v4.xml",
+            "outputFile": "com.example.port_folio.app-mergeDebugResources-40:/values-large-v4/values-large-v4.xml",
             "map": [
                 {
                     "source": "C:\\Users\\workn\\.gradle\\caches\\transforms-3\\06bab64d18d6a76121e7d6296c8e6044\\transformed\\appcompat-1.1.0\\res\\values-large-v4\\values-large-v4.xml",

@@ -157,7 +157,7 @@ class _NavbarState extends State<Navbar> {
                       children: [
                         Container(
                             key: _homeKey,
-                            child: MainBody(appBarHeight: kToolbarHeight)),
+                            child: const MainBody(appBarHeight: kToolbarHeight)),
                         Container(
                             key: _expertiseKey,
                             child:
@@ -255,9 +255,9 @@ class _NavbarState extends State<Navbar> {
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: TextButton(
-          style: ButtonStyle(
-            splashFactory: NoSplash.splashFactory,
-            overlayColor: WidgetStateProperty.all(Colors.transparent),
+          style: const ButtonStyle(
+            // splashFactory: NoSplash.splashFactory,
+            // overlayColor: WidgetStateProperty.all(Colors.transparent),
           ),
           onPressed: () {
             setState(() {
@@ -327,7 +327,7 @@ Widget _buildThemeToggleButton() {
 }
 
 Widget _buildExpertisePage(double screenWidth, double screenHeight) {
-  return Container(
+  return SizedBox(
     width: screenWidth * 0.8,
     height: screenHeight * 0.8,
     child: const Center(child: Text('Expertise Page')),
@@ -335,7 +335,7 @@ Widget _buildExpertisePage(double screenWidth, double screenHeight) {
 }
 
 Widget _buildProjectPage(double screenWidth, double screenHeight) {
-  return Container(
+  return SizedBox(
     width: screenWidth * 0.8,
     height: screenHeight * 0.8,
     child: const Center(child: Text('Project Page')),
@@ -343,7 +343,7 @@ Widget _buildProjectPage(double screenWidth, double screenHeight) {
 }
 
 Widget _buildContactPage(double screenWidth, double screenHeight) {
-  return Container(
+  return SizedBox(
     width: screenWidth * 0.8,
     height: screenHeight * 0.8,
     child: const Center(child: Text('Contact Me Page')),

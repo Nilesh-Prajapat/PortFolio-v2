@@ -35,7 +35,11 @@
     <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Тековен повик"</string>
     <string msgid="59049573811482460" name="call_notification_screening_text">"Проверка на дојдовен повик"</string>
     <string msgid="6083905920877235314" name="copy">"Копирај"</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Линкот е копиран во привремена меморија"</string>
     <string msgid="2427401033573778270" name="expand_button_title">"Напредни"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Копирај го линкот"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Отвори во прелистувач"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Сподели линк"</string>
     <string msgid="6573031135582639649" name="not_set">"Не е поставено"</string>
     <string msgid="6685851473431805375" name="preference_copied">"„<ns1:g id="SUMMARY">%1$s</ns1:g>“ копирано во привремена меморија."</string>
     <string msgid="730395136688082741" name="search_menu_title">"Пребарај"</string>

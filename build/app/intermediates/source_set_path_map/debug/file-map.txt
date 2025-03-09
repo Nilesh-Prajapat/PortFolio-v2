@@ -1,43 +1,45 @@
 com.example.port_folio.app-jetified-startup-runtime-1.1.1-0 C:\Users\workn\.gradle\caches\transforms-3\01bc8eff9bafe6fae1efee88e80f08cf\transformed\jetified-startup-runtime-1.1.1\res
 com.example.port_folio.app-appcompat-1.1.0-1 C:\Users\workn\.gradle\caches\transforms-3\06bab64d18d6a76121e7d6296c8e6044\transformed\appcompat-1.1.0\res
 com.example.port_folio.app-lifecycle-viewmodel-2.7.0-2 C:\Users\workn\.gradle\caches\transforms-3\0bccbec5874acc1c4142e85c89f986dd\transformed\lifecycle-viewmodel-2.7.0\res
-com.example.port_folio.app-jetified-activity-1.8.1-3 C:\Users\workn\.gradle\caches\transforms-3\150db2555cd0661248a9f6dfeec933f2\transformed\jetified-activity-1.8.1\res
-com.example.port_folio.app-jetified-lifecycle-process-2.7.0-4 C:\Users\workn\.gradle\caches\transforms-3\181bb416f3be7508701a79e7c7fd5c20\transformed\jetified-lifecycle-process-2.7.0\res
-com.example.port_folio.app-core-runtime-2.2.0-5 C:\Users\workn\.gradle\caches\transforms-3\19cc35200f1af97cd549153503cade2c\transformed\core-runtime-2.2.0\res
-com.example.port_folio.app-jetified-window-java-1.2.0-6 C:\Users\workn\.gradle\caches\transforms-3\1a84bcedaf12b7c5d91e765bb2754c4c\transformed\jetified-window-java-1.2.0\res
-com.example.port_folio.app-jetified-appcompat-resources-1.1.0-7 C:\Users\workn\.gradle\caches\transforms-3\1d31496681c999db13e7de57083b5f28\transformed\jetified-appcompat-resources-1.1.0\res
-com.example.port_folio.app-preference-1.2.1-8 C:\Users\workn\.gradle\caches\transforms-3\284028a17b3c4602dfe2b64a1546fb3a\transformed\preference-1.2.1\res
-com.example.port_folio.app-core-1.13.1-9 C:\Users\workn\.gradle\caches\transforms-3\2c4eccc171290d66831f2af2778b865d\transformed\core-1.13.1\res
-com.example.port_folio.app-jetified-lifecycle-viewmodel-savedstate-2.7.0-10 C:\Users\workn\.gradle\caches\transforms-3\35f2b1fdc4cfda09ebf66c9fc888b64e\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\res
-com.example.port_folio.app-lifecycle-livedata-core-2.7.0-11 C:\Users\workn\.gradle\caches\transforms-3\3f76d15ab04747c9a77d6a9beb823126\transformed\lifecycle-livedata-core-2.7.0\res
-com.example.port_folio.app-lifecycle-runtime-2.7.0-12 C:\Users\workn\.gradle\caches\transforms-3\4a02c966f3dd86761cec23eff6d37243\transformed\lifecycle-runtime-2.7.0\res
-com.example.port_folio.app-jetified-lifecycle-viewmodel-ktx-2.7.0-13 C:\Users\workn\.gradle\caches\transforms-3\581f5b71653116f7cc8d01924d24024f\transformed\jetified-lifecycle-viewmodel-ktx-2.7.0\res
-com.example.port_folio.app-jetified-profileinstaller-1.3.1-14 C:\Users\workn\.gradle\caches\transforms-3\624139cad516e2b8aeb939c9457cdbc2\transformed\jetified-profileinstaller-1.3.1\res
-com.example.port_folio.app-lifecycle-livedata-2.7.0-15 C:\Users\workn\.gradle\caches\transforms-3\65ec37dbfd0bc618f096e761ec47631c\transformed\lifecycle-livedata-2.7.0\res
-com.example.port_folio.app-jetified-tracing-1.2.0-16 C:\Users\workn\.gradle\caches\transforms-3\7935dd1dc8692838b05b94144fb9fe62\transformed\jetified-tracing-1.2.0\res
-com.example.port_folio.app-jetified-lifecycle-livedata-core-ktx-2.7.0-17 C:\Users\workn\.gradle\caches\transforms-3\79b4ad773c1283793e7b8e636fb37f02\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\res
-com.example.port_folio.app-recyclerview-1.0.0-18 C:\Users\workn\.gradle\caches\transforms-3\83b50f3745ee1b5cd6d2cd2c0cd16510\transformed\recyclerview-1.0.0\res
-com.example.port_folio.app-jetified-fragment-ktx-1.7.1-19 C:\Users\workn\.gradle\caches\transforms-3\906ef6bf41bfb5116f6edd4f3d650675\transformed\jetified-fragment-ktx-1.7.1\res
-com.example.port_folio.app-jetified-window-1.2.0-20 C:\Users\workn\.gradle\caches\transforms-3\9162cf22a9f1d8bce03ef88fd71812cb\transformed\jetified-window-1.2.0\res
-com.example.port_folio.app-fragment-1.7.1-21 C:\Users\workn\.gradle\caches\transforms-3\946cd9bd49d47fd663f6210f92e2e540\transformed\fragment-1.7.1\res
-com.example.port_folio.app-jetified-annotation-experimental-1.4.0-22 C:\Users\workn\.gradle\caches\transforms-3\9ab4e9579ab5980539965f1297b237f9\transformed\jetified-annotation-experimental-1.4.0\res
-com.example.port_folio.app-jetified-core-1.0.0-23 C:\Users\workn\.gradle\caches\transforms-3\a445128fb7294c7f301ea3ddc070e680\transformed\jetified-core-1.0.0\res
-com.example.port_folio.app-jetified-savedstate-1.2.1-24 C:\Users\workn\.gradle\caches\transforms-3\a6e09bc5d6aedead02c0e3d2e985fecc\transformed\jetified-savedstate-1.2.1\res
-com.example.port_folio.app-transition-1.4.1-25 C:\Users\workn\.gradle\caches\transforms-3\aa38b4ad4ad4c94933a76d26861c02d6\transformed\transition-1.4.1\res
-com.example.port_folio.app-jetified-savedstate-ktx-1.2.1-26 C:\Users\workn\.gradle\caches\transforms-3\b88a6393d4751a54ede580e8ed93ac14\transformed\jetified-savedstate-ktx-1.2.1\res
-com.example.port_folio.app-coordinatorlayout-1.0.0-27 C:\Users\workn\.gradle\caches\transforms-3\bd42db86b08bb754db5633903ee8fb61\transformed\coordinatorlayout-1.0.0\res
-com.example.port_folio.app-jetified-lifecycle-runtime-ktx-2.7.0-28 C:\Users\workn\.gradle\caches\transforms-3\c6289f37a5841291a76a42e06143df11\transformed\jetified-lifecycle-runtime-ktx-2.7.0\res
-com.example.port_folio.app-jetified-datastore-core-release-29 C:\Users\workn\.gradle\caches\transforms-3\d1a4f5c9420d0cafeca8e9f286504ef0\transformed\jetified-datastore-core-release\res
-com.example.port_folio.app-jetified-core-ktx-1.13.1-30 C:\Users\workn\.gradle\caches\transforms-3\e5a2bb5d2d737dbceb89a3289585c3e6\transformed\jetified-core-ktx-1.13.1\res
-com.example.port_folio.app-jetified-datastore-release-31 C:\Users\workn\.gradle\caches\transforms-3\e763d0fa90c553ceeca05ab9125b7d73\transformed\jetified-datastore-release\res
-com.example.port_folio.app-slidingpanelayout-1.2.0-32 C:\Users\workn\.gradle\caches\transforms-3\e9d7ce4e2bbe1eb61734d31f50c21369\transformed\slidingpanelayout-1.2.0\res
-com.example.port_folio.app-jetified-activity-ktx-1.8.1-33 C:\Users\workn\.gradle\caches\transforms-3\eabd5163618e56b4062a96ac2b2da2b0\transformed\jetified-activity-ktx-1.8.1\res
-com.example.port_folio.app-jetified-datastore-preferences-release-34 C:\Users\workn\.gradle\caches\transforms-3\eb0aa678cf45155daecc39151765e250\transformed\jetified-datastore-preferences-release\res
-com.example.port_folio.app-debug-35 E:\IMP Projects\Portfolio v2\port_folio\android\app\src\debug\res
-com.example.port_folio.app-main-36 E:\IMP Projects\Portfolio v2\port_folio\android\app\src\main\res
-com.example.port_folio.app-pngs-37 E:\IMP Projects\Portfolio v2\port_folio\build\app\generated\res\pngs\debug
-com.example.port_folio.app-resValues-38 E:\IMP Projects\Portfolio v2\port_folio\build\app\generated\res\resValues\debug
-com.example.port_folio.app-packageDebugResources-39 E:\IMP Projects\Portfolio v2\port_folio\build\app\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.example.port_folio.app-packageDebugResources-40 E:\IMP Projects\Portfolio v2\port_folio\build\app\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.example.port_folio.app-merged_res-41 E:\IMP Projects\Portfolio v2\port_folio\build\app\intermediates\merged_res\debug
-com.example.port_folio.app-packaged_res-42 E:\IMP Projects\Portfolio v2\port_folio\build\shared_preferences_android\intermediates\packaged_res\debug
+com.example.port_folio.app-browser-1.8.0-3 C:\Users\workn\.gradle\caches\transforms-3\118e9e94d0be916d0f9aff57f82548a9\transformed\browser-1.8.0\res
+com.example.port_folio.app-jetified-activity-1.8.1-4 C:\Users\workn\.gradle\caches\transforms-3\150db2555cd0661248a9f6dfeec933f2\transformed\jetified-activity-1.8.1\res
+com.example.port_folio.app-jetified-lifecycle-process-2.7.0-5 C:\Users\workn\.gradle\caches\transforms-3\181bb416f3be7508701a79e7c7fd5c20\transformed\jetified-lifecycle-process-2.7.0\res
+com.example.port_folio.app-core-runtime-2.2.0-6 C:\Users\workn\.gradle\caches\transforms-3\19cc35200f1af97cd549153503cade2c\transformed\core-runtime-2.2.0\res
+com.example.port_folio.app-jetified-window-java-1.2.0-7 C:\Users\workn\.gradle\caches\transforms-3\1a84bcedaf12b7c5d91e765bb2754c4c\transformed\jetified-window-java-1.2.0\res
+com.example.port_folio.app-jetified-appcompat-resources-1.1.0-8 C:\Users\workn\.gradle\caches\transforms-3\1d31496681c999db13e7de57083b5f28\transformed\jetified-appcompat-resources-1.1.0\res
+com.example.port_folio.app-preference-1.2.1-9 C:\Users\workn\.gradle\caches\transforms-3\284028a17b3c4602dfe2b64a1546fb3a\transformed\preference-1.2.1\res
+com.example.port_folio.app-core-1.13.1-10 C:\Users\workn\.gradle\caches\transforms-3\2c4eccc171290d66831f2af2778b865d\transformed\core-1.13.1\res
+com.example.port_folio.app-jetified-lifecycle-viewmodel-savedstate-2.7.0-11 C:\Users\workn\.gradle\caches\transforms-3\35f2b1fdc4cfda09ebf66c9fc888b64e\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\res
+com.example.port_folio.app-lifecycle-livedata-core-2.7.0-12 C:\Users\workn\.gradle\caches\transforms-3\3f76d15ab04747c9a77d6a9beb823126\transformed\lifecycle-livedata-core-2.7.0\res
+com.example.port_folio.app-lifecycle-runtime-2.7.0-13 C:\Users\workn\.gradle\caches\transforms-3\4a02c966f3dd86761cec23eff6d37243\transformed\lifecycle-runtime-2.7.0\res
+com.example.port_folio.app-jetified-lifecycle-viewmodel-ktx-2.7.0-14 C:\Users\workn\.gradle\caches\transforms-3\581f5b71653116f7cc8d01924d24024f\transformed\jetified-lifecycle-viewmodel-ktx-2.7.0\res
+com.example.port_folio.app-jetified-profileinstaller-1.3.1-15 C:\Users\workn\.gradle\caches\transforms-3\624139cad516e2b8aeb939c9457cdbc2\transformed\jetified-profileinstaller-1.3.1\res
+com.example.port_folio.app-lifecycle-livedata-2.7.0-16 C:\Users\workn\.gradle\caches\transforms-3\65ec37dbfd0bc618f096e761ec47631c\transformed\lifecycle-livedata-2.7.0\res
+com.example.port_folio.app-jetified-tracing-1.2.0-17 C:\Users\workn\.gradle\caches\transforms-3\7935dd1dc8692838b05b94144fb9fe62\transformed\jetified-tracing-1.2.0\res
+com.example.port_folio.app-jetified-lifecycle-livedata-core-ktx-2.7.0-18 C:\Users\workn\.gradle\caches\transforms-3\79b4ad773c1283793e7b8e636fb37f02\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\res
+com.example.port_folio.app-recyclerview-1.0.0-19 C:\Users\workn\.gradle\caches\transforms-3\83b50f3745ee1b5cd6d2cd2c0cd16510\transformed\recyclerview-1.0.0\res
+com.example.port_folio.app-jetified-fragment-ktx-1.7.1-20 C:\Users\workn\.gradle\caches\transforms-3\906ef6bf41bfb5116f6edd4f3d650675\transformed\jetified-fragment-ktx-1.7.1\res
+com.example.port_folio.app-jetified-window-1.2.0-21 C:\Users\workn\.gradle\caches\transforms-3\9162cf22a9f1d8bce03ef88fd71812cb\transformed\jetified-window-1.2.0\res
+com.example.port_folio.app-fragment-1.7.1-22 C:\Users\workn\.gradle\caches\transforms-3\946cd9bd49d47fd663f6210f92e2e540\transformed\fragment-1.7.1\res
+com.example.port_folio.app-jetified-annotation-experimental-1.4.0-23 C:\Users\workn\.gradle\caches\transforms-3\9ab4e9579ab5980539965f1297b237f9\transformed\jetified-annotation-experimental-1.4.0\res
+com.example.port_folio.app-jetified-core-1.0.0-24 C:\Users\workn\.gradle\caches\transforms-3\a445128fb7294c7f301ea3ddc070e680\transformed\jetified-core-1.0.0\res
+com.example.port_folio.app-jetified-savedstate-1.2.1-25 C:\Users\workn\.gradle\caches\transforms-3\a6e09bc5d6aedead02c0e3d2e985fecc\transformed\jetified-savedstate-1.2.1\res
+com.example.port_folio.app-transition-1.4.1-26 C:\Users\workn\.gradle\caches\transforms-3\aa38b4ad4ad4c94933a76d26861c02d6\transformed\transition-1.4.1\res
+com.example.port_folio.app-jetified-savedstate-ktx-1.2.1-27 C:\Users\workn\.gradle\caches\transforms-3\b88a6393d4751a54ede580e8ed93ac14\transformed\jetified-savedstate-ktx-1.2.1\res
+com.example.port_folio.app-coordinatorlayout-1.0.0-28 C:\Users\workn\.gradle\caches\transforms-3\bd42db86b08bb754db5633903ee8fb61\transformed\coordinatorlayout-1.0.0\res
+com.example.port_folio.app-jetified-lifecycle-runtime-ktx-2.7.0-29 C:\Users\workn\.gradle\caches\transforms-3\c6289f37a5841291a76a42e06143df11\transformed\jetified-lifecycle-runtime-ktx-2.7.0\res
+com.example.port_folio.app-jetified-datastore-core-release-30 C:\Users\workn\.gradle\caches\transforms-3\d1a4f5c9420d0cafeca8e9f286504ef0\transformed\jetified-datastore-core-release\res
+com.example.port_folio.app-jetified-core-ktx-1.13.1-31 C:\Users\workn\.gradle\caches\transforms-3\e5a2bb5d2d737dbceb89a3289585c3e6\transformed\jetified-core-ktx-1.13.1\res
+com.example.port_folio.app-jetified-datastore-release-32 C:\Users\workn\.gradle\caches\transforms-3\e763d0fa90c553ceeca05ab9125b7d73\transformed\jetified-datastore-release\res
+com.example.port_folio.app-slidingpanelayout-1.2.0-33 C:\Users\workn\.gradle\caches\transforms-3\e9d7ce4e2bbe1eb61734d31f50c21369\transformed\slidingpanelayout-1.2.0\res
+com.example.port_folio.app-jetified-activity-ktx-1.8.1-34 C:\Users\workn\.gradle\caches\transforms-3\eabd5163618e56b4062a96ac2b2da2b0\transformed\jetified-activity-ktx-1.8.1\res
+com.example.port_folio.app-jetified-datastore-preferences-release-35 C:\Users\workn\.gradle\caches\transforms-3\eb0aa678cf45155daecc39151765e250\transformed\jetified-datastore-preferences-release\res
+com.example.port_folio.app-debug-36 E:\IMP Projects\Portfolio v2\port_folio\android\app\src\debug\res
+com.example.port_folio.app-main-37 E:\IMP Projects\Portfolio v2\port_folio\android\app\src\main\res
+com.example.port_folio.app-pngs-38 E:\IMP Projects\Portfolio v2\port_folio\build\app\generated\res\pngs\debug
+com.example.port_folio.app-resValues-39 E:\IMP Projects\Portfolio v2\port_folio\build\app\generated\res\resValues\debug
+com.example.port_folio.app-packageDebugResources-40 E:\IMP Projects\Portfolio v2\port_folio\build\app\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.port_folio.app-packageDebugResources-41 E:\IMP Projects\Portfolio v2\port_folio\build\app\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.port_folio.app-merged_res-42 E:\IMP Projects\Portfolio v2\port_folio\build\app\intermediates\merged_res\debug
+com.example.port_folio.app-packaged_res-43 E:\IMP Projects\Portfolio v2\port_folio\build\shared_preferences_android\intermediates\packaged_res\debug
+com.example.port_folio.app-packaged_res-44 E:\IMP Projects\Portfolio v2\port_folio\build\url_launcher_android\intermediates\packaged_res\debug

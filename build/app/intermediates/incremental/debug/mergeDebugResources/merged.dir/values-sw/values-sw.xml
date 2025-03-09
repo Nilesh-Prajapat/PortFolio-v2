@@ -35,7 +35,11 @@
     <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Simu inayoendelea"</string>
     <string msgid="59049573811482460" name="call_notification_screening_text">"Inachuja simu unayopigiwa"</string>
     <string msgid="6083905920877235314" name="copy">"Nakili"</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"Imenakili kiungo kwenye ubao wa kunakili"</string>
     <string msgid="2427401033573778270" name="expand_button_title">"Mipangilio ya Kina"</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Nakili kiungo"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Fungua katika kivinjari"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Shiriki kiungo"</string>
     <string msgid="6573031135582639649" name="not_set">"Haijawekwa"</string>
     <string msgid="6685851473431805375" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" imenakiliwa kwenye ubao wa kunakili."</string>
     <string msgid="730395136688082741" name="search_menu_title">"Tafuta"</string>
