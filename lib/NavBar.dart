@@ -330,7 +330,6 @@ Widget _buildExpertisePage(double screenWidth, double screenHeight) {
   return Container(
     width: screenWidth * 0.8,
     height: screenHeight * 0.8,
-    color: Colors.orangeAccent.withOpacity(0.8),
     child: const Center(child: Text('Expertise Page')),
   );
 }
@@ -339,7 +338,6 @@ Widget _buildProjectPage(double screenWidth, double screenHeight) {
   return Container(
     width: screenWidth * 0.8,
     height: screenHeight * 0.8,
-    color: Colors.green.withOpacity(0.8),
     child: const Center(child: Text('Project Page')),
   );
 }
@@ -348,7 +346,6 @@ Widget _buildContactPage(double screenWidth, double screenHeight) {
   return Container(
     width: screenWidth * 0.8,
     height: screenHeight * 0.8,
-    color: Colors.purple.withOpacity(0.8),
     child: const Center(child: Text('Contact Me Page')),
   );
 }
