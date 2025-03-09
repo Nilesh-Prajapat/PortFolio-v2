@@ -94,7 +94,9 @@ class IntroWidget extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                child: const Text("Resume"),
+                child: const Text("Resume",style: TextStyle(
+                    fontFamily: "Space"
+                ),),
               ),
 
               const SizedBox(width: 10),
@@ -121,7 +123,9 @@ class IntroWidget extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                child: const Text("About Me"),
+                child: const Text("About Me",style: TextStyle(
+                  fontFamily: "Space"
+                ),),
               ),
             ],
           ),
