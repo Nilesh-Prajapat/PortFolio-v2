@@ -11,8 +11,8 @@ class AboutMeEditor extends StatelessWidget {
 
     // Set a fixed width for large screens
     final double containerWidth = screenWidth > 850
-        ? (screenWidth * 0.85).clamp(600, 850) // Large screens: Min 600px, Max 850px
-        : (screenWidth * 0.85).clamp(300, 550); // Small screens: Min 300px, Max 500px
+        ? (screenWidth * 0.85).clamp(600, 850)
+        : (screenWidth * 0.85).clamp(300, 550);
 
     // Adjust font sizes
     final double baseFontSize = screenWidth > 850 ? 15 : 13;

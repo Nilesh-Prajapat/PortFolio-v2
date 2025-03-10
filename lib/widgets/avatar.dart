@@ -63,7 +63,7 @@ class _AvatarWidgetState extends State<AvatarWidget>
               BoxShadow(
                 color: widget.isDarkMode ? primaryColor : primaryColorLight,
                 spreadRadius: 8,
-                blurRadius: 40,
+                blurRadius: 50,
               ),
             ],
           ),
