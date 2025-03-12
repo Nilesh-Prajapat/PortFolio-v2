@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:port_folio/NavBar.dart';
 import 'package:port_folio/splashscreen.dart';
 import 'package:provider/provider.dart';
 import 'package:port_folio/theme_provider.dart';
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: lightTheme(16.0),
       darkTheme: darkTheme(16.0),
       themeMode: themeProvider.themeMode,
-      home: const Navbar(), // Directly showing the SplashScreen
+      home: const SplashScreen(), // Directly showing the SplashScreen
     );
   }
 }
