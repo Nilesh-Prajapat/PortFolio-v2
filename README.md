@@ -1,16 +1,27 @@
-# port_folio
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilesh Prajapat - Portfolio</title>
+</head>
+<body>
 
-A new Flutter project.
+    <h1>Nilesh Prajapat</h1>
+    <p>Welcome to my portfolio! This page contains details about my skills, projects, and experience.</p>
 
-## Getting Started
+    <h2>About Me</h2>
+    <p>I am a passionate developer skilled in Flutter and full-stack development.</p>
 
-This project is a starting point for a Flutter application.
+    <h2>Projects</h2>
+    <ul>
+        <li><a href="https://nileshprajapat.vercel.app/" target="_blank">Live Portfolio</a></li>
+        <li><a href="https://github.com/Nilesh-Prajapat/PortFolio-v2" target="_blank">GitHub Repository</a></li>
+    </ul>
 
-A few resources to get you started if this is your first Flutter project:
+    <h2>Contact</h2>
+    <p>Email: your-email@example.com</p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/nilesh-prajapat" target="_blank">Nilesh Prajapat</a></p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+</body>
+</html>
