@@ -4,8 +4,10 @@ import 'package:port_folio/theme/theme.dart';
 import 'dart:math';
 import 'package:provider/provider.dart';
 import 'theme_provider.dart';
+import 'package:particles_fly/particles_fly.dart';
 
 class Navbar extends StatefulWidget {
+
   const Navbar({super.key});
 
   @override
@@ -13,6 +15,7 @@ class Navbar extends StatefulWidget {
 }
 
 class _NavbarState extends State<Navbar> {
+
   final List<String> navItems = ['Home', 'Expertise', 'Projects', 'Contact Me'];
   bool showDropdown = false;
   int selectedIndex = 0;
@@ -105,6 +108,7 @@ class _NavbarState extends State<Navbar> {
     double navItemFontSize = isMobile
         ? max(12, min(screenWidth * 0.035, 18))
         : max(13, min(screenWidth * 0.013, 18));
+    final size = MediaQuery.of(context).size;
 
     return SafeArea(
       child: Scaffold(
@@ -163,30 +167,37 @@ class _NavbarState extends State<Navbar> {
                     ),
                   ],
                 ),
-                Expanded(
-                  child: SingleChildScrollView(
-                    controller: _scrollController,
-                    child: Column(
-                      children: [
-                        Container(
-                            key: _homeKey,
-                            child: const MainBody(
-                                appBarHeight: kToolbarHeight)),
-                        // Container(
-                        //     key: _expertiseKey,
-                        //     child:
-                        //         _buildExpertisePage(screenWidth, screenHeight)),
-                        // Container(
-                        //     key: _projectKey,
-                        //     child:
-                        //         _buildProjectPage(screenWidth, screenHeight)),
-                        // Container(
-                        //     key: _contactKey,
-                        //     child:
-                        //         _buildContactPage(screenWidth, screenHeight)),
-                      ],
+                Stack(
+                  children: [
+                    if(isDarkMode)
+                      Container(
+                      child: ParticlesFly(
+                        height: screenHeight - kToolbarHeight,
+                        width: screenWidth,
+                        numberOfParticles: isMobile ? 20 : 60,
+
+                        particleColor:  Colors.white,
+                        speedOfParticles: 0.5,
+                        maxParticleSize: 1.2,
+
+
+                      ),
                     ),
-                  ),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        controller: _scrollController,
+                        child: Column(
+                          children: [
+                            Container(
+                                key: _homeKey,
+                                child: const MainBody(
+                                    appBarHeight: kToolbarHeight)),
+                            // Other sections can go here
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -250,6 +261,7 @@ class _NavbarState extends State<Navbar> {
       ),
     );
   }
+
 
   GlobalKey _getSectionKey(int index) {
     switch (index) {

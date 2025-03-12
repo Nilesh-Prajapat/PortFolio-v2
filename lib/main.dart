@@ -1,8 +1,9 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:port_folio/splashscreen.dart';
 import 'package:provider/provider.dart';
 import 'package:port_folio/theme_provider.dart';
-import 'package:port_folio/NavBar.dart';
 
 import 'theme/theme.dart';
 
@@ -23,48 +24,59 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  late Future<void> _assetsFuture;
+
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _updateSystemUI();
+  void initState() {
+    super.initState();
+    _assetsFuture = _loadAssets();
   }
 
-  void _updateSystemUI() {
-    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
-    bool isDarkMode = themeProvider.themeMode == ThemeMode.dark;
+  // Load images and fonts from assets
+  Future<void> _loadAssets() async {
+    await _preloadImages('assets/images');
+    await _preloadImages('assets/icons');
+    await _loadFonts();
+  }
 
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        statusBarColor: isDarkMode ? Colors.black : const Color(0xFFF2F2F2),
-        statusBarIconBrightness: isDarkMode ? Brightness.light : Brightness.dark,
-        systemNavigationBarColor: isDarkMode ? Colors.black : const Color(0xFFF2F2F2),
-      ),
-    );
+  // Preload images
+  Future<void> _preloadImages(String directory) async {
+    final manifestJson = await rootBundle.loadString('AssetManifest.json');
+    final Map<String, dynamic> manifest = jsonDecode(manifestJson);
+
+    final imageFiles = manifest.keys
+        .where((String key) => key.startsWith(directory) && (key.endsWith('.png') || key.endsWith('.jpg')))
+        .toList();
+
+    for (final file in imageFiles) {
+      precacheImage(AssetImage(file), context);
+    }
+  }
+
+  // Preload fonts
+  Future<void> _loadFonts() async {
+    final manifestJson = await rootBundle.loadString('AssetManifest.json');
+    final Map<String, dynamic> manifest = jsonDecode(manifestJson);
+
+    final fontFiles = manifest.keys
+        .where((String key) => key.startsWith('assets/fonts') && key.endsWith('.ttf'))
+        .toList();
+
+    for (final font in fontFiles) {
+      await rootBundle.load(font);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
 
-    return FutureBuilder(
-      future: themeProvider.themeLoaded,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const MaterialApp(
-            debugShowCheckedModeBanner: false,
-            home:  Scaffold(
-              body: Center(child: CircularProgressIndicator()),
-            ),
-          );
-        }
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: lightTheme(16.0),
-          darkTheme: darkTheme(16.0),
-          themeMode: themeProvider.themeMode,
-          home: const Navbar(),
-        );
-      },
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: lightTheme(16.0),
+      darkTheme: darkTheme(16.0),
+      themeMode: themeProvider.themeMode,
+      home: const SplashScreen(), // Directly show the SplashScreen
     );
   }
 }

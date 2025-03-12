@@ -2,6 +2,12 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "animated_text_kit",
+      "rootUri": "file:///C:/Users/workn/AppData/Local/Pub/Cache/hosted/pub.dev/animated_text_kit-4.2.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "archive",
       "rootUri": "file:///C:/Users/workn/AppData/Local/Pub/Cache/hosted/pub.dev/archive-4.0.4",
       "packageUri": "lib/",
@@ -110,6 +116,18 @@
       "languageVersion": "3.7"
     },
     {
+      "name": "http",
+      "rootUri": "file:///C:/Users/workn/AppData/Local/Pub/Cache/hosted/pub.dev/http-1.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
+      "name": "http_parser",
+      "rootUri": "file:///C:/Users/workn/AppData/Local/Pub/Cache/hosted/pub.dev/http_parser-4.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
       "name": "image",
       "rootUri": "file:///C:/Users/workn/AppData/Local/Pub/Cache/hosted/pub.dev/image-4.5.3",
       "packageUri": "lib/",
@@ -146,6 +164,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "lottie",
+      "rootUri": "file:///C:/Users/workn/AppData/Local/Pub/Cache/hosted/pub.dev/lottie-3.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.6"
+    },
+    {
       "name": "matcher",
       "rootUri": "file:///C:/Users/workn/AppData/Local/Pub/Cache/hosted/pub.dev/matcher-0.12.17",
       "packageUri": "lib/",
@@ -168,6 +192,18 @@
       "rootUri": "file:///C:/Users/workn/AppData/Local/Pub/Cache/hosted/pub.dev/nested-1.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "particles_flutter",
+      "rootUri": "file:///C:/Users/workn/AppData/Local/Pub/Cache/hosted/pub.dev/particles_flutter-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.13"
+    },
+    {
+      "name": "particles_fly",
+      "rootUri": "file:///C:/Users/workn/AppData/Local/Pub/Cache/hosted/pub.dev/particles_fly-0.0.9",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
     },
     {
       "name": "path",
@@ -404,7 +440,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2025-03-09T17:30:18.609655Z",
+  "generated": "2025-03-12T10:16:24.763608Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///D:/Android/flutter_windows_3.29.0-stable/flutter",

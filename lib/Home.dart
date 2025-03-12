@@ -41,7 +41,7 @@ class _MainBodyState extends State<MainBody> {
                       IntroWidget(
                           screenWidth: screenWidth,
                           isLargeScreen: isLargeScreen,
-                          isDarkMode: isDarkMode),
+                        ),
                     ],
                   ),
                 ),
@@ -59,7 +59,7 @@ class _MainBodyState extends State<MainBody> {
                 IntroWidget(
                     screenWidth: screenWidth,
                     isLargeScreen: isLargeScreen,
-                    isDarkMode: isDarkMode),
+                    ),
 
               ],
             );

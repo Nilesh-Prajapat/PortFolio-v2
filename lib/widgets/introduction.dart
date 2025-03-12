@@ -4,21 +4,21 @@ import 'package:port_folio/theme/theme.dart';
 import 'package:port_folio/utils/textParse.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'social_links.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';  // Import the package
 
 class IntroWidget extends StatelessWidget {
   final double screenWidth;
   final bool isLargeScreen;
-  final bool isDarkMode;
 
   const IntroWidget({
     super.key,
     required this.screenWidth,
     required this.isLargeScreen,
-    required this.isDarkMode,
   });
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     double baseFontSize = (screenWidth * (isLargeScreen ? 0.015 : 0.042))
         .clamp(14.0, 26.0);
 
@@ -54,24 +54,54 @@ class IntroWidget extends StatelessWidget {
             textAlign: isLargeScreen ? TextAlign.left : TextAlign.center,
           ),
           const SizedBox(height: 5),
-          Text(
-            "App Developer / Student",
-            style: TextStyle(
-              fontFamily: 'Space',
-              color: isDarkMode ? primaryColor : primaryColorLight,
-              letterSpacing: 1,
-              fontSize: (baseFontSize * 1.2).clamp(16.0, 28.0),
-              fontWeight: FontWeight.bold,
-            ),
-            textAlign: isLargeScreen ? TextAlign.left : TextAlign.center,
+
+          AnimatedTextKit(
+            animatedTexts: [
+              TypewriterAnimatedText(
+                'App Developer',
+                speed: const Duration(milliseconds: 100),
+                textStyle: TextStyle(
+                  fontFamily: 'Space',
+                  color: isDarkMode ? primaryColor: primaryColorLight,
+                  letterSpacing: 1,
+                  fontSize: (baseFontSize * 1.2).clamp(16.0, 28.0),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              TypewriterAnimatedText(
+                'Student',
+                speed: const Duration(milliseconds: 100),
+                textStyle: TextStyle(
+                  fontFamily: 'Space',
+                  color: isDarkMode ? primaryColor: primaryColorLight,
+                  letterSpacing: 1,
+                  fontSize: (baseFontSize * 1.2).clamp(16.0, 28.0),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              TypewriterAnimatedText(
+                'Gamer',
+                speed: const Duration(milliseconds: 100),
+                textStyle: TextStyle(
+                  fontFamily: 'Space',
+                  color: isDarkMode ? primaryColor: primaryColorLight,
+                  letterSpacing: 1,
+                  fontSize: (baseFontSize * 1.2).clamp(16.0, 28.0),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+            ],
+            repeatForever: true,
           ),
+
           const SizedBox(height: 10),
           SocialLinksWidget(
             isLargeScreen: isLargeScreen,
             screenWidth: screenWidth,
             isDarkMode: isDarkMode,
           ),
-          SizedBox(height: isLargeScreen ? 10 : 20), // Increased space for small screens
+          SizedBox(height: isLargeScreen ? 10 : 20),
           Row(
             mainAxisAlignment:
             isLargeScreen ? MainAxisAlignment.start : MainAxisAlignment.center,
@@ -124,7 +154,7 @@ class IntroWidget extends StatelessWidget {
                   ),
                 ),
                 child: const Text("About Me",style: TextStyle(
-                  fontFamily: "Space"
+                    fontFamily: "Space"
                 ),),
               ),
             ],
