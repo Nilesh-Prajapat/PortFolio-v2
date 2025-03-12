@@ -1,5 +1,3 @@
 User-agent: *
-Disallow: /sitemap.xml
 Allow: /
-
-Sitemap: https://nileshprajapat.vercel.app/sitemap.xml
+Disallow: /sitemap.xml
