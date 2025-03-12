@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "public": "build/web",
   "builds": [
     {
       "src": "build/web/**",
@@ -10,7 +11,9 @@
     {
       "src": "/(.*)",
       "dest": "/index.html",
-      "status": 200
+      "headers": {
+        "Cache-Control": "no-cache"
+      }
     }
   ]
 }
