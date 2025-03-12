@@ -105,7 +105,7 @@
 
   <center>
     <p>🚀 Made with ❤️ by <b>Nilesh Prajapat</b></p>
-    <p>📧 Email: <a href="mailto:work.nilesh.pr@gmail.com">nilesh.prajapat@example.com</a></p>
+    <p>📧 Email: <a href="mailto:work.nilesh.pr@gmail.com">Work.nilesh.pr@gmail.com</a></p>
   </center>
 
   <hr size="3" width="100%" color="black">
