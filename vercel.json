@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "public": "build/web",
+  "outputDirectory": "build/web",
   "builds": [
     {
       "src": "build/web/**",
@@ -10,10 +10,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.html",
-      "headers": {
-        "Cache-Control": "no-cache"
-      }
+      "dest": "/index.html"
     }
   ]
 }
