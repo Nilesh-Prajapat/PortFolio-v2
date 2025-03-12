@@ -22,16 +22,25 @@
 
   <hr size="3" width="100%" color="black">
 
-    <h2>📸 Project Screenshots</h2>
+  <h2>📸 Project Screenshots</h2>
   <p>Take a look at how the home page looks in both light and dark themes:</p>
+
   <center>
-    <img src="your-light-theme-url.jpg" alt="Home Page - Light Theme" width="80%">
-    <p><i>Light Theme</i></p>
-
-    <img src="your-dark-theme-url.jpg" alt="Home Page - Dark Theme" width="80%">
-    <p><i>Dark Theme</i></p>
+    <table border="1" width="80%" cellspacing="0" cellpadding="10">
+      <tr>
+        <th>Light Theme</th>
+        <th>Dark Theme</th>
+      </tr>
+      <tr>
+        <td align="center">
+          <img src="Mockups/homepage_light.png" alt="Home Page - Light Theme" width="90%">
+        </td>
+        <td align="center">
+          <img src="Mockups/homepage_dark.png" alt="Home Page - Dark Theme" width="90%">
+        </td>
+      </tr>
+    </table>
   </center>
-
 
   <hr size="3" width="100%" color="black">
 
@@ -61,14 +70,18 @@
   <ol>
     <li>🔧 <b>Enhancing performance optimization.</b></li>
     <li>🎭 <b>Improving theme customization.</b></li>
+    <li>📱 <b>Adding more interactive animations.</b></li>
+    <li>🌎 <b>Multilingual support for a global audience.</b></li>
   </ol>
 
   <hr size="3" width="100%" color="black">
 
   <h2>🔗 Connect With Me</h2>
   <ul>
-    <li>📷 <b>Personal Instagram:</b> <a href="https://instagram.com/your-personal" target="_blank">@your-personal</a></li>
-    <li>💼 <b>Work Instagram:</b> <a href="https://instagram.com/your-work" target="_blank">@your-work</a></li>
+    <li>📷 <b>Personal Instagram:</b> <a href="https://www.instagram.com/nilesh__pr_/" target="_blank">@nilesh__pr_</a></li>
+    <li>💼 <b>Work Instagram:</b> <a href="https://www.instagram.com/its.nilesh_pr/" target="_blank">@its.nilesh_pr</a></li>
+    <li>👨‍💻 <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/nilesh-prajapat" target="_blank">@nilesh-prajapat</a></li>
+    <li>🐙 <b>GitHub:</b> <a href="https://github.com/nilesh-prajapat" target="_blank">@nilesh-prajapat</a></li>
   </ul>
 
   <hr size="3" width="100%" color="black">
@@ -85,13 +98,23 @@
     <li>🌐 <b>Deployment on Vercel.</b></li>
     <li>📱 <b>Creating a fully responsive app.</b></li>
     <li>⚡ <b>Performance optimization techniques.</b></li>
+    <li>💻 <b>Improving UI/UX for better user experience.</b></li>
   </ul>
 
   <hr size="3" width="100%" color="black">
 
   <center>
     <p>🚀 Made with ❤️ by <b>Nilesh Prajapat</b></p>
+    <p>📧 Email: <a href="mailto:work.nilesh.pr@gmail.com">nilesh.prajapat@example.com</a></p>
   </center>
+
+  <hr size="3" width="100%" color="black">
+
+  <footer>
+    <center>
+      <p>© 2025 Nilesh Prajapat | All Rights Reserved.</p>
+    </center>
+  </footer>
 
 </body>
 </html>
