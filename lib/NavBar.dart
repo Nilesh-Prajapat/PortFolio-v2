@@ -169,20 +169,20 @@ class _NavbarState extends State<Navbar> {
                 ),
                 Stack(
                   children: [
-                    if(isDarkMode)
-                      Container(
-                      child: ParticlesFly(
-                        height: screenHeight - kToolbarHeight,
-                        width: screenWidth,
-                        numberOfParticles: isMobile ? 20 : 60,
-
-                        particleColor:  Colors.white,
-                        speedOfParticles: 0.5,
-                        maxParticleSize: 1.2,
-
-
-                      ),
-                    ),
+                    // if(isDarkMode)
+                    //   Container(
+                    //   child: ParticlesFly(
+                    //     height: screenHeight - kToolbarHeight,
+                    //     width: screenWidth,
+                    //     numberOfParticles: isMobile ? 20 : 60,
+                    //
+                    //     particleColor:  Colors.white,
+                    //     speedOfParticles: 0.5,
+                    //     maxParticleSize: 1.2,
+                    //
+                    //
+                    //   ),
+                    // ),
                     Expanded(
                       child: SingleChildScrollView(
                         controller: _scrollController,
