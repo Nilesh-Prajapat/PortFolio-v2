@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:port_folio/Home.dart';
+import 'package:port_folio/expertise.dart';
 import 'package:port_folio/theme/theme.dart';
 import 'dart:math';
 import 'package:provider/provider.dart';
 import 'theme_provider.dart';
-import 'package:particles_fly/particles_fly.dart';
 
 class Navbar extends StatefulWidget {
 
@@ -176,7 +176,12 @@ class _NavbarState extends State<Navbar> {
                         Container(
                             key: _homeKey,
                             child: const MainBody(
-                                appBarHeight: kToolbarHeight)),
+                                appBarHeight: kToolbarHeight)
+                        ),
+                        Container(
+                          key: _expertiseKey,
+                          child:  SkillsPage(appBarHeight: kToolbarHeight),
+                        )
                         // Other sections can go here
                       ],
                     ),
