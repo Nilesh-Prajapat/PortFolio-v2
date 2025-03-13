@@ -17,7 +17,7 @@
     <h1>🚀 Live Project</h1>
     <p>Experience the project in action! Click the link below to explore its features, design, and responsiveness in real time.</p>
     <p><b>Test it on multiple devices</b> and see how it adapts across platforms!</p>
-    <p><a href="https://nileshprajapat.vercel.app/" target="_blank"><b>➡ Click here to view the project ⬅</b></a></p>
+    <p><a href="https://itsnilesh.vercel.app/" target="_blank"><b>➡ Click here to view the project ⬅</b></a></p>
   </center>
 
   <hr size="3" width="100%" color="black">
