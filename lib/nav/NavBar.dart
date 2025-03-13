@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:port_folio/Home.dart';
-import 'package:port_folio/expertise.dart';
+import 'package:port_folio/Project.dart';
+import 'package:port_folio/home/Home.dart';
+import 'package:port_folio/expertise/expertise.dart';
 import 'package:port_folio/theme/theme.dart';
 import 'dart:math';
 import 'package:provider/provider.dart';
-import 'theme_provider.dart';
+import '../theme/theme_provider.dart';
 
 class Navbar extends StatefulWidget {
-
   const Navbar({super.key});
 
   @override
@@ -15,7 +15,6 @@ class Navbar extends StatefulWidget {
 }
 
 class _NavbarState extends State<Navbar> {
-
   final List<String> navItems = ['Home', 'Expertise', 'Projects', 'Contact Me'];
   bool showDropdown = false;
   int selectedIndex = 0;
@@ -59,11 +58,9 @@ class _NavbarState extends State<Navbar> {
 
     for (int i = 0; i < keys.length; i++) {
       final RenderBox? box =
-      keys[i].currentContext?.findRenderObject() as RenderBox?;
+          keys[i].currentContext?.findRenderObject() as RenderBox?;
       if (box != null) {
-        double offset = box
-            .localToGlobal(Offset.zero)
-            .dy;
+        double offset = box.localToGlobal(Offset.zero).dy;
         double distance = (offset - kToolbarHeight).abs();
         if (distance < minDistance) {
           minDistance = distance;
@@ -85,30 +82,17 @@ class _NavbarState extends State<Navbar> {
 
   @override
   Widget build(BuildContext context) {
-    final bool isDarkMode = Theme
-        .of(context)
-        .brightness == Brightness.dark;
-    final isMobile = MediaQuery
-        .of(context)
-        .size
-        .width < 850;
-    double screenHeight = MediaQuery
-        .of(context)
-        .size
-        .height;
-    double screenWidth = MediaQuery
-        .of(context)
-        .size
-        .width;
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final isMobile = MediaQuery.of(context).size.width < 850;
+    Size size = MediaQuery.of(context).size;
 
     double headingFontSize = isMobile
-        ? max(14, min(screenWidth * 0.045, 24))
-        : max(16, min(screenWidth * 0.02, 28));
+        ? max(14, min(size.width * 0.045, 24))
+        : max(16, min(size.width * 0.02, 28));
 
     double navItemFontSize = isMobile
-        ? max(12, min(screenWidth * 0.035, 18))
-        : max(13, min(screenWidth * 0.013, 18));
-    final size = MediaQuery.of(context).size;
+        ? max(12, min(size.width * 0.035, 18))
+        : max(13, min(size.width * 0.013, 18));
 
     return SafeArea(
       child: Scaffold(
@@ -119,7 +103,7 @@ class _NavbarState extends State<Navbar> {
                 AppBar(
                   title: Padding(
                     padding:
-                    EdgeInsets.symmetric(horizontal: screenWidth * 0.009),
+                        EdgeInsets.symmetric(horizontal: size.width * 0.009),
                     child: Row(
                       children: [
                         Text(
@@ -140,7 +124,7 @@ class _NavbarState extends State<Navbar> {
                             letterSpacing: 2.0,
                             fontWeight: FontWeight.w700,
                             color:
-                            isDarkMode ? primaryColor : primaryColorLight,
+                                isDarkMode ? primaryColor : primaryColorLight,
                           ),
                         ),
                       ],
@@ -148,26 +132,25 @@ class _NavbarState extends State<Navbar> {
                   ),
                   actions: isMobile
                       ? [
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: screenWidth * 0.009),
-                      child: _buildMobileMenuButton(isDarkMode),
-                    ),
-                  ]
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: size.width * 0.009),
+                            child: _buildMobileMenuButton(isDarkMode),
+                          ),
+                        ]
                       : [
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: screenWidth * 0.009),
-                      child: Row(
-                        children: [
-                          ..._buildNavItems(navItemFontSize, isDarkMode),
-                          _buildThemeToggleButton(isMobile),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: size.width * 0.009),
+                            child: Row(
+                              children: [
+                                ..._buildNavItems(navItemFontSize, isDarkMode),
+                                _buildThemeToggleButton(isMobile),
+                              ],
+                            ),
+                          ),
                         ],
-                      ),
-                    ),
-                  ],
                 ),
-
                 Expanded(
                   child: SingleChildScrollView(
                     controller: _scrollController,
@@ -175,14 +158,17 @@ class _NavbarState extends State<Navbar> {
                       children: [
                         Container(
                             key: _homeKey,
-                            child: const MainBody(
-                                appBarHeight: kToolbarHeight)
-                        ),
+                            child:
+                                const MainBody(appBarHeight: kToolbarHeight)),
                         Container(
                           key: _expertiseKey,
-                          child:  SkillsPage(appBarHeight: kToolbarHeight),
-                        )
-                        // Other sections can go here
+                          child: SkillsPage(appBarHeight: kToolbarHeight),
+                        ),
+                        // Container(
+                        //     key: _projectKey,
+                        //     child:  ProjectsSection(
+                        //         )
+                        // ),
                       ],
                     ),
                   ),
@@ -195,23 +181,20 @@ class _NavbarState extends State<Navbar> {
                 left: 0,
                 right: 0,
                 child: Container(
-                  width: screenWidth,
+                  width: size.width,
                   color: isDarkMode ? darkBackground : lightBackground,
                   child: Column(
                     children: [
-                      ...navItems
-                          .asMap()
-                          .entries
-                          .map((entry) {
+                      ...navItems.asMap().entries.map((entry) {
                         int index = entry.key;
                         String item = entry.value;
                         return Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: screenWidth * 0.02, vertical: 4),
+                              horizontal: size.width * 0.02, vertical: 4),
                           child: TextButton(
                             style: ButtonStyle(
                                 overlayColor:
-                                WidgetStateProperty.all(Colors.transparent),
+                                    WidgetStateProperty.all(Colors.transparent),
                                 splashFactory: NoSplash.splashFactory),
                             onPressed: () {
                               setState(() {
@@ -225,11 +208,11 @@ class _NavbarState extends State<Navbar> {
                               style: TextStyle(
                                 color: selectedIndex == index
                                     ? isDarkMode
-                                    ? primaryColor
-                                    : primaryColorLight
+                                        ? primaryColor
+                                        : primaryColorLight
                                     : isDarkMode
-                                    ? Colors.white
-                                    : Colors.black,
+                                        ? Colors.white
+                                        : Colors.black,
                                 fontFamily: "Space",
                                 letterSpacing: 2.0,
                                 fontSize: navItemFontSize * 1.1,
@@ -250,7 +233,6 @@ class _NavbarState extends State<Navbar> {
     );
   }
 
-
   GlobalKey _getSectionKey(int index) {
     switch (index) {
       case 0:
@@ -267,19 +249,16 @@ class _NavbarState extends State<Navbar> {
   }
 
   List<Widget> _buildNavItems(double textSize, bool isDarkMode) {
-    return navItems
-        .asMap()
-        .entries
-        .map((entry) {
+    return navItems.asMap().entries.map((entry) {
       int index = entry.key;
       String item = entry.value;
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: TextButton(
           style: const ButtonStyle(
-            // splashFactory: NoSplash.splashFactory,
-            // overlayColor: WidgetStateProperty.all(Colors.transparent),
-          ),
+              // splashFactory: NoSplash.splashFactory,
+              // overlayColor: WidgetStateProperty.all(Colors.transparent),
+              ),
           onPressed: () {
             setState(() {
               selectedIndex = index;
@@ -290,9 +269,10 @@ class _NavbarState extends State<Navbar> {
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
             style: TextStyle(
-              color: selectedIndex == index ? isDarkMode
-                  ? primaryColor
-                  : primaryColorLight
+              color: selectedIndex == index
+                  ? isDarkMode
+                      ? primaryColor
+                      : primaryColorLight
                   : (isDarkMode ? Colors.white : Colors.black),
               fontFamily: "Space",
               letterSpacing: 2.0,
@@ -305,16 +285,13 @@ class _NavbarState extends State<Navbar> {
     }).toList();
   }
 
-
   Widget _buildMobileMenuButton(bool isDarkMode) {
     return IconButton(
       icon: ImageIcon(
         AssetImage(
-            showDropdown ? "assets/icon/close.png" : "assets/icon/menu.png" ),
-        color: isDarkMode ? Colors.white : Colors
-            .black,
+            showDropdown ? "assets/icon/close.png" : "assets/icon/menu.png"),
+        color: isDarkMode ? Colors.white : Colors.black,
         // Use correct asset paths
-
       ),
       onPressed: () {
         setState(() {
@@ -324,23 +301,19 @@ class _NavbarState extends State<Navbar> {
     );
   }
 
-
   Widget _buildThemeToggleButton(bool isMobile) {
     return Consumer<ThemeProvider>(
       builder: (context, themeProvider, child) {
-        bool isDark = Theme
-            .of(context)
-            .brightness == Brightness.dark;
+        bool isDark = Theme.of(context).brightness == Brightness.dark;
 
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 6),
           child: AnimatedSwitcher(
             duration: const Duration(milliseconds: 400),
-            transitionBuilder: (child, animation) =>
-                RotationTransition(
-                  turns: animation,
-                  child: FadeTransition(opacity: animation, child: child),
-                ),
+            transitionBuilder: (child, animation) => RotationTransition(
+              turns: animation,
+              child: FadeTransition(opacity: animation, child: child),
+            ),
             child: IconButton(
               key: ValueKey<bool>(isDark),
               icon: Icon(
@@ -350,7 +323,7 @@ class _NavbarState extends State<Navbar> {
               ),
               onPressed: () {
                 themeProvider.toggleTheme();
-                if(isMobile){
+                if (isMobile) {
                   showDropdown = !showDropdown;
                 }
               },

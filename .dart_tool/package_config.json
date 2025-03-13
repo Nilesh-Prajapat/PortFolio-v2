@@ -404,6 +404,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "visibility_detector",
+      "rootUri": "file:///C:/Users/workn/AppData/Local/Pub/Cache/hosted/pub.dev/visibility_detector-0.4.0+2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "vm_service",
       "rootUri": "file:///C:/Users/workn/AppData/Local/Pub/Cache/hosted/pub.dev/vm_service-14.3.1",
       "packageUri": "lib/",
@@ -440,7 +446,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2025-03-12T19:15:12.698646Z",
+  "generated": "2025-03-13T07:25:52.191571Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///D:/Android/flutter_windows_3.29.0-stable/flutter",

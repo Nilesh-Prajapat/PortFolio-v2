@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:port_folio/splashscreen.dart';
+import 'package:port_folio/utils/splashscreen.dart';
 import 'package:provider/provider.dart';
-import 'package:port_folio/theme_provider.dart';
+import 'package:port_folio/theme/theme_provider.dart';
 
 import 'theme/theme.dart';
 

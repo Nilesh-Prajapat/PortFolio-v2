@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'widgets/avatar.dart';
-import 'widgets/introduction.dart';
+import 'avatar.dart';
+import 'introduction.dart';
 
 class MainBody extends StatefulWidget {
   final double appBarHeight;
