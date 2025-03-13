@@ -1,5 +1,7 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
+import '../theme/theme.dart';
 import 'skillcard.dart';
 import 'skilsdata.dart'; // Import SkillCard
 
@@ -23,10 +25,10 @@ class SkillsPage extends StatelessWidget {
     int cardsPerRow = screenWidth > 1100
         ? 5
         : screenWidth > 900
-        ? 4
-        : screenWidth > 700
-        ? 3
-        : 2;
+            ? 4
+            : screenWidth > 700
+                ? 3
+                : 2;
 
     // Calculate card size based on screen width
     double cardWidth = (screenWidth / (cardsPerRow + 0.3)) * 0.90;
@@ -50,6 +52,22 @@ class SkillsPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // Heading
+              // AnimatedTextKit(
+              //   animatedTexts: [
+              //     TypewriterAnimatedText(
+              //       'My Expertise',
+              //       speed: const Duration(milliseconds: 100),
+              //       textStyle: TextStyle(
+              //         fontFamily: 'Space',
+              //         color: isDarkMode ? primaryColor : primaryColorLight,
+              //         letterSpacing: 1,
+              //         fontSize: headingFontSize,
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //     ),
+              //   ],
+              //   isRepeatingAnimation: false,
+              // ),
               Text(
                 "My Expertise",
                 style: TextStyle(

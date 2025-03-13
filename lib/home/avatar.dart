@@ -84,7 +84,7 @@ class _AvatarWidgetState extends State<AvatarWidget>
             ),
             child: CircleAvatar(
               radius: avatarSize,
-              backgroundImage: const AssetImage('assets/images/profile.jpg'),
+              backgroundImage: const AssetImage('assets/images/profile.jpeg'),
             ),
           ),
         ),
