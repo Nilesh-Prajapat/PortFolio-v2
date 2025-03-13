@@ -4,9 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:port_folio/utils/splashscreen.dart';
 import 'package:provider/provider.dart';
 import 'package:port_folio/theme/theme_provider.dart';
-import 'package:web/web.dart' as html; // Import for setting the document title
 
 import 'theme/theme.dart';
+import 'package:web/web.dart' as html;
 
 void main() {
   runApp(
@@ -33,9 +33,7 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     _assetsFuture = _loadAssets();
 
-    html.document.title = "Nilesh Prajapat - Flutter Developer & Portfolio";
   }
-
 
   // Load images and fonts from assets
   Future<void> _loadAssets() async {
@@ -77,6 +75,7 @@ class _MyAppState extends State<MyApp> {
     final themeProvider = Provider.of<ThemeProvider>(context);
 
     return MaterialApp(
+      title: 'Nilesh Prajapat | App Developer & Student | Portfolio',
       debugShowCheckedModeBanner: false,
       theme: lightTheme(16.0),
       darkTheme: darkTheme(16.0),
