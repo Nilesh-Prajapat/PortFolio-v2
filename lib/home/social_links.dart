@@ -21,7 +21,7 @@ class SocialLinksWidget extends StatelessWidget {
         (screenWidth * (isLargeScreen ? 0.025 : 0.072)).clamp(24.0, 45.0);
     final textStyle = TextStyle(
       fontSize: (iconSize * 0.6).clamp(12.0, 20.0),
-      color: isDarkMode ? Colors.white : Colors.black,
+      color: isDarkMode ? darkTextColor :lightTextColor,
       fontFamily: "Space",
     );
 

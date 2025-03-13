@@ -48,7 +48,7 @@ class _IntroWidgetState extends State<IntroWidget> {
               style: TextStyle(
                 fontFamily: 'Space',
                 letterSpacing: 2,
-                color: isDarkMode ? Colors.white : Colors.black,
+                color: isDarkMode ? darkTextColor :lightTextColor,
                 fontSize: baseFontSize * 0.96,
               ),
               highlightColor: isDarkMode ? primaryColor : primaryColorLight,
@@ -59,7 +59,7 @@ class _IntroWidgetState extends State<IntroWidget> {
               style: TextStyle(
                 fontFamily: 'Space',
                 letterSpacing: 1,
-                color: isDarkMode ? Colors.white : Colors.black,
+                color: isDarkMode ? darkTextColor :lightTextColor,
                 fontSize: (baseFontSize * 1.5).clamp(18.0, 36.0),
                 fontWeight: FontWeight.bold,
               ),

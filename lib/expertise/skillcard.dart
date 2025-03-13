@@ -53,8 +53,8 @@ class _SkillCardState extends State<SkillCard> {
             decoration: BoxDecoration(
               border: Border.all(
                 color: _isHovered
-                    ? primaryColor
-                    : (widget.isDarkMode ? Colors.white : Colors.black),
+                    ? (widget.isDarkMode ? primaryColor: primaryColorLight)
+                    : (widget.isDarkMode ? darkTextColor :lightTextColor),
                 width: 2,
               ),
               borderRadius: BorderRadius.circular(14),
@@ -78,8 +78,8 @@ class _SkillCardState extends State<SkillCard> {
                     fontSize: (widget.width * 0.15).clamp(12, 16),
                     fontWeight: FontWeight.w500,
                     color: _isHovered
-                        ? primaryColor
-                        : (widget.isDarkMode ? Colors.white : Colors.black),
+                        ? (widget.isDarkMode ? primaryColor: primaryColorLight)
+                        : (widget.isDarkMode ? darkTextColor :lightTextColor),
                   ),
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:port_folio/theme/theme.dart';
 
 class AboutMeEditor extends StatelessWidget {
   const AboutMeEditor({super.key});
@@ -19,12 +20,13 @@ class AboutMeEditor extends StatelessWidget {
     final double iconSize = screenWidth > 850 ? 22 : 16;
 
     // Select text based on screen size
-    final String aboutMeText = screenWidth > 850 ? fullAboutMeText : shortAboutMeText;
+    final String aboutMeText =
+        screenWidth > 850 ? fullAboutMeText : shortAboutMeText;
 
     return GestureDetector(
       onTap: () => Navigator.of(context).pop(), // Close when tapping outside
       child: Scaffold(
-        backgroundColor: isDarkMode ? Colors.black : Colors.white,
+        backgroundColor: isDarkMode ? darkTextColor : lightTextColor,
         body: Center(
           child: SingleChildScrollView(
             child: GestureDetector(
@@ -32,7 +34,9 @@ class AboutMeEditor extends StatelessWidget {
               child: Container(
                 width: containerWidth,
                 decoration: BoxDecoration(
-                  color: isDarkMode ? const Color(0xFF1E1E1E) : const Color(0xFFF5F5F5),
+                  color: isDarkMode
+                      ? const Color(0xFF1E1E1E)
+                      : const Color(0xFFF5F5F5),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
@@ -41,9 +45,12 @@ class AboutMeEditor extends StatelessWidget {
                   children: [
                     // Top File Tab Bar
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 5),
                       decoration: BoxDecoration(
-                        color: isDarkMode ? const Color(0xFF252526) : const Color(0xFFE0E0E0),
+                        color: isDarkMode
+                            ? const Color(0xFF252526)
+                            : const Color(0xFFE0E0E0),
                         borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
@@ -52,36 +59,49 @@ class AboutMeEditor extends StatelessWidget {
                       child: Row(
                         children: [
                           Icon(Icons.description,
-                              color: isDarkMode ? Colors.white : Colors.black, size: iconSize),
+                              color:
+                                  isDarkMode ? darkTextColor : lightTextColor,
+                              size: iconSize),
                           const SizedBox(width: 5),
                           Text(
                             "about_me.dart",
                             style: TextStyle(
                               fontFamily: 'Space',
-                              color: isDarkMode ? Colors.white : Colors.black,
+                              color:
+                                  isDarkMode ? darkTextColor : lightTextColor,
                               fontSize: baseFontSize,
                             ),
                           ),
                           const Spacer(),
                           IconButton(
                             icon: Icon(Icons.copy,
-                                color: isDarkMode ? Colors.white : Colors.black, size: iconSize),
+                                color:
+                                    isDarkMode ? darkTextColor : lightTextColor,
+                                size: iconSize),
                             onPressed: () {
-                              Clipboard.setData(ClipboardData(text: aboutMeText));
+                              Clipboard.setData(
+                                  ClipboardData(text: aboutMeText));
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text("Copied to clipboard!",
                                       style: TextStyle(
-                                          color: isDarkMode ? Colors.white : Colors.black)),
-                                  backgroundColor: isDarkMode ? Colors.grey[900] : Colors.grey[300],
+                                          color: isDarkMode
+                                              ? Colors.white
+                                              : Colors.black)),
+                                  backgroundColor: isDarkMode
+                                      ? Colors.grey[900]
+                                      : Colors.grey[300],
                                 ),
                               );
                             },
                           ),
                           IconButton(
                             icon: Icon(Icons.close,
-                                color: isDarkMode ? Colors.white : Colors.black, size: iconSize),
-                            onPressed: () => Navigator.of(context).pop(), // Close on press
+                                color:
+                                    isDarkMode ? darkTextColor : lightTextColor,
+                                size: iconSize),
+                            onPressed: () =>
+                                Navigator.of(context).pop(), // Close on press
                           ),
                         ],
                       ),
@@ -91,10 +111,11 @@ class AboutMeEditor extends StatelessWidget {
                       padding: const EdgeInsets.all(10),
                       child: RichText(
                         text: TextSpan(
-                          children: _getFormattedText(aboutMeText, isDarkMode, baseFontSize),
+                          children: _getFormattedText(
+                              aboutMeText, isDarkMode, baseFontSize),
                           style: TextStyle(
                             fontFamily: 'Space',
-                            color: isDarkMode ? Colors.white : Colors.black,
+                            color: isDarkMode ? darkTextColor : lightTextColor,
                             fontSize: baseFontSize,
                           ),
                         ),
@@ -110,7 +131,8 @@ class AboutMeEditor extends StatelessWidget {
     );
   }
 
-  List<TextSpan> _getFormattedText(String text, bool isDarkMode, double fontSize) {
+  List<TextSpan> _getFormattedText(
+      String text, bool isDarkMode, double fontSize) {
     final RegExp exp = RegExp(r'\*\*(.*?)\*\*'); // Matches **text**
     List<TextSpan> spans = [];
     int lastIndex = 0;
@@ -125,7 +147,7 @@ class AboutMeEditor extends StatelessWidget {
           text: match.group(1), // Extract text inside **
           style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: isDarkMode ? Colors.white : Colors.black,
+              color: isDarkMode ? darkTextColor : lightTextColor,
               fontSize: fontSize),
         ),
       );

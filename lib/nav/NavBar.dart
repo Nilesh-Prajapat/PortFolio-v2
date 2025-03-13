@@ -113,7 +113,7 @@ class _NavbarState extends State<Navbar> {
                             fontFamily: "Space",
                             letterSpacing: 1.0,
                             fontWeight: FontWeight.w500,
-                            color: isDarkMode ? Colors.white : Colors.black,
+                            color: isDarkMode ? darkTextColor : lightTextColor,
                           ),
                         ),
                         Text(
@@ -211,8 +211,8 @@ class _NavbarState extends State<Navbar> {
                                         ? primaryColor
                                         : primaryColorLight
                                     : isDarkMode
-                                        ? Colors.white
-                                        : Colors.black,
+                                        ? darkTextColor
+                                        : lightTextColor,
                                 fontFamily: "Space",
                                 letterSpacing: 2.0,
                                 fontSize: navItemFontSize * 1.1,
@@ -273,7 +273,7 @@ class _NavbarState extends State<Navbar> {
                   ? isDarkMode
                       ? primaryColor
                       : primaryColorLight
-                  : (isDarkMode ? Colors.white : Colors.black),
+                  : (isDarkMode ? darkTextColor : lightTextColor),
               fontFamily: "Space",
               letterSpacing: 2.0,
               fontSize: textSize,

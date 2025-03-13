@@ -74,7 +74,7 @@ class SkillsPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   fontSize: headingFontSize,
                   letterSpacing: 1,
-                  color: isDarkMode ? Colors.white : Colors.black,
+                  color:isDarkMode ? primaryColor :primaryColorLight
                 ),
               ),
               SizedBox(height: headingBottomSpacing),
