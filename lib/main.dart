@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:port_folio/utils/splashscreen.dart';
 import 'package:provider/provider.dart';
 import 'package:port_folio/theme/theme_provider.dart';
+import 'package:web/web.dart' as html; // Import for setting the document title
 
 import 'theme/theme.dart';
 
@@ -26,11 +27,15 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   late Future<void> _assetsFuture;
 
+
   @override
   void initState() {
     super.initState();
     _assetsFuture = _loadAssets();
+
+    html.document.title = "Nilesh Prajapat - Flutter Developer & Portfolio";
   }
+
 
   // Load images and fonts from assets
   Future<void> _loadAssets() async {
