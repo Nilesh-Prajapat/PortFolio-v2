@@ -20,47 +20,54 @@ class _MainBodyState extends State<MainBody> {
     final isLargeScreen = screenWidth > 850;
     double bodyHeight = screenHeight - widget.appBarHeight;
 
-
-    return SizedBox(
-      height: bodyHeight,
-      width: screenWidth,
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        minHeight: bodyHeight, // Minimum height of the body
+      ),
       child: LayoutBuilder(
         builder: (context, constraints) {
           if (isLargeScreen) {
-            return Row(
-              children: [
-                Flexible(
+            return IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Flexible(
                     child: AvatarWidget(
-                        screenWidth: screenWidth,
-                        isDarkMode: isDarkMode,
-                        isLargeScreen: isLargeScreen)),
-                Flexible(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IntroWidget(
+                      screenWidth: screenWidth,
+                      isDarkMode: isDarkMode,
+                      isLargeScreen: isLargeScreen,
+                    ),
+                  ),
+                  Flexible(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min, // Prevents unnecessary expansion
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IntroWidget(
                           screenWidth: screenWidth,
                           isLargeScreen: isLargeScreen,
                         ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             );
           } else {
             return Column(
+              mainAxisSize: MainAxisSize.min, // Allows dynamic expansion
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 AvatarWidget(
-                    screenWidth: screenWidth,
-                    isDarkMode: isDarkMode,
-                    isLargeScreen: isLargeScreen),
+                  screenWidth: screenWidth,
+                  isDarkMode: isDarkMode,
+                  isLargeScreen: isLargeScreen,
+                ),
                 const SizedBox(height: 80),
                 IntroWidget(
-                    screenWidth: screenWidth,
-                    isLargeScreen: isLargeScreen,
-                    ),
-
+                  screenWidth: screenWidth,
+                  isLargeScreen: isLargeScreen,
+                ),
               ],
             );
           }

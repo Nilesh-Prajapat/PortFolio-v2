@@ -56,8 +56,9 @@ class _AvatarWidgetState extends State<AvatarWidget>
   @override
   Widget build(BuildContext context) {
     double avatarSize = widget.isLargeScreen
-        ? (widget.screenWidth * 0.20).clamp(120.0, 220.0)
+        ? (widget.screenWidth * 0.20).clamp(100.0, 220.0)
         : (widget.screenWidth * 0.32).clamp(80.0, 180.0);
+
 
     return VisibilityDetector(
       key: const Key('avatar-widget'),
