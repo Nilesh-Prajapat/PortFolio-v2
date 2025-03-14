@@ -4,23 +4,34 @@ import 'github.dart';
 import 'skillcard.dart';
 import 'skilsdata.dart';
 
-class SkillsPage extends StatelessWidget {
+class SkillsPage extends StatefulWidget {
   final double appBarHeight;
 
-  SkillsPage({required this.appBarHeight});
+  const SkillsPage({Key? key, required this.appBarHeight}) : super(key: key);
+
+  @override
+  _SkillsPageState createState() => _SkillsPageState();
+}
+
+class _SkillsPageState extends State<SkillsPage> with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true; // Prevents widget from rebuilding unnecessarily
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    super.build(context); // Required when using AutomaticKeepAliveClientMixin
+
+    final size = MediaQuery.of(context).size;
+    final screenWidth = size.width;
+    final screenHeight = size.height;
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     // Dynamic font sizes
-    double baseFontSize = (screenWidth * 0.013).clamp(12.0, 24.0);
-    double headingFontSize = (baseFontSize * 1.3).clamp(18.0, 32.0);
+    final double baseFontSize = (screenWidth * 0.013).clamp(12.0, 24.0);
+    final double headingFontSize = (baseFontSize * 1.3).clamp(18.0, 32.0);
 
     // Cards per row based on screen width
-    int cardsPerRow = screenWidth > 1100
+    final int cardsPerRow = screenWidth > 1100
         ? 6
         : screenWidth > 900
         ? 5
@@ -35,21 +46,23 @@ class SkillsPage extends StatelessWidget {
     cardHeight = cardHeight.clamp(80, 120);
 
     // Dynamic spacing
-    double sectionSpacing = (screenHeight * 0.06).clamp(30, 90);
-    double skillGitHubSpacing = (screenHeight * 0.03).clamp(14, 35);
-    double dynamicSpacing = (screenWidth * 0.02).clamp(10, 30);
-    double dynamicRunSpacing = (screenWidth * 0.025).clamp(12, 32);
+    final double sectionSpacing = (screenHeight * 0.06).clamp(30, 90);
+    final double skillGitHubSpacing = (screenHeight * 0.03).clamp(14, 35);
+    final double dynamicSpacing = (screenWidth * 0.02).clamp(10, 30);
+    final double dynamicRunSpacing = (screenWidth * 0.025).clamp(12, 32);
 
     return Center(
       child: SizedBox(
-        width: screenWidth * 0.95, // Slightly increase width to reduce empty space
+        width: screenWidth * 0.95,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.03), // Reduced padding
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.03),
+          child: ListView(
+            shrinkWrap: true,
+            physics: const BouncingScrollPhysics(), // Smooth scrolling
             children: [
               Text(
                 "Expertise",
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: headingFontSize,
@@ -58,10 +71,8 @@ class SkillsPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: sectionSpacing),
-
-              screenWidth >= 850
-                  ? Center(
-                child: Row(
+              if (screenWidth >= 850)
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -76,29 +87,26 @@ class SkillsPage extends StatelessWidget {
                         cardHeight,
                       ),
                     ),
-                    SizedBox(width: screenWidth * 0.01), // Minimal spacing
-                    SizedBox( // GitHub stats only take required space
-                      width: null, // No forced width, it takes children's size
-                      child: GitHubStats(),
+                    SizedBox(width: screenWidth * 0.01),
+                     GitHubStats(),
+                  ],
+                )
+              else
+                Column(
+                  children: [
+                    _buildExpertiseSection(
+                      screenWidth,
+                      screenHeight,
+                      dynamicSpacing,
+                      dynamicRunSpacing,
+                      isDarkMode,
+                      cardWidth,
+                      cardHeight,
                     ),
+                    SizedBox(height: skillGitHubSpacing),
+                     GitHubStats(),
                   ],
                 ),
-              )
-                  : Column(
-                children: [
-                  _buildExpertiseSection(
-                    screenWidth,
-                    screenHeight,
-                    dynamicSpacing,
-                    dynamicRunSpacing,
-                    isDarkMode,
-                    cardWidth,
-                    cardHeight,
-                  ),
-                  SizedBox(height: skillGitHubSpacing),
-                  GitHubStats(),
-                ],
-              ),
             ],
           ),
         ),
@@ -115,13 +123,13 @@ class SkillsPage extends StatelessWidget {
       double cardWidth,
       double cardHeight,
       ) {
-    double baseFontSize = (screenWidth * 0.012).clamp(12, 18);
-    double headingFontSize = (baseFontSize * 1.1).clamp(14, 24);
-    double headingSpacing = (screenHeight * 0.02).clamp(10, 25);
+    final double baseFontSize = (screenWidth * 0.012).clamp(12, 18);
+    final double headingFontSize = (baseFontSize * 1.1).clamp(14, 24);
+    final double headingSpacing = (screenHeight * 0.02).clamp(10, 25);
 
-    bool showQuote = screenWidth > 1020;
-    double quoteFontSize = showQuote ? (screenWidth * 0.012).clamp(14, 22) : 0;
-    double quoteSpacing = showQuote ? (screenHeight * 0.1).clamp(40, 100) : 0;
+    final bool showQuote = screenWidth > 1020;
+    final double quoteFontSize = showQuote ? (screenWidth * 0.012).clamp(14, 22) : 0;
+    final double quoteSpacing = showQuote ? (screenHeight * 0.1).clamp(40, 100) : 0;
 
     return ConstrainedBox(
       constraints: BoxConstraints(
@@ -138,7 +146,6 @@ class SkillsPage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 2 * headingSpacing),
-
           Wrap(
             alignment: WrapAlignment.center,
             spacing: dynamicSpacing,
@@ -155,7 +162,6 @@ class SkillsPage extends StatelessWidget {
             }).toList(),
           ),
           SizedBox(height: quoteSpacing),
-
           if (showQuote)
             Text(
               "“Programming isn't about what you know; it's about what you can figure out.”\n— Chris Pine",

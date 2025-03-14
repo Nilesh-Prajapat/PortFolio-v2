@@ -20,9 +20,10 @@ class AvatarWidget extends StatefulWidget {
 
 class _AvatarWidgetState extends State<AvatarWidget>
     with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _animation;
-  bool _isAnimating = true;
+  late final AnimationController _controller;
+  late final Animation<double> _animation;
+  bool isVisible = true;
+  bool isAnimating = false;
 
   @override
   void initState() {
@@ -31,19 +32,23 @@ class _AvatarWidgetState extends State<AvatarWidget>
       vsync: this,
       duration: const Duration(seconds: 1),
     )..repeat(reverse: true);
-
     _animation = Tween<double>(begin: -4, end: 4).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
+    isAnimating = true;
   }
 
   void _onVisibilityChanged(VisibilityInfo info) {
-    if (info.visibleFraction > 0 && !_isAnimating) {
-      _controller.repeat(reverse: true);
-      _isAnimating = true;
-    } else if (info.visibleFraction == 0 && _isAnimating) {
-      _controller.stop();
-      _isAnimating = false;
+    bool shouldBeVisible = info.visibleFraction > 0;
+    if (shouldBeVisible != isVisible) {
+      isVisible = shouldBeVisible;
+      if (isVisible && !isAnimating) {
+        _controller.repeat(reverse: true);
+        isAnimating = true;
+      } else if (!isVisible && isAnimating) {
+        _controller.stop();
+        isAnimating = false;
+      }
     }
   }
 
@@ -56,7 +61,7 @@ class _AvatarWidgetState extends State<AvatarWidget>
   @override
   Widget build(BuildContext context) {
     double avatarSize = widget.isLargeScreen
-        ? (widget.screenWidth * 0.15).clamp(150.0, 500)
+        ? (widget.screenWidth * 0.15).clamp(150.0, 300.0)
         : (widget.screenWidth * 0.32).clamp(80.0, 180.0);
 
     return VisibilityDetector(
@@ -68,7 +73,7 @@ class _AvatarWidgetState extends State<AvatarWidget>
           builder: (context, child) {
             return Transform.translate(
               offset: Offset(0, _animation.value),
-              child: child,
+              child: child!,
             );
           },
           child: Container(
@@ -84,6 +89,7 @@ class _AvatarWidgetState extends State<AvatarWidget>
             ),
             child: CircleAvatar(
               radius: avatarSize,
+              backgroundColor: Colors.transparent, // Fixes blue overlay issue
               backgroundImage: const AssetImage('assets/images/profile.webp'),
             ),
           ),

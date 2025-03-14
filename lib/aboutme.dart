@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:port_folio/theme/theme.dart';
 
 class AboutMeEditor extends StatelessWidget {
@@ -65,8 +66,7 @@ class AboutMeEditor extends StatelessWidget {
                           const SizedBox(width: 5),
                           Text(
                             "about_me.dart",
-                            style: TextStyle(
-                              fontFamily: 'Space',
+                            style: GoogleFonts.spaceMono(
                               color:
                                   isDarkMode ? darkTextColor : lightTextColor,
                               fontSize: baseFontSize,
@@ -113,8 +113,7 @@ class AboutMeEditor extends StatelessWidget {
                         text: TextSpan(
                           children: _getFormattedText(
                               aboutMeText, isDarkMode, baseFontSize),
-                          style: TextStyle(
-                            fontFamily: 'Space',
+                          style: GoogleFonts.spaceMono(
                             color: isDarkMode ? darkTextColor : lightTextColor,
                             fontSize: baseFontSize,
                           ),
