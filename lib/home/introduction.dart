@@ -23,7 +23,7 @@ class IntroWidget extends StatefulWidget {
 }
 
 class _IntroWidgetState extends State<IntroWidget> {
-  bool _isVisible = true; // Track visibility
+  bool _isVisible = true;
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +33,12 @@ class _IntroWidgetState extends State<IntroWidget> {
     return VisibilityDetector(
       key: const Key("intro-widget"),
       onVisibilityChanged: (visibilityInfo) {
-        setState(() {
-          _isVisible = visibilityInfo.visibleFraction > 0;
-        });
+        bool newVisibility = visibilityInfo.visibleFraction > 0;
+        if (newVisibility != _isVisible) {
+          setState(() {
+            _isVisible = newVisibility;
+          });
+        }
       },
       child: Container(
         width: double.infinity,
@@ -48,7 +51,7 @@ class _IntroWidgetState extends State<IntroWidget> {
               text: "Hello, I'm",
               style: GoogleFonts.spaceMono(
                 letterSpacing: 2,
-                color: isDarkMode ? darkTextColor :lightTextColor,
+                color: isDarkMode ? darkTextColor : lightTextColor,
                 fontSize: baseFontSize * 0.96,
               ),
               highlightColor: isDarkMode ? primaryColor : primaryColorLight,
@@ -58,7 +61,7 @@ class _IntroWidgetState extends State<IntroWidget> {
               "Nilesh Prajapat",
               style: GoogleFonts.spaceMono(
                 letterSpacing: 1,
-                color: isDarkMode ? darkTextColor :lightTextColor,
+                color: isDarkMode ? darkTextColor : lightTextColor,
                 fontSize: (baseFontSize * 1.5).clamp(18.0, 36.0),
                 fontWeight: FontWeight.bold,
               ),
@@ -66,8 +69,12 @@ class _IntroWidgetState extends State<IntroWidget> {
             ),
             const SizedBox(height: 5),
 
-            if (_isVisible) // Show animation when visible
-              AnimatedTextKit(
+            // Improved Animation Handling
+            AnimatedSwitcher(
+              duration: const Duration(milliseconds: 500),
+              child: _isVisible
+                  ? AnimatedTextKit(
+                key: const Key("animated-text"),
                 animatedTexts: [
                   TypewriterAnimatedText(
                     'App Developer',
@@ -102,9 +109,9 @@ class _IntroWidgetState extends State<IntroWidget> {
                 ],
                 repeatForever: true,
               )
-            else // Show static text when animation is stopped
-              Text(
+                  : Text(
                 "App Developer",
+                key: const Key("static-text"),
                 style: GoogleFonts.spaceMono(
                   color: isDarkMode ? primaryColor : primaryColorLight,
                   letterSpacing: 1,
@@ -112,7 +119,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-
+            ),
 
             const SizedBox(height: 10),
             SocialLinksWidget(
@@ -121,6 +128,8 @@ class _IntroWidgetState extends State<IntroWidget> {
               isDarkMode: isDarkMode,
             ),
             SizedBox(height: widget.isLargeScreen ? 10 : 20),
+
+            // Buttons Row
             Row(
               mainAxisAlignment: widget.isLargeScreen ? MainAxisAlignment.start : MainAxisAlignment.center,
               children: [
@@ -142,7 +151,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  child:  Text("Resume", style: GoogleFonts.spaceMono(),)
+                  child: Text("Resume", style: GoogleFonts.spaceMono()),
                 ),
                 const SizedBox(width: 10),
                 OutlinedButton(
@@ -168,7 +177,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  child:  Text("About Me", style: GoogleFonts.spaceMono(),),
+                  child: Text("About Me", style: GoogleFonts.spaceMono()),
                 ),
               ],
             ),

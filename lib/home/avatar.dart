@@ -22,7 +22,7 @@ class _AvatarWidgetState extends State<AvatarWidget>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
-  bool isVisible = true;
+  bool _isAnimating = true;
 
   @override
   void initState() {
@@ -38,12 +38,12 @@ class _AvatarWidgetState extends State<AvatarWidget>
   }
 
   void _onVisibilityChanged(VisibilityInfo info) {
-    if (info.visibleFraction > 0 && !isVisible) {
+    if (info.visibleFraction > 0 && !_isAnimating) {
       _controller.repeat(reverse: true);
-      isVisible = true;
-    } else if (info.visibleFraction == 0 && isVisible) {
+      _isAnimating = true;
+    } else if (info.visibleFraction == 0 && _isAnimating) {
       _controller.stop();
-      isVisible = false;
+      _isAnimating = false;
     }
   }
 
@@ -56,9 +56,8 @@ class _AvatarWidgetState extends State<AvatarWidget>
   @override
   Widget build(BuildContext context) {
     double avatarSize = widget.isLargeScreen
-        ? (widget.screenWidth * 0.20).clamp(100.0, 220.0)
+        ? (widget.screenWidth * 0.15).clamp(150.0, 500)
         : (widget.screenWidth * 0.32).clamp(80.0, 180.0);
-
 
     return VisibilityDetector(
       key: const Key('avatar-widget'),
