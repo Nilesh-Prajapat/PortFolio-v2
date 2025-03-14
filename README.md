@@ -33,10 +33,18 @@
       </tr>
       <tr>
         <td align="center">
-          <img src="Mockups/homepage_light.png" alt="Home Page - Light Theme" width="90%">
+          <img src="Mockups/home-light.png" alt="Home Page - Light Theme" width="100%">
         </td>
         <td align="center">
-          <img src="Mockups/homepage_dark.png" alt="Home Page - Dark Theme" width="90%">
+          <img src="Mockups/home-dark.png" alt="Home Page - Dark Theme" width="100%">
+        </td>
+      </tr>
+            <tr>
+        <td align="center">
+          <img src="Mockups/expertise-light.png" alt="Home Page - Light Theme" width="100%">
+        </td>
+        <td align="center">
+          <img src="Mockups/expertise-dark.png" alt="Home Page - Dark Theme" width="100%">
         </td>
       </tr>
     </table>
