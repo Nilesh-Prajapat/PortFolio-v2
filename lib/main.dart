@@ -1,11 +1,7 @@
-import 'dart:convert';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:port_folio/utils/splashscreen.dart';
 import 'package:port_folio/theme/theme_provider.dart';
-
 import 'theme/theme.dart';
 
 void main() {
@@ -17,41 +13,8 @@ void main() {
   );
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    super.initState();
-    _loadAssets();
-  }
-
-  Future<void> _loadAssets() async {
-    try {
-      final manifestJson = await rootBundle.loadString('AssetManifest.json');
-      final Map<String, dynamic> manifest = await compute(parseJson, manifestJson);
-
-      final imagePaths = manifest.keys.where((key) =>
-      key.endsWith('.png') || key.endsWith('.jpg') || key.endsWith('.webp')).toList();
-
-      if (mounted) {
-        for (final path in imagePaths) {
-          precacheImage(AssetImage(path), context);
-        }
-      }
-    } catch (e) {
-      debugPrint("Error preloading images: $e");
-    }
-  }
-
-  static Map<String, dynamic> parseJson(String jsonString) {
-    return jsonDecode(jsonString);
-  }
 
   @override
   Widget build(BuildContext context) {

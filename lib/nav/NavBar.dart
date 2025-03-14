@@ -204,7 +204,7 @@ class _NavbarState extends State<Navbar> {
                             },
                             child: Text(
                               item,
-                              style: TextStyle(
+                              style: GoogleFonts.spaceMono(
                                 color: selectedIndex == index
                                     ? isDarkMode
                                         ? primaryColor
@@ -212,7 +212,6 @@ class _NavbarState extends State<Navbar> {
                                     : isDarkMode
                                         ? darkTextColor
                                         : lightTextColor,
-                                fontFamily: "Space",
                                 letterSpacing: 2.0,
                                 fontSize: navItemFontSize * 1.1,
                               ),
@@ -267,13 +266,12 @@ class _NavbarState extends State<Navbar> {
           child: AnimatedDefaultTextStyle(
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
-            style: TextStyle(
+            style: GoogleFonts.spaceMono(
               color: selectedIndex == index
                   ? isDarkMode
                       ? primaryColor
                       : primaryColorLight
                   : (isDarkMode ? darkTextColor : lightTextColor),
-              fontFamily: "Space",
               letterSpacing: 2.0,
               fontSize: textSize,
             ),
@@ -322,9 +320,9 @@ class _NavbarState extends State<Navbar> {
               ),
               onPressed: () {
                 themeProvider.toggleTheme();
-                if (isMobile) {
-                  showDropdown = !showDropdown;
-                }
+                // if (isMobile) {
+                //   showDropdown = !showDropdown;
+                // }
               },
             ),
           ),

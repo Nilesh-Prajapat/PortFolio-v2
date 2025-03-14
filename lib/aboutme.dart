@@ -27,7 +27,7 @@ class AboutMeEditor extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.of(context).pop(), // Close when tapping outside
       child: Scaffold(
-        backgroundColor: isDarkMode ? darkTextColor : lightTextColor,
+        backgroundColor: isDarkMode ? Colors.black : Colors.white,
         body: Center(
           child: SingleChildScrollView(
             child: GestureDetector(
