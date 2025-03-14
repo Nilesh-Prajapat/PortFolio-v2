@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:port_folio/theme/theme.dart';
 import 'package:port_folio/utils/textParse.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -19,10 +20,9 @@ class SocialLinksWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     double iconSize =
         (screenWidth * (isLargeScreen ? 0.025 : 0.072)).clamp(24.0, 45.0);
-    final textStyle = TextStyle(
+    final textStyle = GoogleFonts.spaceMono(
       fontSize: (iconSize * 0.6).clamp(12.0, 20.0),
       color: isDarkMode ? darkTextColor :lightTextColor,
-      fontFamily: "Space",
     );
 
     final socialItems = [

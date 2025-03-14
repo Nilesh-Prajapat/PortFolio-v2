@@ -4,7 +4,6 @@ import 'package:lottie/lottie.dart';
 
 import '../nav/NavBar.dart';
 
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -13,43 +12,47 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _fadeAnimation;
+  late final AnimationController _controller;
+  late final Animation<double> _fadeAnimation;
+  late final Animation<double> _scaleAnimation;
 
   @override
   void initState() {
     super.initState();
 
-    // Fade animation controller with smoother easing
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1500), // Extended for smoother effect
+      duration: const Duration(milliseconds: 1200), // Slightly faster for better UX
     )..forward();
 
-    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeOutQuad), // More natural fade
+    _fadeAnimation = CurvedAnimation(parent: _controller, curve: Curves.easeOut);
+    _scaleAnimation = Tween<double>(begin: 0.9, end: 1.0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeOutBack),
     );
 
-    Timer(const Duration(seconds: 4), () {
-      Navigator.pushReplacement(
-        context,
-        PageRouteBuilder(
-          transitionDuration: const Duration(milliseconds: 1000), // Smoother transition
-          pageBuilder: (context, animation, secondaryAnimation) => const Navbar(),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            return FadeTransition(
-              opacity: animation,
-              child: child,
-            );
-          },
-        ),
-      );
-    });
+    Future.delayed(const Duration(seconds: 3), _navigateToHome);
+  }
+
+  void _navigateToHome() {
+    if (!mounted) return;
+    Navigator.pushReplacement(
+      context,
+      PageRouteBuilder(
+        transitionDuration: const Duration(milliseconds: 800), // Faster transition
+        pageBuilder: (_, animation, __) => const Navbar(),
+        transitionsBuilder: (_, animation, __, child) {
+          return FadeTransition(
+            opacity: animation,
+            child: ScaleTransition(scale: _scaleAnimation, child: child),
+          );
+        },
+      ),
+    );
   }
 
   @override
   void dispose() {
-    _controller.dispose(); // Avoid memory leaks
+    _controller.dispose(); // Ensure proper cleanup
     super.dispose();
   }
 
@@ -61,14 +64,16 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     return Scaffold(
       backgroundColor: isDarkMode ? Colors.black : Colors.white,
       body: Center(
-        child: FadeTransition(
-          opacity: _fadeAnimation,
-          child: Lottie.asset(
-            'assets/images/Animation.json',
-            width: screenSize.width * 0.6, // Adjusted width for better visibility
-            height: screenSize.height * 0.35, // Adjusted height for better layout
-            fit: BoxFit.contain,
-            repeat: true,
+        child: ScaleTransition(
+          scale: _scaleAnimation,
+          child: FadeTransition(
+            opacity: _fadeAnimation,
+            child: Lottie.asset(
+              'assets/images/Animation.json',
+              width: screenSize.width * 0.55, // Adjusted for better visual balance
+              height: screenSize.height * 0.33,
+              fit: BoxFit.contain,
+            ),
           ),
         ),
       ),

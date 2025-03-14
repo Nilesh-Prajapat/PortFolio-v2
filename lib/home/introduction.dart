@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import 'package:port_folio/aboutme.dart';
 import 'package:port_folio/theme/theme.dart';
@@ -45,8 +46,7 @@ class _IntroWidgetState extends State<IntroWidget> {
           children: [
             SymbolHighlighter(
               text: "Hello, I'm",
-              style: TextStyle(
-                fontFamily: 'Space',
+              style: GoogleFonts.spaceMono(
                 letterSpacing: 2,
                 color: isDarkMode ? darkTextColor :lightTextColor,
                 fontSize: baseFontSize * 0.96,
@@ -56,8 +56,7 @@ class _IntroWidgetState extends State<IntroWidget> {
             const SizedBox(height: 5),
             Text(
               "Nilesh Prajapat",
-              style: TextStyle(
-                fontFamily: 'Space',
+              style: GoogleFonts.spaceMono(
                 letterSpacing: 1,
                 color: isDarkMode ? darkTextColor :lightTextColor,
                 fontSize: (baseFontSize * 1.5).clamp(18.0, 36.0),
@@ -73,8 +72,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                   TypewriterAnimatedText(
                     'App Developer',
                     speed: const Duration(milliseconds: 100),
-                    textStyle: TextStyle(
-                      fontFamily: 'Space',
+                    textStyle: GoogleFonts.spaceMono(
                       color: isDarkMode ? primaryColor : primaryColorLight,
                       letterSpacing: 1,
                       fontSize: (baseFontSize * 1.2).clamp(16.0, 28.0),
@@ -84,8 +82,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                   TypewriterAnimatedText(
                     'Student',
                     speed: const Duration(milliseconds: 100),
-                    textStyle: TextStyle(
-                      fontFamily: 'Space',
+                    textStyle: GoogleFonts.spaceMono(
                       color: isDarkMode ? primaryColor : primaryColorLight,
                       letterSpacing: 1,
                       fontSize: (baseFontSize * 1.2).clamp(16.0, 28.0),
@@ -95,8 +92,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                   TypewriterAnimatedText(
                     'Gamer',
                     speed: const Duration(milliseconds: 100),
-                    textStyle: TextStyle(
-                      fontFamily: 'Space',
+                    textStyle: GoogleFonts.spaceMono(
                       color: isDarkMode ? primaryColor : primaryColorLight,
                       letterSpacing: 1,
                       fontSize: (baseFontSize * 1.2).clamp(16.0, 28.0),
@@ -109,8 +105,7 @@ class _IntroWidgetState extends State<IntroWidget> {
             else // Show static text when animation is stopped
               Text(
                 "App Developer",
-                style: TextStyle(
-                  fontFamily: 'Space',
+                style: GoogleFonts.spaceMono(
                   color: isDarkMode ? primaryColor : primaryColorLight,
                   letterSpacing: 1,
                   fontSize: (baseFontSize * 1.2).clamp(16.0, 28.0),
@@ -147,7 +142,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  child: const Text("Resume", style: TextStyle(fontFamily: "Space")),
+                  child:  Text("Resume", style: GoogleFonts.spaceMono(),)
                 ),
                 const SizedBox(width: 10),
                 OutlinedButton(
@@ -173,7 +168,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  child: const Text("About Me", style: TextStyle(fontFamily: "Space")),
+                  child:  Text("About Me", style: GoogleFonts.spaceMono(),),
                 ),
               ],
             ),

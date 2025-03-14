@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:port_folio/Project.dart';
 import 'package:port_folio/home/Home.dart';
 import 'package:port_folio/expertise/expertise.dart';
@@ -108,9 +109,8 @@ class _NavbarState extends State<Navbar> {
                       children: [
                         Text(
                           'Nilesh ',
-                          style: TextStyle(
+                          style: GoogleFonts.spaceMono(
                             fontSize: headingFontSize,
-                            fontFamily: "Space",
                             letterSpacing: 1.0,
                             fontWeight: FontWeight.w500,
                             color: isDarkMode ? darkTextColor : lightTextColor,
@@ -118,14 +118,14 @@ class _NavbarState extends State<Navbar> {
                         ),
                         Text(
                           'Prajapat',
-                          style: TextStyle(
+                          style: GoogleFonts.spaceMono(
                             fontSize: headingFontSize,
-                            fontFamily: "Space",
-                            letterSpacing: 2.0,
-                            fontWeight: FontWeight.w700,
-                            color:
-                                isDarkMode ? primaryColor : primaryColorLight,
+                              letterSpacing: 2.0,
+                              fontWeight: FontWeight.w700,
+                              color:
+                                  isDarkMode ? primaryColor : primaryColorLight,
                           ),
+
                         ),
                       ],
                     ),
@@ -205,7 +205,7 @@ class _NavbarState extends State<Navbar> {
                             },
                             child: Text(
                               item,
-                              style: TextStyle(
+                              style: GoogleFonts.spaceMono(
                                 color: selectedIndex == index
                                     ? isDarkMode
                                         ? primaryColor
@@ -213,7 +213,6 @@ class _NavbarState extends State<Navbar> {
                                     : isDarkMode
                                         ? darkTextColor
                                         : lightTextColor,
-                                fontFamily: "Space",
                                 letterSpacing: 2.0,
                                 fontSize: navItemFontSize * 1.1,
                               ),
@@ -268,13 +267,12 @@ class _NavbarState extends State<Navbar> {
           child: AnimatedDefaultTextStyle(
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
-            style: TextStyle(
+            style: GoogleFonts.spaceMono(
               color: selectedIndex == index
                   ? isDarkMode
                       ? primaryColor
                       : primaryColorLight
                   : (isDarkMode ? darkTextColor : lightTextColor),
-              fontFamily: "Space",
               letterSpacing: 2.0,
               fontSize: textSize,
             ),

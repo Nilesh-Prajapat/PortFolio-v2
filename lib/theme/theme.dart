@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const Color primaryColor = Color(0xFF2196F3);
 const Color primaryColorLight = Color(0xFFFF6D00);
@@ -8,7 +9,6 @@ const Color darkBackground = Colors.black;
 
 const Color lightTextColor = Colors.black;
 const Color darkTextColor = Colors.white;
-
 ThemeData lightTheme(double screenWidth) {
   return ThemeData(
     brightness: Brightness.light,
@@ -18,26 +18,9 @@ ThemeData lightTheme(double screenWidth) {
       brightness: Brightness.light,
     ),
     scaffoldBackgroundColor: lightBackground,
-    textTheme: TextTheme(
-      bodyLarge: TextStyle(
-        fontFamily: 'Space',
-        fontSize: screenWidth * 0.02,
-        color: lightTextColor,
-        fontWeight: FontWeight.normal,
-      ),
-      bodyMedium: TextStyle(
-        fontFamily: 'Space',
-        fontSize: screenWidth * 0.02,
-        color: lightTextColor,
-        fontWeight: FontWeight.normal,
-      ),
-      displayLarge: TextStyle(
-        fontFamily: 'Space',
-        fontSize: screenWidth * 0.03,
-        color: lightTextColor,
-        fontWeight: FontWeight.bold,
-        letterSpacing: 2,
-      ),
+    textTheme: GoogleFonts.spaceMonoTextTheme().apply(
+      bodyColor: lightTextColor,
+      displayColor: lightTextColor,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -49,12 +32,11 @@ ThemeData lightTheme(double screenWidth) {
       ),
     ),
     appBarTheme: AppBarTheme(
-      elevation: 0,
       scrolledUnderElevation: 0,
+      elevation: 0,
       backgroundColor: lightBackground,
       iconTheme: const IconThemeData(color: Colors.black),
-      titleTextStyle: TextStyle(
-        fontFamily: 'Space',
+      titleTextStyle: GoogleFonts.spaceMono(
         fontSize: screenWidth * 0.03,
         color: Colors.black,
         fontWeight: FontWeight.bold,
@@ -73,26 +55,9 @@ ThemeData darkTheme(double screenWidth) {
       brightness: Brightness.dark,
     ),
     scaffoldBackgroundColor: darkBackground,
-    textTheme: TextTheme(
-      bodyLarge: TextStyle(
-        fontFamily: 'Space',
-        fontSize: screenWidth * 0.02,
-        color: darkTextColor,
-        fontWeight: FontWeight.normal,
-      ),
-      bodyMedium: TextStyle(
-        fontFamily: 'Space',
-        fontSize: screenWidth * 0.02,
-        color: darkTextColor,
-        fontWeight: FontWeight.normal,
-      ),
-      displayLarge: TextStyle(
-        fontFamily: 'Space',
-        fontSize: screenWidth * 0.03,
-        color: darkTextColor,
-        fontWeight: FontWeight.bold,
-        letterSpacing: 2,
-      ),
+    textTheme: GoogleFonts.spaceMonoTextTheme().apply(
+      bodyColor: darkTextColor,
+      displayColor: darkTextColor,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -106,10 +71,10 @@ ThemeData darkTheme(double screenWidth) {
     appBarTheme: AppBarTheme(
       elevation: 0,
       scrolledUnderElevation: 0,
+
       backgroundColor: darkBackground,
       iconTheme: const IconThemeData(color: Colors.white),
-      titleTextStyle: TextStyle(
-        fontFamily: 'Space',
+      titleTextStyle: GoogleFonts.spaceMono(
         fontSize: screenWidth * 0.03,
         color: Colors.white,
         fontWeight: FontWeight.bold,

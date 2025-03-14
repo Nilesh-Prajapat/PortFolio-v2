@@ -1,12 +1,12 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:port_folio/utils/splashscreen.dart';
 import 'package:provider/provider.dart';
+import 'package:port_folio/utils/splashscreen.dart';
 import 'package:port_folio/theme/theme_provider.dart';
 
 import 'theme/theme.dart';
-import 'package:web/web.dart' as html;
 
 void main() {
   runApp(
@@ -25,62 +25,47 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  late Future<void> _assetsFuture;
-
-
   @override
   void initState() {
     super.initState();
-    _assetsFuture = _loadAssets();
-
+    _loadAssets();
   }
 
-  // Load images and fonts from assets
   Future<void> _loadAssets() async {
-    await _preloadImages('assets/images');
-    await _preloadImages('assets/icons');
-    await _loadFonts();
-  }
+    try {
+      final manifestJson = await rootBundle.loadString('AssetManifest.json');
+      final Map<String, dynamic> manifest = await compute(parseJson, manifestJson);
 
-  // Preload images
-  Future<void> _preloadImages(String directory) async {
-    final manifestJson = await rootBundle.loadString('AssetManifest.json');
-    final Map<String, dynamic> manifest = jsonDecode(manifestJson);
+      final imagePaths = manifest.keys.where((key) =>
+      key.endsWith('.png') || key.endsWith('.jpg') || key.endsWith('.webp')).toList();
 
-    final imageFiles = manifest.keys
-        .where((String key) => key.startsWith(directory) && (key.endsWith('.png') || key.endsWith('.jpg')))
-        .toList();
-
-    for (final file in imageFiles) {
-      precacheImage(AssetImage(file), context);
+      if (mounted) {
+        for (final path in imagePaths) {
+          precacheImage(AssetImage(path), context);
+        }
+      }
+    } catch (e) {
+      debugPrint("Error preloading images: $e");
     }
   }
 
-  // Preload fonts
-  Future<void> _loadFonts() async {
-    final manifestJson = await rootBundle.loadString('AssetManifest.json');
-    final Map<String, dynamic> manifest = jsonDecode(manifestJson);
-
-    final fontFiles = manifest.keys
-        .where((String key) => key.startsWith('assets/fonts') && key.endsWith('.ttf'))
-        .toList();
-
-    for (final font in fontFiles) {
-      await rootBundle.load(font);
-    }
+  static Map<String, dynamic> parseJson(String jsonString) {
+    return jsonDecode(jsonString);
   }
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
-
-    return MaterialApp(
-      title: 'Nilesh Prajapat | App Developer & Student | Portfolio',
-      debugShowCheckedModeBanner: false,
-      theme: lightTheme(16.0),
-      darkTheme: darkTheme(16.0),
-      themeMode: themeProvider.themeMode,
-      home:  SplashScreen(),
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) {
+        return MaterialApp(
+          title: 'Nilesh Prajapat | App Developer & Student | Portfolio',
+          debugShowCheckedModeBanner: false,
+          theme: lightTheme(16.0),
+          darkTheme: darkTheme(16.0),
+          themeMode: themeProvider.themeMode,
+          home: const SplashScreen(),
+        );
+      },
     );
   }
 }
