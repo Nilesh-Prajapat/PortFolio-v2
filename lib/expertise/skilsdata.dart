@@ -1,91 +1,97 @@
-// lib/data/skills_data.dart
-
 final List<Map<String, String>> skills = [
-  {
-    "name": "Flutter",
-    "icon": "assets/icon/skills/flutter.png",
-    "description": """🚀 Learning Flutter... ✅
-
-I started learning Flutter out of curiosity about how cross-platform apps work.
-
-📌 The idea of writing code once and running it everywhere fascinated me.
-
-📂 Before ClassHub, I built small apps to practice state management & API integration.
-
-🚀 Now, I’m using it for my personal portfolio website, ensuring a clean and responsive design."""
-  },
+  // **Frontend Development**
   {
     "name": "HTML",
     "icon": "assets/icon/skills/html.png",
-    "description": """[root@developer ~]\$ Starting HTML journey... 🏗️
+    "description": """[root@developer ~]\$ Web Dev Starts Here... 🏗️
 
-HTML was my entry point into coding back in 9th grade when I first explored web development.
+My coding journey in **web development** began with HTML.
 
-🔍 Initially, it was about simple static pages, but later I learned about semantic HTML & responsiveness.
+🔍 Started with simple static pages and gradually learned about **semantic HTML & responsiveness**.
 
-📜 This laid the foundation for my front-end development skills before moving on to CSS & JavaScript."""
+📜 This laid the foundation for my **frontend development skills** before moving on to CSS & JavaScript."""
   },
   {
     "name": "CSS",
     "icon": "assets/icon/skills/css.png",
-    "description": """🎨 Applying Styles... 
+    "description": """🎨 Styling the Web... 
 
-After learning HTML, I realized my websites were too plain. Time for some CSS magic!
+Once I had HTML down, I realized my websites were too plain. Time for **CSS magic!**  
 
-🖌️ Played with Flexbox, Grid, Animations, and Transitions to bring designs to life.
+🖌️ Learned **Flexbox, Grid, Animations, and Transitions** to make layouts more dynamic.
 
-🚀 Later, I adopted frameworks like Tailwind and Bootstrap for rapid UI development."""
+🚀 Later, I explored frameworks like **Tailwind** and **Bootstrap** for faster UI development."""
   },
-  {
-    "name": "JavaScript",
-    "icon": "assets/icon/skills/js.png",
-    "description": """🖥️ Running JavaScript...
 
-🔗 Initially learned JavaScript for college, but it became my first real taste of programming logic.
-
-🔄 Explored ES6+, async programming, and DOM manipulation.
-
-🛠️ Used JS for interactive projects and later moved into backend development with Node.js."""
-  },
-  {
-    "name": "Node.js",
-    "icon": "assets/icon/skills/node-js.png",
-    "description": """🌍 Setting up server...
-
-[root@server ~]\$ node server.js ✅ Server started at port 8000...
-
-💡 Wanted to build dynamic apps, so I picked up Node.js for backend development.
-
-🌐 Built REST APIs, handled authentication, and worked with databases.
-
-🛠️ Used Node.js + MongoDB for ClassHub, ensuring scalable data handling."""
-  },
+  // **Programming Languages**
   {
     "name": "Python",
     "icon": "assets/icon/skills/python.png",
-    "description": """🐍 Running Python script...
+    "description": """🐍 Exploring Programming with Python... 
 
->>> print("Hello, World!")  
-Hello, World! ✅
+I learned Python **alongside web development**, making it my first true programming language.
 
-✔️ One of the first languages I learned after JavaScript.
+🔹 It introduced me to **problem-solving, logic-building, and automation**.
 
-🔧 Used for automation scripts, data processing, and quick solutions.
+🔧 Used it for **small scripts, data processing, and quick prototyping**.
 
-💡 Still my go-to language for scripting and problem-solving."""
+💡 Even after learning other languages, Python remains my **go-to for scripting and backend work**."""
   },
+
+  {
+    "name": "JavaScript",
+    "icon": "assets/icon/skills/js.png",
+    "description": """🖥️ Making the Web Interactive... 
+
+After mastering HTML & CSS, I wanted my websites to be **dynamic**, so I picked up JavaScript.
+
+🔄 Learned **ES6+, async programming, and DOM manipulation**.
+
+🛠️ Used JS for **interactive projects** and later transitioned into **backend development with Node.js**."""
+  },
+
+  {
+    "name": "Flutter",
+    "icon": "assets/icon/skills/flutter.png",
+    "description": """🚀 My Entry into App Development... ✅
+
+After JavaScript, I got curious about **mobile development** and started learning Flutter.
+
+📌 The idea of writing code **once and running it on multiple platforms** fascinated me.
+
+📂 Before ClassHub, I built small apps to practice **state management & API integration**.
+
+🚀 Now, I’m using Flutter for my **personal portfolio website**, ensuring a clean and responsive design."""
+  },
+
+  // **Backend Development**
+  {
+    "name": "Node.js",
+    "icon": "assets/icon/skills/node-js.png",
+    "description": """🌍 Backend Development Begins...
+
+[root@server ~]\$ node server.js ✅ Server started at port 8000...  
+
+💡 After learning JavaScript, I wanted to build **dynamic apps**, so I picked up Node.js.
+
+🌐 Built **REST APIs, handled authentication, and worked with databases**.
+
+🛠️ Used Node.js + MongoDB for **ClassHub**, ensuring scalable data handling."""
+  },
+
+  // **Database Management**
   {
     "name": "MongoDB",
     "icon": "assets/icon/skills/mongodb.png",
-    "description": """🗄️ Connecting to database...
+    "description": """🗄️ First Steps into Databases...
 
 > db.users.find() ✅ Documents fetched successfully.
 
-💾 Picked MongoDB while working with Node.js due to its flexible schema.
+💾 Picked MongoDB while working with Node.js due to its **flexible schema**.
 
-🔍 Learned NoSQL queries, aggregation pipelines, and performance optimization.
+🔍 Learned **NoSQL queries, aggregation pipelines, and performance optimization**.
 
-📡 Used MongoDB in ClassHub for efficient data storage & retrieval."""
+📡 Used MongoDB in ClassHub for **efficient data storage & retrieval**."""
   },
   {
     "name": "Firebase",
@@ -94,25 +100,24 @@ Hello, World! ✅
 
 🔄 Syncing real-time database... ✅ Data updated.
 
-🔥 Firebase was my introduction to real-time databases and cloud services.
+🔥 Firebase was my **introduction to real-time databases** and cloud services.
 
-⚡ Used it for quick authentication, cloud storage, and backend-less projects.
+⚡ Used it for **quick authentication, cloud storage, and backend-less projects**.
 
-📡 Helped me understand real-time data handling and scalability."""
+📡 Helped me understand **real-time data handling and scalability**."""
   },
   {
-    "name": "Android Studio",
-    "icon": "assets/icon/skills/android-studio.png",
-    "description": """📱 Initializing Android Studio...
+    "name": "Figma",
+    "icon": "assets/icon/skills/figma.png",
+    "description": """🎨 Designing Before Coding...  
 
-🔍 Checking AVD status... ✅ Emulator running.
+🖌️ Figma is my **go-to tool for UI/UX design**.
 
-🛠️ Explored native Android development before shifting to Flutter.
+🔄 Collaborated with teams for **wireframes and interactive prototypes**.
 
-🐞 Now primarily use Android Studio for testing & debugging Flutter apps.
-
-🔧 Essential tool in my mobile development workflow."""
+📌 Used it for **planning ClassHub’s UI** before jumping into code!"""
   },
+  // **Development Tools**
   {
     "name": "Git",
     "icon": "assets/icon/skills/git.png",
@@ -121,10 +126,46 @@ Hello, World! ✅
 \$ git init ✅ Repository initialized.  
 \$ git commit -m "First commit" ✅ Changes saved.
 
-🔗 Git is the backbone of my development workflow.
+🔗 Git is the backbone of my **development workflow**.
 
-🔄 Helps me track changes, collaborate, and maintain clean project histories.
+🔄 Helps me **track changes, collaborate, and maintain clean project histories**.
 
-🚀 I use GitHub for pushing code, branching, and contributing to open-source projects."""
+🚀 I use GitHub for **pushing code, branching, and contributing to open-source projects**."""
   },
+  {
+    "name": "Postman",
+    "icon": "assets/icon/skills/postman.png",
+    "description": """📡 API Testing with Postman...  
+
+🛠️ Used Postman extensively for **testing REST APIs** during backend development for ClassHub.
+
+🔍 Helps in **debugging, authentication handling, and performance testing**.
+
+📌 Saved API collections make my workflow **smoother for repeated tests**."""
+  },
+  {
+    "name": "Android Studio",
+    "icon": "assets/icon/skills/android-studio.png",
+    "description": """📱 Running the Emulator...  
+
+🔍 Checking AVD status... ✅ Emulator running.
+
+🛠️ I use **Android Studio exclusively for Flutter development**.
+
+🐞 Primarily a tool for **testing, debugging, and managing emulators**.
+
+🔧 An essential part of my **mobile development setup**."""
+  },
+
+  {
+    "name": "VS Code",
+    "icon": "assets/icon/skills/vscode.png",
+    "description": """⌨️ My Secondary Editor...  
+
+🛠️ VS Code is my **secondary IDE**, mainly for quick edits, Python scripting, and lightweight projects.
+
+⚡ Perfect for **debugging and multi-language support**.
+
+🔍 The flexibility of extensions makes it a **must-have for any developer**."""
+  }
 ];

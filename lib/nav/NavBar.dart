@@ -108,7 +108,7 @@ class _NavbarState extends State<Navbar> {
                     child: Row(
                       children: [
                         Text(
-                          'Nilesh ',
+                          './Nilesh ',
                           style: GoogleFonts.spaceMono(
                             fontSize: headingFontSize,
                             letterSpacing: 1.0,

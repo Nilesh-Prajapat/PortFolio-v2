@@ -31,15 +31,19 @@ class _SkillCardState extends State<SkillCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navigate to SkillDetailedPage on tap
         Navigator.push(
           context,
-          MaterialPageRoute(
-            builder: (context) => SkillDetailedPage(
-              skillName: widget.name,
-              skillIcon: widget.icon,
-              skillDescription: widget.description,
-            ),
+          PageRouteBuilder(
+            transitionDuration: const Duration(milliseconds: 400),
+            pageBuilder: (context, animation, secondaryAnimation) {
+              return FadeTransition(
+                opacity: animation,
+                child: SkillDetailedPage(
+                    skillName: widget.name,
+                    skillIcon: widget.icon,
+                    skillDescription: widget.description),
+              );
+            },
           ),
         );
       },
@@ -53,8 +57,8 @@ class _SkillCardState extends State<SkillCard> {
             decoration: BoxDecoration(
               border: Border.all(
                 color: _isHovered
-                    ? (widget.isDarkMode ? primaryColor: primaryColorLight)
-                    : (widget.isDarkMode ? darkTextColor :lightTextColor),
+                    ? (widget.isDarkMode ? primaryColor : primaryColorLight)
+                    : (widget.isDarkMode ? darkTextColor : lightTextColor),
                 width: 2,
               ),
               borderRadius: BorderRadius.circular(14),
@@ -78,8 +82,8 @@ class _SkillCardState extends State<SkillCard> {
                     fontSize: (widget.width * 0.15).clamp(12, 16),
                     fontWeight: FontWeight.w500,
                     color: _isHovered
-                        ? (widget.isDarkMode ? primaryColor: primaryColorLight)
-                        : (widget.isDarkMode ? darkTextColor :lightTextColor),
+                        ? (widget.isDarkMode ? primaryColor : primaryColorLight)
+                        : (widget.isDarkMode ? darkTextColor : lightTextColor),
                   ),
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,

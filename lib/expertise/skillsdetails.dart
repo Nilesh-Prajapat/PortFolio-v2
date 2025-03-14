@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SkillDetailedPage extends StatelessWidget {
   final String skillName;
@@ -57,8 +58,7 @@ class SkillDetailedPage extends StatelessWidget {
                           const SizedBox(width: 5),
                           Text(
                             "$skillName.dart",
-                            style: TextStyle(
-                              fontFamily: 'Space',
+                            style: GoogleFonts.spaceMono(
                               color: isDarkMode ? Colors.white : Colors.black,
                               fontSize: baseFontSize,
                             ),
@@ -77,8 +77,8 @@ class SkillDetailedPage extends StatelessWidget {
                       child: RichText(
                         text: TextSpan(
                           children: _getFormattedText(skillDescription, isDarkMode, baseFontSize),
-                          style: TextStyle(
-                            fontFamily: 'Space',
+                          style: GoogleFonts.spaceMono(
+
                             color: isDarkMode ? Colors.white : Colors.black,
                             fontSize: baseFontSize,
                           ),
