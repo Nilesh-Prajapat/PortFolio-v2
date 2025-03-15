@@ -167,11 +167,7 @@ class _NavbarState extends State<Navbar> {
                           key: _projectKey,
                           child: ProjectsSection(),
                         ),
-                        // Container(
-                        //     key: _projectKey,
-                        //     child:  ProjectsSection(
-                        //         )
-                        // ),
+
                       ],
                     ),
                   ),

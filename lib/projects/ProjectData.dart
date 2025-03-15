@@ -80,7 +80,6 @@ final List<Map<String, dynamic>> projectsm = [
     "🖥️ **Portfolio v2.0** – The Site You're Browsing\n\n"
         "📌 This very website! Built with Flutter, featuring a modern UI,\n"
         "   animations, and dark/light themes.\n"
-        "⚡ **Features:** Fully responsive, smooth transitions, hosted on Vercel.\n"
         "🔧 **Tech:** Flutter | Vercel\n"
         "🚀 **Status:** Live & Active",
     "github": "https://github.com/yourusername/NewPortfolio",
@@ -92,7 +91,6 @@ final List<Map<String, dynamic>> projectsm = [
     "description":
     "📌 **ClassHub: Ultimate Study Tool**\n\n"
         "📂 One-stop study app with syllabus, notes & assignments.\n"
-        "🤖 AI-powered study assistance (Gemini API).\n"
         "⚡ **Features:** Assignments, student profiles, exam results.\n"
         "🔧 **Tech:** Flutter | MongoDB | Node.js | Gemini API\n"
         "✅ **Status:** Completed",
@@ -105,7 +103,6 @@ final List<Map<String, dynamic>> projectsm = [
     "description":
     "⚠️ **Legacy Portfolio v1.0**\n\n"
         "📂 Static portfolio app with projects, skills & contact info.\n"
-        "⚡ **Features:** Simple UI, GitHub-hosted (Archived).\n"
         "🔧 **Tech:** Flutter\n"
         "📌 **Status:** Archived",
     "github": "https://github.com/yourusername/OldPortfolio",

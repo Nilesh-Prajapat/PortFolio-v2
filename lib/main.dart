@@ -26,31 +26,14 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
-  void initState() {
-    super.initState();
-    _loadAssets();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _preloadProfileImage();
   }
 
-  Future<void> _loadAssets() async {
-    try {
-      final manifestJson = await rootBundle.loadString('AssetManifest.json');
-      final Map<String, dynamic> manifest = await compute(parseJson, manifestJson);
-
-      final imagePaths = manifest.keys.where((key) =>
-          key.endsWith('.webp')).toList();
-
-      if (mounted) {
-        for (final path in imagePaths) {
-          precacheImage(AssetImage(path), context);
-        }
-      }
-    } catch (e) {
-      debugPrint("Error preloading images: $e");
-    }
-  }
-
-  static Map<String, dynamic> parseJson(String jsonString) {
-    return jsonDecode(jsonString);
+  void _preloadProfileImage() {
+    const String profileImagePath = 'assets/images/profile.webp';
+    precacheImage(const AssetImage(profileImagePath), context);
   }
 
   @override

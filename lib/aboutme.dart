@@ -3,136 +3,176 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:port_folio/theme/theme.dart';
 
-class AboutMeEditor extends StatelessWidget {
+class AboutMeEditor extends StatefulWidget {
   const AboutMeEditor({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    final double screenWidth = MediaQuery.of(context).size.width;
+  _AboutMeEditorState createState() => _AboutMeEditorState();
+}
 
-    // Set a fixed width for large screens
+class _AboutMeEditorState extends State<AboutMeEditor> {
+  late double xPos;
+  late double yPos;
+  late double screenWidth;
+  late double screenHeight;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    screenWidth = MediaQuery.of(context).size.width;
+    screenHeight = MediaQuery.of(context).size.height;
+
     final double containerWidth = screenWidth > 850
         ? (screenWidth * 0.85).clamp(600, 850)
         : (screenWidth * 0.85).clamp(300, 550);
 
-    // Adjust font sizes
+    final double containerHeight = screenWidth > 850 ? 350 : 300;
+
+    // Centering the window
+    xPos = (screenWidth - containerWidth) / 2;
+    yPos = (screenHeight) / 10;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
+    final double containerWidth = screenWidth > 850
+        ? (screenWidth * 0.85).clamp(600, 850)
+        : (screenWidth * 0.85).clamp(300, 550);
+
     final double baseFontSize = screenWidth > 850 ? 15 : 13;
     final double iconSize = screenWidth > 850 ? 22 : 16;
 
-    // Select text based on screen size
     final String aboutMeText =
         screenWidth > 850 ? fullAboutMeText : shortAboutMeText;
 
-    return GestureDetector(
-      onTap: () => Navigator.of(context).pop(), // Close when tapping outside
-      child: Scaffold(
-        backgroundColor: isDarkMode ? Colors.black : Colors.white,
-        body: Center(
-          child: SingleChildScrollView(
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Stack(
+        children: [
+          GestureDetector(
+            onTap: () => Navigator.of(context).pop(),
+            child: Container(
+              color: isDarkMode
+                  ? Colors.black
+                  : Colors.white, // Updated background color
+            ),
+          ),
+          Positioned(
+            left: xPos,
+            top: yPos,
             child: GestureDetector(
-              onTap: () {}, // Prevents closing when clicking inside
-              child: Container(
-                width: containerWidth,
-                decoration: BoxDecoration(
-                  color: isDarkMode
-                      ? const Color(0xFF1E1E1E)
-                      : const Color(0xFFF5F5F5),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Top File Tab Bar
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 5),
-                      decoration: BoxDecoration(
-                        color: isDarkMode
-                            ? const Color(0xFF252526)
-                            : const Color(0xFFE0E0E0),
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
+              onPanUpdate: (details) {
+                setState(() {
+                  xPos += details.delta.dx;
+                  yPos += details.delta.dy;
+                });
+              },
+              child: GestureDetector(
+                onTap: () {}, // Prevents closing when tapped inside
+                child: Container(
+                  width: containerWidth,
+                  decoration: BoxDecoration(
+                    color: isDarkMode
+                        ? const Color(0xFF1E1E1E)
+                        : const Color(0xFFF5F5F5),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 5),
+                        decoration: BoxDecoration(
+                          color: isDarkMode
+                              ? const Color(0xFF252526)
+                              : const Color(0xFFE0E0E0),
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            topRight: Radius.circular(10),
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(Icons.description,
+                                color:
+                                    isDarkMode ? darkTextColor : lightTextColor,
+                                size: iconSize),
+                            const SizedBox(width: 5),
+                            Text(
+                              "about_me.dart",
+                              style: GoogleFonts.spaceMono(
+                                color:
+                                    isDarkMode ? darkTextColor : lightTextColor,
+                                fontSize: baseFontSize,
+                              ),
+                            ),
+                            const Spacer(),
+                            IconButton(
+                              icon: Icon(Icons.copy,
+                                  color: isDarkMode
+                                      ? darkTextColor
+                                      : lightTextColor,
+                                  size: iconSize),
+                              onPressed: () {
+                                Clipboard.setData(
+                                    ClipboardData(text: aboutMeText));
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text("Copied to clipboard!",
+                                        style: TextStyle(
+                                            color: isDarkMode
+                                                ? Colors.white
+                                                : Colors.black)),
+                                    backgroundColor: isDarkMode
+                                        ? Colors.grey[900]
+                                        : Colors.grey[300],
+                                  ),
+                                );
+                              },
+                            ),
+                            IconButton(
+                              icon: Icon(Icons.close,
+                                  color: isDarkMode
+                                      ? darkTextColor
+                                      : lightTextColor,
+                                  size: iconSize),
+                              onPressed: () => Navigator.of(context).pop(),
+                            ),
+                          ],
                         ),
                       ),
-                      child: Row(
-                        children: [
-                          Icon(Icons.description,
-                              color:
-                                  isDarkMode ? darkTextColor : lightTextColor,
-                              size: iconSize),
-                          const SizedBox(width: 5),
-                          Text(
-                            "about_me.dart",
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: RichText(
+                          text: TextSpan(
+                            children: _getFormattedText(
+                                aboutMeText, isDarkMode, baseFontSize),
                             style: GoogleFonts.spaceMono(
                               color:
                                   isDarkMode ? darkTextColor : lightTextColor,
                               fontSize: baseFontSize,
                             ),
                           ),
-                          const Spacer(),
-                          IconButton(
-                            icon: Icon(Icons.copy,
-                                color:
-                                    isDarkMode ? darkTextColor : lightTextColor,
-                                size: iconSize),
-                            onPressed: () {
-                              Clipboard.setData(
-                                  ClipboardData(text: aboutMeText));
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text("Copied to clipboard!",
-                                      style: TextStyle(
-                                          color: isDarkMode
-                                              ? Colors.white
-                                              : Colors.black)),
-                                  backgroundColor: isDarkMode
-                                      ? Colors.grey[900]
-                                      : Colors.grey[300],
-                                ),
-                              );
-                            },
-                          ),
-                          IconButton(
-                            icon: Icon(Icons.close,
-                                color:
-                                    isDarkMode ? darkTextColor : lightTextColor,
-                                size: iconSize),
-                            onPressed: () =>
-                                Navigator.of(context).pop(), // Close on press
-                          ),
-                        ],
-                      ),
-                    ),
-                    // Code Editor Content with Bold Text Formatting
-                    Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: RichText(
-                        text: TextSpan(
-                          children: _getFormattedText(
-                              aboutMeText, isDarkMode, baseFontSize),
-                          style: GoogleFonts.spaceMono(
-                            color: isDarkMode ? darkTextColor : lightTextColor,
-                            fontSize: baseFontSize,
-                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
 
   List<TextSpan> _getFormattedText(
       String text, bool isDarkMode, double fontSize) {
-    final RegExp exp = RegExp(r'\*\*(.*?)\*\*'); // Matches **text**
+    final RegExp exp = RegExp(r'\*\*(.*?)\*\*');
     List<TextSpan> spans = [];
     int lastIndex = 0;
 
@@ -143,7 +183,7 @@ class AboutMeEditor extends StatelessWidget {
 
       spans.add(
         TextSpan(
-          text: match.group(1), // Extract text inside **
+          text: match.group(1),
           style: TextStyle(
               fontWeight: FontWeight.bold,
               color: isDarkMode ? darkTextColor : lightTextColor,
