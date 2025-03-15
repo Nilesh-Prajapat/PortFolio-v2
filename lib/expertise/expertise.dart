@@ -6,9 +6,8 @@ import 'skillcard.dart';
 import 'skilsdata.dart';
 
 class SkillsPage extends StatefulWidget {
-  final double appBarHeight;
 
-  const SkillsPage({Key? key, required this.appBarHeight}) : super(key: key);
+  const SkillsPage({Key? key, }) : super(key: key);
 
   @override
   _SkillsPageState createState() => _SkillsPageState();
@@ -18,11 +17,11 @@ class _SkillsPageState extends State<SkillsPage>
     with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive =>
-      true; // Prevents widget from rebuilding unnecessarily
+      true;
 
   @override
   Widget build(BuildContext context) {
-    super.build(context); // Required when using AutomaticKeepAliveClientMixin
+    super.build(context);
 
     final size = MediaQuery.of(context).size;
     final screenWidth = size.width;

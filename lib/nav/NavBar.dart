@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:port_folio/Project.dart';
+import 'package:port_folio/projects/Project.dart';
 import 'package:port_folio/home/Home.dart';
 import 'package:port_folio/expertise/expertise.dart';
 import 'package:port_folio/theme/theme.dart';
@@ -161,7 +161,11 @@ class _NavbarState extends State<Navbar> {
                                 const MainBody(appBarHeight: kToolbarHeight)),
                         Container(
                           key: _expertiseKey,
-                          child: SkillsPage(appBarHeight: kToolbarHeight),
+                          child: SkillsPage(),
+                        ),
+                        Container(
+                          key: _projectKey,
+                          child: ProjectsSection(),
                         ),
                         // Container(
                         //     key: _projectKey,

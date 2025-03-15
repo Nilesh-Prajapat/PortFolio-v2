@@ -93,7 +93,7 @@ class GitHubStats extends StatelessWidget {
           },
           errorBuilder: (context, error, stackTrace) =>
               Placeholder(
-
+                child: Text("Comming soon"),
               )
         ),
       ),
