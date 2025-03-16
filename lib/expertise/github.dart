@@ -27,6 +27,11 @@ class GitHubStats extends StatelessWidget {
     final streakUrl =
         "https://github-readme-streak-stats.herokuapp.com/?user=$username&theme=radical&hide_border=true";
 
+    // Proxy URLs (use your Vercel proxy route here)
+    final proxyStatsUrl = "https://apinilesh.vercel.app/api/proxy?imageUrl=$statsUrl";
+    final proxyStreakUrl = "https://apinilesh.vercel.app/api/proxy?imageUrl=$streakUrl";
+
+
     // Determine Layout: Row for small screens, Column for larger screens
     final bool isSmallScreen = screenWidth < 850;
 
@@ -36,18 +41,18 @@ class GitHubStats extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _buildStatsSection("GitHub Stats", statsUrl, containerWidth, containerHeight, headingFontSize, headingSpacing),
+          _buildStatsSection("GitHub Stats", proxyStatsUrl, containerWidth, containerHeight, headingFontSize, headingSpacing),
           SizedBox(height: headingSpacing),
-          _buildStatsSection("Current Streak", streakUrl, containerWidth, containerHeight, headingFontSize, headingSpacing),
+          _buildStatsSection("Current Streak", proxyStreakUrl, containerWidth, containerHeight, headingFontSize, headingSpacing),
         ],
       )
           : Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildStatsSection("GitHub Stats", statsUrl, containerWidth, containerHeight, headingFontSize, headingSpacing),
+          _buildStatsSection("GitHub Stats", proxyStatsUrl, containerWidth, containerHeight, headingFontSize, headingSpacing),
           SizedBox(width: headingSpacing),
-          _buildStatsSection("Current Streak", streakUrl, containerWidth, containerHeight, headingFontSize, headingSpacing),
+          _buildStatsSection("Current Streak", proxyStreakUrl, containerWidth, containerHeight, headingFontSize, headingSpacing),
         ],
       ),
     );
@@ -60,9 +65,9 @@ class GitHubStats extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-            fontSize: fontSize,
-            fontWeight: FontWeight.bold,
-            color: isDarkMode ? primaryColor : primaryColorLight
+              fontSize: fontSize,
+              fontWeight: FontWeight.bold,
+              color: isDarkMode ? primaryColor : primaryColorLight
           ),
         ),
         SizedBox(height: spacing ),
@@ -78,23 +83,23 @@ class GitHubStats extends StatelessWidget {
         width: width,
         height: height,
         child: Image.network(
-          url,
-          fit: BoxFit.cover,
-          loadingBuilder: (context, child, loadingProgress) {
-            if (loadingProgress == null) return child;
-            return Center(
-              child: CircularProgressIndicator(
-                value: loadingProgress.expectedTotalBytes != null
-                    ? loadingProgress.cumulativeBytesLoaded /
-                    (loadingProgress.expectedTotalBytes ?? 1)
-                    : null,
-              ),
-            );
-          },
-          errorBuilder: (context, error, stackTrace) =>
-              Placeholder(
-                child: Text("Comming soon"),
-              )
+            url,
+            fit: BoxFit.cover,
+            loadingBuilder: (context, child, loadingProgress) {
+              if (loadingProgress == null) return child;
+              return Center(
+                child: CircularProgressIndicator(
+                  value: loadingProgress.expectedTotalBytes != null
+                      ? loadingProgress.cumulativeBytesLoaded /
+                      (loadingProgress.expectedTotalBytes ?? 1)
+                      : null,
+                ),
+              );
+            },
+            errorBuilder: (context, error, stackTrace) =>
+                Placeholder(
+                  child: Text("Comming soon"),
+                )
         ),
       ),
     );
