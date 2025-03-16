@@ -7,14 +7,14 @@ class GitHubStats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    bool isWideScreen = screenWidth >= 850;
 
-    // Use different widths based on screen size
-    double containerWidth = isWideScreen
-        ? (screenWidth * 0.4).clamp(365, 600)  // Larger screens (Min: 365, Max: 600)
-        : (screenWidth * 0.98);  // Smaller screens (98% of width)
+    // Hide GitHub stats completely for screens below 850 pixels
+    if (screenWidth < 850) {
+      return SizedBox.shrink();
+    }
 
-    double containerHeight = (containerWidth * 0.5).clamp(200, 320);
+    double containerWidth = (screenWidth * 0.4).clamp(365, 600); // Increased min width to 350
+    double containerHeight = (containerWidth * 0.5).clamp(200, 320); // Increased min height to 180
     double headingFontSize = (screenWidth * 0.012 * 1.1).clamp(16, 24);
     double headingSpacing = (MediaQuery.of(context).size.height * 0.02).clamp(12, 25);
 
@@ -22,20 +22,11 @@ class GitHubStats extends StatelessWidget {
     String streakUrl = "https://github-readme-streak-stats.herokuapp.com/?user=$username&theme=radical";
 
     return Center(
-      child: isWideScreen
-          ? Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _buildGitHubWebView(statsUrl, containerWidth, containerHeight, "GitHub Stats", headingSpacing, headingFontSize),
           SizedBox(width: 12),
-          _buildGitHubWebView(streakUrl, containerWidth, containerHeight, "GitHub Streak", headingSpacing, headingFontSize),
-        ],
-      )
-          : Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _buildGitHubWebView(statsUrl, containerWidth, containerHeight, "GitHub Stats", headingSpacing, headingFontSize),
-          SizedBox(height: 12),
           _buildGitHubWebView(streakUrl, containerWidth, containerHeight, "GitHub Streak", headingSpacing, headingFontSize),
         ],
       ),
