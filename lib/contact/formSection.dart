@@ -91,7 +91,7 @@ class _FormSectionState extends State<FormSection> {
     final screenHeight = size.height;
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
-    final double baseFontSize = (screenWidth * 0.013).clamp(12.0, 24.0);
+    final double baseFontSize = (screenWidth * 0.013).clamp(16.0, 24.0);
     final double headingFontSize = (baseFontSize * 1.3).clamp(22.0, 42.0);
 
     final bool isLargeScreen = screenWidth >= 850;
