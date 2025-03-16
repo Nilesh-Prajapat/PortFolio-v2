@@ -7,94 +7,43 @@ class GitHubStats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    bool isWideScreen = screenWidth >= 850;
 
-    // Adjust card width & height based on screen width
-    double containerWidth;
-    double containerHeight;
+    // Use different widths based on screen size
+    double containerWidth = isWideScreen
+        ? (screenWidth * 0.4).clamp(365, 600)  // Larger screens (Min: 365, Max: 600)
+        : (screenWidth * 0.98);  // Smaller screens (98% of width)
 
-    if (screenWidth > 850) {
-      // For large screens, increase the card size
-      containerWidth = (screenWidth * 0.4).clamp(300, 600);  // Increase width for large screens
-    } else {
-      // For small screens, use 90% of the screen width
-      containerWidth = (screenWidth * 0.98); // Set a 90% width for small screens
-    }
-
-    // Adjust height proportionally to width
-    containerHeight = (containerWidth * 0.45).clamp(150, 300);
-
-    double baseFontSize = (screenWidth * 0.012).clamp(12, 18);
-    double headingFontSize = (baseFontSize * 1.1).clamp(14, 24);
-
-    double headingSpacing = (screenHeight * 0.02).clamp(10, 25);
+    double containerHeight = (containerWidth * 0.5).clamp(200, 320);
+    double headingFontSize = (screenWidth * 0.012 * 1.1).clamp(16, 24);
+    double headingSpacing = (MediaQuery.of(context).size.height * 0.02).clamp(12, 25);
 
     String statsUrl = "https://github-readme-stats.vercel.app/api?username=$username&show_icons=true&theme=radical";
     String streakUrl = "https://github-readme-streak-stats.herokuapp.com/?user=$username&theme=radical";
 
     return Center(
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          bool isWideScreen = constraints.maxWidth > 850;
-
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // Pass dynamic titles, spacing, and font size to the view functions
-              isWideScreen
-                  ? _buildGridView(
-                  statsUrl, streakUrl, containerWidth, containerHeight,
-                  "GitHub Stats", "GitHub Streak", headingSpacing, headingFontSize)
-                  : _buildColumnView(
-                  statsUrl, streakUrl, containerWidth, containerHeight,
-                  "GitHub Stats", "GitHub Streak", headingSpacing, headingFontSize),
-            ],
-          );
-        },
-      ),
-    );
-  }
-
-  // Widget for showing stats and streak in a GridView (Horizontal Layout for Wide Screens)
-  Widget _buildGridView(String statsUrl, String streakUrl, double width, double height,
-      String title1, String title2, double headingSpacing, double headingFontSize) {
-    return Container(
-      width: width * 2, // Ensuring there's enough space for both cards
-      child: Row(
+      child: isWideScreen
+          ? Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Flexible(
-            child: _buildGitHubWebView(
-                statsUrl, width, height, title1, headingSpacing, headingFontSize),
-          ),
-          SizedBox(width: 10),
-          Flexible(
-            child: _buildGitHubWebView(
-                streakUrl, width, height, title2, headingSpacing, headingFontSize),
-          ),
+          _buildGitHubWebView(statsUrl, containerWidth, containerHeight, "GitHub Stats", headingSpacing, headingFontSize),
+          SizedBox(width: 12),
+          _buildGitHubWebView(streakUrl, containerWidth, containerHeight, "GitHub Streak", headingSpacing, headingFontSize),
+        ],
+      )
+          : Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          _buildGitHubWebView(statsUrl, containerWidth, containerHeight, "GitHub Stats", headingSpacing, headingFontSize),
+          SizedBox(height: 12),
+          _buildGitHubWebView(streakUrl, containerWidth, containerHeight, "GitHub Streak", headingSpacing, headingFontSize),
         ],
       ),
     );
   }
 
-  // Widget for showing stats and streak in a Column (Vertical Layout for Narrow Screens)
-  Widget _buildColumnView(String statsUrl, String streakUrl, double width, double height,
-      String title1, String title2, double headingSpacing, double headingFontSize) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        _buildGitHubWebView(
-            statsUrl, width, height, title1, headingSpacing, headingFontSize),
-        SizedBox(height: 10),
-        _buildGitHubWebView(
-            streakUrl, width, height, title2, headingSpacing, headingFontSize),
-      ],
-    );
-  }
-
-  // WebView widget with dynamic title, heading spacing, and heading font size
-  Widget _buildGitHubWebView(String url, double width, double height,
-      String title, double headingSpacing, double headingFontSize) {
+  // WebView widget with dynamic title
+  Widget _buildGitHubWebView(String url, double width, double height, String title, double headingSpacing, double headingFontSize) {
     return ClipRect(
       child: SizedBox(
         width: width,
@@ -103,11 +52,8 @@ class GitHubStats extends StatelessWidget {
           children: [
             SizedBox(height: headingSpacing),
             Text(
-              title,  // Use the passed dynamic title here
-              style: TextStyle(
-                fontSize: headingFontSize,
-                fontWeight: FontWeight.bold,
-              ),
+              title,
+              style: TextStyle(fontSize: headingFontSize, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: headingSpacing),
             Expanded(
