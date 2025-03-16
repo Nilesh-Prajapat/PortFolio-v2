@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:port_folio/contact/Contact.dart';
 import 'package:port_folio/projects/Project.dart';
 import 'package:port_folio/home/Home.dart';
 import 'package:port_folio/expertise/expertise.dart';
@@ -166,6 +167,10 @@ class _NavbarState extends State<Navbar> {
                         Container(
                           key: _projectKey,
                           child: ProjectsSection(),
+                        ),
+                        Container(
+                          key: _contactKey,
+                          child: ContactPage(),
                         ),
 
                       ],
