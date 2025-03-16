@@ -24,16 +24,12 @@ class _FormSectionState extends State<FormSection> {
   bool isSubmitting = false;
   String? errorMessage;
 
+  final RegExp emailRegex = RegExp(
+    r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",
+  );
 
   Future<void> _submitForm() async {
-    if (_nameController.text.trim().isEmpty ||
-        _emailController.text.trim().isEmpty ||
-        _messageController.text.trim().isEmpty) {
-      setState(() {
-        errorMessage = "All fields are required.";
-      });
-      return;
-    }
+    if (!_formKey.currentState!.validate()) return;
 
     setState(() {
       isSubmitting = true;
@@ -72,7 +68,6 @@ class _FormSectionState extends State<FormSection> {
       isSubmitting = false;
     });
   }
-
 
   void _showSuccessPopup() {
     showDialog(
@@ -144,7 +139,7 @@ class _FormSectionState extends State<FormSection> {
               children: [
                 _buildTextField("Name", _nameController, textStyle, isDarkMode),
                 SizedBox(height: 16),
-                _buildTextField("Email", _emailController, textStyle, isDarkMode),
+                _buildTextField("Email", _emailController, textStyle, isDarkMode, isEmail: true),
                 SizedBox(height: 16),
                 _buildTextField("Message", _messageController, textStyle, isDarkMode, maxLines: 5),
                 SizedBox(height: sectionSpacing * 0.8),
@@ -152,7 +147,10 @@ class _FormSectionState extends State<FormSection> {
                 ElevatedButton(
                   onPressed: isSubmitting ? null : _submitForm,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: isDarkMode ? primaryColor : primaryColorLight,
+                    backgroundColor: isSubmitting
+                        ? (isDarkMode ? primaryColor.withOpacity(0.6) : primaryColorLight.withOpacity(0.6))
+                        : (isDarkMode ? primaryColor : primaryColorLight),
+                    disabledBackgroundColor: isDarkMode ? primaryColor.withOpacity(0.6) : primaryColorLight.withOpacity(0.6),
                     padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -186,14 +184,26 @@ class _FormSectionState extends State<FormSection> {
     );
   }
 
-  Widget _buildTextField(String label, TextEditingController controller, TextStyle textStyle, bool isDarkMode, {int maxLines = 1}) {
+  Widget _buildTextField(String label, TextEditingController controller, TextStyle textStyle, bool isDarkMode, {bool isEmail = false, int maxLines = 1}) {
     return TextFormField(
       controller: controller,
       maxLines: maxLines,
       style: textStyle,
+      keyboardType: isEmail ? TextInputType.emailAddress : TextInputType.text,
+      validator: (value) {
+        if (value == null || value.trim().isEmpty) {
+          return "$label is required";
+        }
+        if (isEmail && !emailRegex.hasMatch(value.trim())) {
+          return "Enter a valid email";
+        }
+        return null;
+      },
       decoration: InputDecoration(
         labelText: label,
         labelStyle: textStyle,
+        alignLabelWithHint: true, // Keeps label top-aligned
+        floatingLabelBehavior: FloatingLabelBehavior.always, // Ensures label stays visible
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(

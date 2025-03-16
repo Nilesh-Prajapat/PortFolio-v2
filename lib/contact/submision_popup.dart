@@ -97,38 +97,43 @@ class _SubmissionPopupState extends State<SubmissionPopup>
                           topRight: Radius.circular(10),
                         ),
                       ),
-                      child: Row(
-                        children: [
-                          const Icon(Icons.check_circle,
-                              color: Colors.green, size: 24),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: Text(
-                              "Submission Successful",
-                              style: GoogleFonts.spaceMono(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: isDarkMode ? Colors.white : Colors.black,
+                      child: Padding(
+                        padding:  EdgeInsets.all(5.0),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.check_circle,
+                                color: Colors.green, size: 24),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                "Submission Successful",
+                                style: GoogleFonts.spaceMono(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: isDarkMode ? Colors.white : Colors.black,
+                                ),
                               ),
                             ),
-                          ),
-                          IconButton(
-                            icon: Icon(Icons.close,
-                                color:
-                                    isDarkMode ? Colors.white : Colors.black),
-                            onPressed: () => Navigator.of(context).pop(),
-                          ),
-                        ],
+                            IconButton(
+                              icon: Icon(Icons.close,
+                                  color:
+                                      isDarkMode ? Colors.white : Colors.black),
+                              onPressed: () => Navigator.of(context).pop(),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    const SizedBox(height: 8),
-                    Text(
-                      widget.message,
-                      style: GoogleFonts.spaceMono(
-                        fontSize: 14,
-                        color: isDarkMode ? Colors.white70 : Colors.black87,
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Text(
+                        widget.message,
+                        style: GoogleFonts.spaceMono(
+                          fontSize: 14,
+                          color: isDarkMode ? Colors.white70 : Colors.black87,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ],
                 ),
