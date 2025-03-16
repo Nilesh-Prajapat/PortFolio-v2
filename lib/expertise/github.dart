@@ -1,156 +1,123 @@
-import 'dart:typed_data';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:port_folio/theme/theme.dart';
-import 'package:flutter_svg/flutter_svg.dart'; // Import flutter_svg package
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
-class GitHubStats extends StatefulWidget {
-  final bool isDarkMode;
+class GitHubStats extends StatelessWidget {
   final String username = "nilesh-prajapat";
-
-  const GitHubStats({Key? key, required this.isDarkMode}) : super(key: key);
-
-  @override
-  _GitHubStatsState createState() => _GitHubStatsState();
-}
-
-class _GitHubStatsState extends State<GitHubStats> {
-  late String statsUrl;
-  late String streakUrl;
-  late String proxyStatsUrl;
-  late String proxyStreakUrl;
-
-  late Future<Uint8List> statsImage;
-  late Future<Uint8List> streakImage;
-
-  @override
-  void initState() {
-    super.initState();
-
-    statsUrl = "https://github-readme-stats.vercel.app/api?username=${widget.username}&show_icons=true&locale=en";
-    streakUrl = "https://github-readme-streak-stats.herokuapp.com/?user=${widget.username}&theme=radical&hide_border=true";
-
-    proxyStatsUrl = "https://apinilesh.vercel.app/api/proxy?imageUrl=$statsUrl";
-    proxyStreakUrl = "https://apinilesh.vercel.app/api/proxy?imageUrl=$streakUrl";
-
-    // Fetch the images
-    statsImage = fetchImage(proxyStatsUrl);
-    streakImage = fetchImage(proxyStreakUrl);
-  }
-
-  Future<Uint8List> fetchImage(String url) async {
-    final response = await http.get(Uri.parse(url));
-    if (response.statusCode == 200) {
-      return response.bodyBytes;
-    } else {
-      throw Exception('Failed to load image');
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
 
-    // Adjust container width and height based on screen size
-    final containerWidth = (screenWidth >= 850 ? (screenWidth * 0.40) : (screenWidth * 0.94));
-    final containerHeight = (containerWidth * 0.4).clamp((screenWidth >= 850 ? 168.00 : 120.00), screenHeight);
+    // Adjust card width & height based on screen width
+    double containerWidth;
+    double containerHeight;
 
-    // Font size adjustments
-    final baseFontSize = (screenWidth * 0.012).clamp(12.0, 18.0);
-    final headingFontSize = (baseFontSize * 1.1).clamp(16.0, 24.0);
-    final headingSpacing = (screenHeight * 0.02).clamp(10.0, 25.0);
+    if (screenWidth > 850) {
+      // For large screens, increase the card size
+      containerWidth = (screenWidth * 0.4).clamp(300, 600);  // Increase width for large screens
+    } else {
+      // For small screens, use 90% of the screen width
+      containerWidth = (screenWidth * 0.98); // Set a 90% width for small screens
+    }
 
-    // Determine Layout: Row for large screens, Column for small screens
-    final bool isSmallScreen = screenWidth < 850;
+    // Adjust height proportionally to width
+    containerHeight = (containerWidth * 0.45).clamp(150, 300);
+
+    double baseFontSize = (screenWidth * 0.012).clamp(12, 18);
+    double headingFontSize = (baseFontSize * 1.1).clamp(14, 24);
+
+    double headingSpacing = (screenHeight * 0.02).clamp(10, 25);
+
+    String statsUrl = "https://github-readme-stats.vercel.app/api?username=$username&show_icons=true&theme=radical";
+    String streakUrl = "https://github-readme-streak-stats.herokuapp.com/?user=$username&theme=radical";
 
     return Center(
-      child: isSmallScreen
-          ? Column(
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          bool isWideScreen = constraints.maxWidth > 850;
+
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // Pass dynamic titles, spacing, and font size to the view functions
+              isWideScreen
+                  ? _buildGridView(
+                  statsUrl, streakUrl, containerWidth, containerHeight,
+                  "GitHub Stats", "GitHub Streak", headingSpacing, headingFontSize)
+                  : _buildColumnView(
+                  statsUrl, streakUrl, containerWidth, containerHeight,
+                  "GitHub Stats", "GitHub Streak", headingSpacing, headingFontSize),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  // Widget for showing stats and streak in a GridView (Horizontal Layout for Wide Screens)
+  Widget _buildGridView(String statsUrl, String streakUrl, double width, double height,
+      String title1, String title2, double headingSpacing, double headingFontSize) {
+    return Container(
+      width: width * 2, // Ensuring there's enough space for both cards
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _buildStatsSection("GitHub Stats", statsImage, containerWidth, containerHeight, headingFontSize, headingSpacing),
-          SizedBox(height: headingSpacing),
-          _buildStatsSection("Current Streak", streakImage, containerWidth, containerHeight, headingFontSize, headingSpacing),
-        ],
-      )
-          : Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildStatsSection("GitHub Stats", statsImage, containerWidth, containerHeight, headingFontSize, headingSpacing),
-          SizedBox(width: headingSpacing),
-          _buildStatsSection("Current Streak", streakImage, containerWidth, containerHeight, headingFontSize, headingSpacing),
+          Flexible(
+            child: _buildGitHubWebView(
+                statsUrl, width, height, title1, headingSpacing, headingFontSize),
+          ),
+          SizedBox(width: 10),
+          Flexible(
+            child: _buildGitHubWebView(
+                streakUrl, width, height, title2, headingSpacing, headingFontSize),
+          ),
         ],
       ),
     );
   }
 
-  // Reusable method for stats sections
-  Widget _buildStatsSection(String title, Future<Uint8List> image, double width, double height, double fontSize, double spacing) {
+  // Widget for showing stats and streak in a Column (Vertical Layout for Narrow Screens)
+  Widget _buildColumnView(String statsUrl, String streakUrl, double width, double height,
+      String title1, String title2, double headingSpacing, double headingFontSize) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          title,
-          style: TextStyle(
-              fontSize: fontSize,
-              fontWeight: FontWeight.bold,
-              color: widget.isDarkMode ? primaryColor : primaryColorLight
-          ),
-        ),
-        SizedBox(height: spacing),
-        FutureBuilder<Uint8List>(
-          future: image,
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CircularProgressIndicator());
-            } else if (snapshot.hasError) {
-              return Center(child: Icon(Icons.error, color: widget.isDarkMode ? Colors.white : Colors.black, size: 40));
-            } else if (snapshot.hasData) {
-              return _buildGitHubImage(snapshot.data!, width, height);
-            } else {
-              return Center(child: Text('Failed to load image.'));
-            }
-          },
-        ),
+        _buildGitHubWebView(
+            statsUrl, width, height, title1, headingSpacing, headingFontSize),
+        SizedBox(height: 10),
+        _buildGitHubWebView(
+            streakUrl, width, height, title2, headingSpacing, headingFontSize),
       ],
     );
   }
 
-  // Reusable method for displaying GitHub image
-  Widget _buildGitHubImage(Uint8List imageData, double width, double height) {
-    // Convert the image data (bytes) to a string
-    String url = String.fromCharCodes(imageData);
-
-    // Check if the image data is in SVG format
-    if (url.startsWith('<svg')) {
-      // If the data starts with "<svg", it's an SVG, so use SvgPicture.network
-      return ClipRRect(
-        borderRadius: BorderRadius.circular(8),
-        child: SizedBox(
-          width: width,
-          height: height,
-          child: SvgPicture.network(
-            url,  // Use the URL if it's an SVG
-            fit: BoxFit.contain,  // Keeps the aspect ratio while adjusting size
-          ),
+  // WebView widget with dynamic title, heading spacing, and heading font size
+  Widget _buildGitHubWebView(String url, double width, double height,
+      String title, double headingSpacing, double headingFontSize) {
+    return ClipRect(
+      child: SizedBox(
+        width: width,
+        height: height,
+        child: Column(
+          children: [
+            SizedBox(height: headingSpacing),
+            Text(
+              title,  // Use the passed dynamic title here
+              style: TextStyle(
+                fontSize: headingFontSize,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: headingSpacing),
+            Expanded(
+              child: InAppWebView(
+                initialUrlRequest: URLRequest(url: WebUri(url)),
+              ),
+            ),
+          ],
         ),
-      );
-    } else {
-      // Otherwise, assume it's a regular image
-      return ClipRRect(
-        borderRadius: BorderRadius.circular(8),
-        child: SizedBox(
-          width: width,
-          height: height,
-          child: Image.memory(
-            imageData,
-            fit: BoxFit.contain,  // Keeps the aspect ratio while adjusting size
-          ),
-        ),
-      );
-    }
+      ),
+    );
   }
 }

@@ -83,7 +83,7 @@ class _SkillsPageState extends State<SkillsPage>
                 ),
               ),
               SizedBox(height: sectionSpacing * 0.8 ),
-              GitHubStats(isDarkMode: isDarkMode,),
+              GitHubStats(),
               SizedBox(height: sectionSpacing * 0.8),
 
             ],
@@ -102,7 +102,7 @@ class _SkillsPageState extends State<SkillsPage>
                 ),
               ),
               SizedBox(height: skillGitHubSpacing),
-              GitHubStats(isDarkMode: isDarkMode,),
+              GitHubStats(),
               SizedBox(height: skillGitHubSpacing),
             ],
           ),

@@ -13,6 +13,7 @@ void main() {
     ChangeNotifierProvider(
       create: (context) => ThemeProvider(),
       child: const MyApp(),
+
     ),
   );
 }
@@ -29,6 +30,7 @@ class _MyAppState extends State<MyApp> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     _preloadProfileImage();
+
   }
 
   void _preloadProfileImage() {
