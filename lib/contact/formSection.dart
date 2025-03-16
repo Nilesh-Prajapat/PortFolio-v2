@@ -40,26 +40,18 @@ class _FormSectionState extends State<FormSection> {
       errorMessage = null;
     });
 
-    const String apiKey = "re_EUbPNfgC_DrPNPxatBazeAvHDLjqtehy4"; // 🔹 Replace with your API Key
-    final Uri apiUrl = Uri.parse("https://itsnilesh.app/api/send_email");
+    final Uri apiUrl = Uri.parse("https://itsnilesh.app/api/send_email"); // ✅ Your Vercel API URL
 
     try {
       final response = await http.post(
         apiUrl,
         headers: {
-          "Authorization": "Bearer $apiKey",
           "Content-Type": "application/json",
         },
         body: jsonEncode({
-          "from": "${_nameController.text.trim()}", // 🔹 Replace with a verified domain email
-          "to": ["work.nilesh.pr@gmail.com"], // 🔹 Your receiving email
-          "subject": "New Contact Form Submission",
-          "html": """
-          <h2>Contact Form Submission</h2>
-          <p><b>Name:</b> ${_nameController.text.trim()}</p>
-          <p><b>Email:</b> ${_emailController.text.trim()}</p>
-          <p><b>Message:</b> ${_messageController.text.trim()}</p>
-        """,
+          "name": _nameController.text.trim(),
+          "email": _emailController.text.trim(),
+          "message": _messageController.text.trim(),
         }),
       );
 
