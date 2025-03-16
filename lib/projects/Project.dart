@@ -41,9 +41,7 @@ class ProjectsSection extends StatelessWidget {
           height: sectionSpacing * 0.8,
         ),
         ProjectSec(),
-        SizedBox(
-          height: sectionSpacing * 0.8,
-        ),
+
       ],
     );
   }

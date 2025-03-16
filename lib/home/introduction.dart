@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:port_folio/aboutme.dart';
+import 'package:port_folio/home/aboutme.dart';
 import 'package:port_folio/theme/theme.dart';
 import 'package:port_folio/utils/textParse.dart';
 import 'social_links.dart';
