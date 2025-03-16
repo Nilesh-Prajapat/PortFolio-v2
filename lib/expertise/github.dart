@@ -31,7 +31,6 @@ class GitHubStats extends StatelessWidget {
     final proxyStatsUrl = "https://apinilesh.vercel.app/api/proxy?imageUrl=$statsUrl";
     final proxyStreakUrl = "https://apinilesh.vercel.app/api/proxy?imageUrl=$streakUrl";
 
-
     // Determine Layout: Row for small screens, Column for larger screens
     final bool isSmallScreen = screenWidth < 850;
 
@@ -83,23 +82,8 @@ class GitHubStats extends StatelessWidget {
         width: width,
         height: height,
         child: Image.network(
-            url,
-            fit: BoxFit.cover,
-            loadingBuilder: (context, child, loadingProgress) {
-              if (loadingProgress == null) return child;
-              return Center(
-                child: CircularProgressIndicator(
-                  value: loadingProgress.expectedTotalBytes != null
-                      ? loadingProgress.cumulativeBytesLoaded /
-                      (loadingProgress.expectedTotalBytes ?? 1)
-                      : null,
-                ),
-              );
-            },
-            errorBuilder: (context, error, stackTrace) =>
-                Placeholder(
-                  child: Text("Comming soon"),
-                )
+          url,
+          fit: BoxFit.cover,
         ),
       ),
     );
