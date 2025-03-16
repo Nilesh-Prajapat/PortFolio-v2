@@ -6,8 +6,7 @@ import 'skillcard.dart';
 import 'skilsdata.dart';
 
 class SkillsPage extends StatefulWidget {
-
-  const SkillsPage({Key? key, }) : super(key: key);
+  const SkillsPage({Key? key}) : super(key: key);
 
   @override
   _SkillsPageState createState() => _SkillsPageState();
@@ -16,8 +15,7 @@ class SkillsPage extends StatefulWidget {
 class _SkillsPageState extends State<SkillsPage>
     with AutomaticKeepAliveClientMixin {
   @override
-  bool get wantKeepAlive =>
-      true;
+  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +34,10 @@ class _SkillsPageState extends State<SkillsPage>
     final int cardsPerRow = screenWidth > 1100
         ? 6
         : screenWidth > 900
-            ? 5
-            : screenWidth > 700
-                ? 4
-                : 3;
+        ? 5
+        : screenWidth > 700
+        ? 4
+        : 3;
 
     // Card size
     double cardWidth = (screenWidth / (cardsPerRow + 0.5)) * 0.85;
@@ -66,46 +64,22 @@ class _SkillsPageState extends State<SkillsPage>
             color: isDarkMode ? primaryColor : primaryColorLight,
           ),
         ),
-        SizedBox(height: sectionSpacing * 0.8 ),
-        if (screenWidth >= 850)
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding:  EdgeInsets.symmetric(horizontal: screenWidth * 0.008),
-                child: Skillsection(
-                  dynamicSpacing: dynamicSpacing,
-                  dynamicRunSpacing: dynamicRunSpacing,
-                  cardHeight: cardHeight,
-                  cardWidth: cardWidth,
-                  isDarkMode: isDarkMode,
-                ),
-              ),
-              SizedBox(height: sectionSpacing * 0.8 ),
-              GitHubStats(),
-              SizedBox(height: sectionSpacing * 0.8),
-
-            ],
-          )
-        else
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Skillsection(
-                  dynamicSpacing: dynamicSpacing,
-                  dynamicRunSpacing: dynamicRunSpacing,
-                  cardHeight: cardHeight,
-                  cardWidth: cardWidth,
-                  isDarkMode: isDarkMode,
-                ),
-              ),
-              SizedBox(height: skillGitHubSpacing),
-              GitHubStats(),
-              SizedBox(height: skillGitHubSpacing),
-            ],
+        SizedBox(height: sectionSpacing * 0.8),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.008),
+          child: Skillsection(
+            dynamicSpacing: dynamicSpacing,
+            dynamicRunSpacing: dynamicRunSpacing,
+            cardHeight: cardHeight,
+            cardWidth: cardWidth,
+            isDarkMode: isDarkMode,
           ),
+        ),
+        if (screenWidth >= 850) ...[
+          SizedBox(height: sectionSpacing * 0.8),
+          GitHubStats(),
+          SizedBox(height: sectionSpacing * 0.8),
+        ],
       ],
     );
   }
