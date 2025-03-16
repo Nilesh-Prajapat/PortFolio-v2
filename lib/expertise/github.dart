@@ -2,6 +2,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:port_folio/theme/theme.dart';
+import 'package:flutter_svg/flutter_svg.dart'; // Import flutter_svg package
 
 class GitHubStats extends StatefulWidget {
   final bool isDarkMode;
@@ -120,16 +121,36 @@ class _GitHubStatsState extends State<GitHubStats> {
 
   // Reusable method for displaying GitHub image
   Widget _buildGitHubImage(Uint8List imageData, double width, double height) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(8),
-      child: SizedBox(
-        width: width,
-        height: height,
-        child: Image.memory(
-          imageData,
-          fit: BoxFit.contain, // Keeps the aspect ratio while adjusting size
+    // Convert the image data (bytes) to a string
+    String url = String.fromCharCodes(imageData);
+
+    // Check if the image data is in SVG format
+    if (url.startsWith('<svg')) {
+      // If the data starts with "<svg", it's an SVG, so use SvgPicture.network
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: SizedBox(
+          width: width,
+          height: height,
+          child: SvgPicture.network(
+            url,  // Use the URL if it's an SVG
+            fit: BoxFit.contain,  // Keeps the aspect ratio while adjusting size
+          ),
         ),
-      ),
-    );
+      );
+    } else {
+      // Otherwise, assume it's a regular image
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: SizedBox(
+          width: width,
+          height: height,
+          child: Image.memory(
+            imageData,
+            fit: BoxFit.contain,  // Keeps the aspect ratio while adjusting size
+          ),
+        ),
+      );
+    }
   }
 }
