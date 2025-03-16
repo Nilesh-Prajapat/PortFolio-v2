@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:port_folio/utils/LayoutConstraints.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import 'package:port_folio/theme/theme.dart';
 
@@ -60,9 +61,7 @@ class _AvatarWidgetState extends State<AvatarWidget>
 
   @override
   Widget build(BuildContext context) {
-    double avatarSize = widget.isLargeScreen
-        ? (widget.screenWidth * 0.15).clamp(150.0, 300.0)
-        : (widget.screenWidth * 0.32).clamp(80.0, 180.0);
+
 
     return VisibilityDetector(
       key: const Key('avatar-widget'),
@@ -88,7 +87,7 @@ class _AvatarWidgetState extends State<AvatarWidget>
               ],
             ),
             child: CircleAvatar(
-              radius: avatarSize,
+              radius: Utils.avatarSize(context),
               backgroundColor: Colors.transparent, // Fixes blue overlay issue
               backgroundImage: const AssetImage('assets/images/profile.webp'),
             ),

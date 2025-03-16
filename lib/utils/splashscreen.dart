@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:port_folio/utils/LayoutConstraints.dart';
 
 import '../nav/NavBar.dart';
 
@@ -58,8 +59,8 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
-    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    final Size screenSize = MediaQuery.of(context).size;
+    final bool isDarkMode = Utils.isDarkMode(context);
+    final Size screenSize = Utils.size(context);
 
     return Scaffold(
       backgroundColor: isDarkMode ? Colors.black : Colors.white,

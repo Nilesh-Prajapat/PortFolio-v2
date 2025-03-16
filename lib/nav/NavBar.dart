@@ -5,7 +5,7 @@ import 'package:port_folio/projects/Project.dart';
 import 'package:port_folio/home/Home.dart';
 import 'package:port_folio/expertise/expertise.dart';
 import 'package:port_folio/theme/theme.dart';
-import 'dart:math';
+import 'package:port_folio/utils/LayoutConstraints.dart';
 import 'package:provider/provider.dart';
 import '../theme/theme_provider.dart';
 
@@ -84,17 +84,10 @@ class _NavbarState extends State<Navbar> {
 
   @override
   Widget build(BuildContext context) {
-    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    final isMobile = MediaQuery.of(context).size.width < 850;
-    Size size = MediaQuery.of(context).size;
+    final bool isDarkMode = Utils.isDarkMode(context);
+    final Size size = Utils.size(context);
+    final isMobile = size.width < 850;
 
-    double headingFontSize = isMobile
-        ? max(14, min(size.width * 0.045, 24))
-        : max(16, min(size.width * 0.02, 28));
-
-    double navItemFontSize = isMobile
-        ? max(12, min(size.width * 0.035, 18))
-        : max(13, min(size.width * 0.013, 18));
 
     return SafeArea(
       child: Scaffold(
@@ -111,7 +104,7 @@ class _NavbarState extends State<Navbar> {
                         Text(
                           './Nilesh ',
                           style: GoogleFonts.spaceMono(
-                            fontSize: headingFontSize,
+                            fontSize: Utils.heading(context),
                             letterSpacing: 1.0,
                             fontWeight: FontWeight.w500,
                             color: isDarkMode ? darkTextColor : lightTextColor,
@@ -120,7 +113,7 @@ class _NavbarState extends State<Navbar> {
                         Text(
                           'Prajapat',
                           style: GoogleFonts.spaceMono(
-                            fontSize: headingFontSize,
+                            fontSize: Utils.heading(context),
                             letterSpacing: 2.0,
                             fontWeight: FontWeight.w700,
                             color:
@@ -144,7 +137,7 @@ class _NavbarState extends State<Navbar> {
                                 horizontal: size.width * 0.009),
                             child: Row(
                               children: [
-                                ..._buildNavItems(navItemFontSize, isDarkMode),
+                                ..._buildNavItems(Utils.navItems(context),isDarkMode),
                                 _buildThemeToggleButton(isMobile),
                               ],
                             ),
@@ -218,7 +211,7 @@ class _NavbarState extends State<Navbar> {
                                         ? darkTextColor
                                         : lightTextColor,
                                 letterSpacing: 2.0,
-                                fontSize: navItemFontSize * 1.1,
+                                fontSize: Utils.navItems(context) * 1.1,
                               ),
                             ),
                           ),
@@ -333,30 +326,6 @@ class _NavbarState extends State<Navbar> {
           ),
         );
       },
-    );
-  }
-
-  Widget _buildExpertisePage(double screenWidth, double screenHeight) {
-    return SizedBox(
-      width: screenWidth * 0.8,
-      height: screenHeight * 0.8,
-      child: const Center(child: Text('Expertise Page')),
-    );
-  }
-
-  Widget _buildProjectPage(double screenWidth, double screenHeight) {
-    return SizedBox(
-      width: screenWidth * 0.8,
-      height: screenHeight * 0.8,
-      child: const Center(child: Text('Project Page')),
-    );
-  }
-
-  Widget _buildContactPage(double screenWidth, double screenHeight) {
-    return SizedBox(
-      width: screenWidth * 0.8,
-      height: screenHeight * 0.8,
-      child: const Center(child: Text('Contact Me Page')),
     );
   }
 }

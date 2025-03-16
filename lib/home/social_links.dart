@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:port_folio/theme/theme.dart';
+import 'package:port_folio/utils/LayoutConstraints.dart';
 import 'package:port_folio/utils/textParse.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -18,11 +19,10 @@ class SocialLinksWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double iconSize =
-    (screenWidth * (isLargeScreen ? 0.025 : 0.072)).clamp(24.0, 45.0);
+
 
     final TextStyle textStyle = GoogleFonts.spaceMono(
-      fontSize: (iconSize * 0.6).clamp(12.0, 20.0),
+      fontSize: Utils.socialTextSize(context),
       color: isDarkMode ? darkTextColor : lightTextColor,
     );
 
@@ -49,7 +49,7 @@ class SocialLinksWidget extends StatelessWidget {
         data["icon"]!,
         Uri.parse(data["url"]!),
         data["name"]!,
-        iconSize,
+        Utils.socialIconSize(context),
         textStyle,
       );
     }).toList();

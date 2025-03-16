@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:port_folio/theme/theme.dart';
+import 'package:port_folio/utils/LayoutConstraints.dart';
 
 class AboutMeEditor extends StatefulWidget {
   const AboutMeEditor({super.key});
@@ -13,39 +14,29 @@ class AboutMeEditor extends StatefulWidget {
 class _AboutMeEditorState extends State<AboutMeEditor> {
   late double xPos;
   late double yPos;
-  late double screenWidth;
-  late double screenHeight;
+  late double containerWidth;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    screenWidth = MediaQuery.of(context).size.width;
-    screenHeight = MediaQuery.of(context).size.height;
 
-    final double containerWidth = screenWidth > 850
-        ? (screenWidth * 0.85).clamp(600, 850)
-        : (screenWidth * 0.85).clamp(300, 550);
+    final size = Utils.size(context);
+    containerWidth = Utils.containerWidth(context);
 
-    final double containerHeight = screenWidth > 850 ? 350 : 300;
-
-    // Centering the window
-    xPos = (screenWidth - containerWidth) / 2;
-    yPos = (screenHeight) / 10;
+    // Center the window
+    xPos = (size.width - containerWidth) / 2;
+    yPos = size.height / 10;
   }
 
   @override
   Widget build(BuildContext context) {
-    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-
-    final double containerWidth = screenWidth > 850
-        ? (screenWidth * 0.85).clamp(600, 850)
-        : (screenWidth * 0.85).clamp(300, 550);
-
-    final double baseFontSize = screenWidth > 850 ? 15 : 13;
-    final double iconSize = screenWidth > 850 ? 22 : 16;
+    final bool isDarkMode = Utils.isDarkMode(context);
+    final size = Utils.size(context);
+    final double baseFontSize = size.width > 850 ? 15 : 13;
+    final double iconSize = size.width > 850 ? 22 : 16;
 
     final String aboutMeText =
-        screenWidth > 850 ? fullAboutMeText : shortAboutMeText;
+    size.width > 850 ? fullAboutMeText : shortAboutMeText;
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -54,9 +45,7 @@ class _AboutMeEditorState extends State<AboutMeEditor> {
           GestureDetector(
             onTap: () => Navigator.of(context).pop(),
             child: Container(
-              color: isDarkMode
-                  ? Colors.black
-                  : Colors.white, // Updated background color
+              color: isDarkMode ? Colors.black : Colors.white,
             ),
           ),
           Positioned(
@@ -64,10 +53,12 @@ class _AboutMeEditorState extends State<AboutMeEditor> {
             top: yPos,
             child: GestureDetector(
               onPanUpdate: (details) {
-                setState(() {
-                  xPos += details.delta.dx;
-                  yPos += details.delta.dy;
-                });
+                if (mounted) {
+                  setState(() {
+                    xPos += details.delta.dx;
+                    yPos += details.delta.dy;
+                  });
+                }
               },
               child: GestureDetector(
                 onTap: () {}, // Prevents closing when tapped inside
@@ -98,15 +89,16 @@ class _AboutMeEditorState extends State<AboutMeEditor> {
                         child: Row(
                           children: [
                             Icon(Icons.description,
-                                color:
-                                    isDarkMode ? darkTextColor : lightTextColor,
+                                color: isDarkMode
+                                    ? darkTextColor
+                                    : lightTextColor,
                                 size: iconSize),
                             const SizedBox(width: 5),
                             Text(
                               "about_me.dart",
                               style: GoogleFonts.spaceMono(
                                 color:
-                                    isDarkMode ? darkTextColor : lightTextColor,
+                                isDarkMode ? darkTextColor : lightTextColor,
                                 fontSize: baseFontSize,
                               ),
                             ),
@@ -152,8 +144,9 @@ class _AboutMeEditorState extends State<AboutMeEditor> {
                             children: _getFormattedText(
                                 aboutMeText, isDarkMode, baseFontSize),
                             style: GoogleFonts.spaceMono(
-                              color:
-                                  isDarkMode ? darkTextColor : lightTextColor,
+                              color: isDarkMode
+                                  ? darkTextColor
+                                  : lightTextColor,
                               fontSize: baseFontSize,
                             ),
                           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:port_folio/utils/LayoutConstraints.dart';
 import 'avatar.dart';
 import 'introduction.dart';
 
@@ -14,11 +15,10 @@ class MainBody extends StatefulWidget {
 class _MainBodyState extends State<MainBody> {
   @override
   Widget build(BuildContext context) {
-    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-    final isLargeScreen = screenWidth > 850;
-    double bodyHeight = screenHeight - widget.appBarHeight;
+    bool isDarkMode = Utils.isDarkMode(context);
+    final Size size = Utils.size(context);
+    final isLargeScreen = size.width > 850;
+    double bodyHeight = size.height - widget.appBarHeight;
 
     return ConstrainedBox(
       constraints: BoxConstraints(
@@ -33,20 +33,18 @@ class _MainBodyState extends State<MainBody> {
                 children: [
                   Flexible(
                     child: AvatarWidget(
-                      screenWidth: screenWidth,
+                      screenWidth: size.width,
                       isDarkMode: isDarkMode,
                       isLargeScreen: isLargeScreen,
                     ),
                   ),
                   Flexible(
                     child: Column(
-                      mainAxisSize: MainAxisSize.min, // Prevents unnecessary expansion
+                      mainAxisSize:
+                          MainAxisSize.min, // Prevents unnecessary expansion
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        IntroWidget(
-                          screenWidth: screenWidth,
-                          isLargeScreen: isLargeScreen,
-                        ),
+                        IntroWidget(),
                       ],
                     ),
                   ),
@@ -59,15 +57,12 @@ class _MainBodyState extends State<MainBody> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 AvatarWidget(
-                  screenWidth: screenWidth,
+                  screenWidth: size.width,
                   isDarkMode: isDarkMode,
                   isLargeScreen: isLargeScreen,
                 ),
                 const SizedBox(height: 80),
-                IntroWidget(
-                  screenWidth: screenWidth,
-                  isLargeScreen: isLargeScreen,
-                ),
+                IntroWidget(),
               ],
             );
           }
