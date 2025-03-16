@@ -40,7 +40,7 @@ class _FormSectionState extends State<FormSection> {
       errorMessage = null;
     });
 
-    final Uri apiUrl = Uri.parse("https://itsnilesh.vercel.app/api/send_email"); // ✅ Your Vercel API URL
+    final Uri apiUrl = Uri.parse("https://apinilesh.vercel.app/api/send_email");
 
     try {
       final response = await http.post(
