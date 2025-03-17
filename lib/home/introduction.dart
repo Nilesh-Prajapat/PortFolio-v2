@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:port_folio/home/aboutmedata.dart';
+import 'package:port_folio/utils/popup.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:port_folio/home/aboutme.dart';
 import 'package:port_folio/theme/theme.dart';
 import 'package:port_folio/utils/LayoutConstraints.dart';
 import 'package:port_folio/utils/textParse.dart';
@@ -16,6 +17,12 @@ class IntroWidget extends StatelessWidget {
     final bool isDarkMode = Utils.isDarkMode(context);
     final double screenWidth = Utils.width(context);
     final bool isLargeScreen = screenWidth > mobileWidth;
+    final size = Utils.size(context);
+    final containerWidth = Utils.containerWidth(context);
+
+    // Center the window
+    final xPos = (size.width - containerWidth) / 2;
+    final yPos = size.height / 10;
 
     return Container(
       width: double.infinity,
@@ -123,17 +130,21 @@ class IntroWidget extends StatelessWidget {
               const SizedBox(width: 10),
               OutlinedButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                    PageRouteBuilder(
-                      transitionDuration: const Duration(milliseconds: 400),
-                      pageBuilder: (context, animation, secondaryAnimation) {
-                        return FadeTransition(
-                          opacity: animation,
-                          child: AboutMeEditor(),
-                        );
-                      },
-                    ),
-                  );
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return Popup(
+                            discription: isLargeScreen
+                                ? shortAboutMeText
+                                : fullAboutMeText,
+                            icon: Icons.description,
+                            title: "about_me",
+                            popupType: "aboutMe",
+                            containerWidth: containerWidth,
+                            xPos: xPos,
+                            yPos: yPos,
+                            lock: 1.2);
+                      });
                 },
                 style: OutlinedButton.styleFrom(
                   side: BorderSide(

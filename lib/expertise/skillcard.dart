@@ -1,7 +1,9 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:port_folio/theme/theme.dart';
+import 'package:port_folio/utils/popup.dart';
 
-import 'skillsdetails.dart';
+import '../utils/LayoutConstraints.dart';
 
 class SkillCard extends StatefulWidget {
   final String icon;
@@ -29,24 +31,23 @@ class _SkillCardState extends State<SkillCard> {
 
   @override
   Widget build(BuildContext context) {
+    final size = Utils.size(context);
+   final double containerWidth = (size.width * 0.85).clamp(300, 850);
+    final containerHeight = size.height * 0.5;
+
+   final xPos = (size.width - containerWidth) / 2;
+    final yPos = (size.height ) / 3;
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          PageRouteBuilder(
-            transitionDuration: const Duration(milliseconds: 400),
-            pageBuilder: (context, animation, secondaryAnimation) {
-              return FadeTransition(
-                opacity: animation,
-                child: SkillDetailedPage(
-                    skillName: widget.name,
-                    skillIcon: widget.icon,
-                    skillDescription: widget.description),
-              );
-            },
-          ),
+        showDialog(
+          context: context,
+          barrierDismissible: false, // Prevents background interaction
+          builder: (context) {
+            return Popup( discription: widget.description, icon:widget.icon, title: widget.name, containerWidth: containerWidth, xPos: xPos, yPos: yPos,lock:(1.5),popupType: 'skill',);
+          },
         );
       },
+
       child: MouseRegion(
         onEnter: (_) => setState(() => _isHovered = true),
         onExit: (_) => setState(() => _isHovered = false),
