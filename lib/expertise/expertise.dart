@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:port_folio/expertise/skillsection.dart';
 import '../theme/theme.dart';
 import 'github.dart';
-import 'skillcard.dart';
-import 'skilsdata.dart';
 
 class SkillsPage extends StatefulWidget {
   const SkillsPage({Key? key}) : super(key: key);
