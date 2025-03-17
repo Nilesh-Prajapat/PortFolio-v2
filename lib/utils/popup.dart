@@ -61,7 +61,7 @@ class _PopupState extends State<Popup> {
       case "aboutMe":
         containerWidth = Utils.containerWidth(context);
         xPos.value = (screenSize.width - containerWidth) / 2;
-        yPos.value = (screenSize.height / 10);
+        yPos.value = (screenSize.height / 6);
         lock = 2;
         break;
 
