@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:port_folio/home/aboutmedata.dart';
 import '../theme/theme.dart';
 import '../utils/textParse.dart';
 import 'LayoutConstraints.dart';
@@ -39,6 +40,8 @@ class _PopupState extends State<Popup> {
   late double containerWidth;
   late double containerHeight;
   late Size screenSize;
+  late String discription;
+
 
   @override
   void initState() {
@@ -46,6 +49,8 @@ class _PopupState extends State<Popup> {
     xPos = ValueNotifier(widget.xPos);
     yPos = ValueNotifier(widget.yPos);
     lock = widget.lock;
+    discription = widget.discription;
+
     containerWidth = widget.containerWidth;
   }
 
@@ -61,8 +66,9 @@ class _PopupState extends State<Popup> {
       case "aboutMe":
         containerWidth = Utils.containerWidth(context);
         xPos.value = (screenSize.width - containerWidth) / 2;
-        yPos.value = (screenSize.height / 6);
-        lock = 2;
+        yPos.value = screenSize.width >=850 ? (screenSize.height / 10): (screenSize.height / 6);
+        discription = screenSize.width >=850 ? fullAboutMeText : shortAboutMeText ;
+        lock = 2.6;
         break;
 
       case "submit":
@@ -178,7 +184,7 @@ class _PopupState extends State<Popup> {
                                 child: RichText(
                                   text: TextSpan(
                                     children: getFormattedText(
-                                        widget.discription,
+                                        discription,
                                         isDarkMode: isDarkMode,
                                         fontSize: baseFontSize),
                                     style: GoogleFonts.spaceMono(
