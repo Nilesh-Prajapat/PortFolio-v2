@@ -3,13 +3,13 @@
   "builds": [
     {
       "src": "build/web/**/*",
-      "use": "@vercel/serve"
+      "use": "@vercel/static"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
