@@ -135,8 +135,8 @@ class IntroWidget extends StatelessWidget {
                       builder: (context) {
                         return Popup(
                             discription: isLargeScreen
-                                ? shortAboutMeText
-                                : fullAboutMeText,
+                                ? fullAboutMeText
+                                : shortAboutMeText,
                             icon: Icons.description,
                             title: "about_me",
                             popupType: "aboutMe",
