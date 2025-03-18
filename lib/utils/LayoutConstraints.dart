@@ -159,7 +159,6 @@ class Utils {
   }
 
 
-//   for skilldetaild
 static double skillcontainerw (BuildContext context){
     double w = width(context);
     return  (w * 0.85).clamp(300, 850);
