@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:port_folio/projects/projectsection.dart';
+import 'package:port_folio/projects/projectsection2.dart';
 
 import '../theme/theme.dart';
 
@@ -39,7 +40,7 @@ class ProjectsSection extends StatelessWidget {
         SizedBox(
           height: sectionSpacing * 0.8,
         ),
-        ProjectSec(),
+        Projectsec(),
 
       ],
     );

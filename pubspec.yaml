@@ -49,6 +49,8 @@ dependencies:
   collection: ^1.19.1
   flutter_html: ^3.0.0
   flutter_inappwebview: ^6.1.5
+  smooth_page_indicator: ^1.2.1
+  carousel_slider: ^5.0.0
 
 
 dev_dependencies:
