@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:port_folio/projects/appCard.dart';
-import 'package:port_folio/projects/projectCard2.dart';
+import 'package:port_folio/projects/projectCard.dart';
 
 class Projectsec extends StatefulWidget {
   const Projectsec({super.key});

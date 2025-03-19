@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:port_folio/projects/projectsection2.dart';
+import 'package:port_folio/projects/ProjectLayout.dart';
 
 import '../theme/theme.dart';
 
