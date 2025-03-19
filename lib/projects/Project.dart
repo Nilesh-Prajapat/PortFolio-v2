@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:port_folio/projects/projectsection.dart';
 import 'package:port_folio/projects/projectsection2.dart';
 
 import '../theme/theme.dart';
