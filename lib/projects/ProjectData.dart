@@ -18,7 +18,7 @@ final List<Map<String, dynamic>> projectsLarge = [
         "   - 🤖 AI-powered study assistance via Gemini API\n\n"
         "🔧 Tech Stack: Flutter | MongoDB | Node.js | Gemini API\n"
         "✅ Status: Completed ✅",
-    "github": "https://github.com/yourusername/ClassHub",
+    "github": "https://github.com/Nilesh-Prajapat/PortFolio-v2",
     "image": "assets/images/classhub_large.webp",
     "imageFirst": false,
   },
@@ -39,7 +39,7 @@ final List<Map<String, dynamic>> projectsLarge = [
         "   - 🚀 Hosted on GitHub (Archived)\n\n"
         "🔧 Tech Stack: Flutter\n"
         "📌 Status: Archived",
-    "github": "https://github.com/yourusername/OldPortfolio",
+    "github": "https://github.com/Nilesh-Prajapat/class_hub",
     "image": "assets/images/oldportfolio_large.webp",
     "imageFirst": true,
   },
@@ -61,7 +61,7 @@ final List<Map<String, dynamic>> projectsLarge = [
         "   - 🚀 Hosted on Vercel for seamless performance\n\n"
         "🔧 Tech Stack: Flutter | Vercel\n"
         "✅ Status: Live & Active",
-    "github": "https://github.com/yourusername/NewPortfolio",
+    "github": "https://github.com/Nilesh-Prajapat/PortFolio",
     "image": "assets/images/portfolion_large.webp",
     "imageFirst": false,
   },
@@ -83,7 +83,7 @@ final List<Map<String, dynamic>> projectsMedium = [
         "🌐 Hosted on: Vercel with automatic deployment.\n"
         "🔧 Tech Stack: Flutter | Dart | Vercel\n"
         "🚀 Status: Live & Actively Maintained",
-    "github": "https://github.com/yourusername/NewPortfolio",
+    "github": "https://github.com/Nilesh-Prajapat/PortFolio-v2",
     "image": "assets/images/portfolion.webp",
     "imageFirst": true,
   },
@@ -103,7 +103,7 @@ final List<Map<String, dynamic>> projectsMedium = [
         "⚡ Features: AI-powered content, deadline reminders, and structured study materials.\n"
         "🔧 Tech Stack: Flutter | MongoDB | Node.js | Gemini API\n"
         "✅ Status: Completed & Available",
-    "github": "https://github.com/yourusername/ClassHub",
+    "github": "https://github.com/Nilesh-Prajapat/class_hub",
     "image": "assets/images/classhub.webp",
     "imageFirst": false,
   },
@@ -121,7 +121,7 @@ final List<Map<String, dynamic>> projectsMedium = [
         "📜 Archived on GitHub: No longer maintained but serves as a reference for my early work.\n"
         "🔧 Tech Stack: Flutter\n"
         "📌 Status: Archived",
-    "github": "https://github.com/yourusername/OldPortfolio",
+    "github": "https://github.com/Nilesh-Prajapat/PortFolio",
     "image": "assets/images/Portfolio.webp",
     "imageFirst": true,
   },
@@ -141,7 +141,7 @@ final List<Map<String, dynamic>> projectsSmall = [
         "📌 Built with Flutter, featuring a modern UI, animations, and dark/light themes.\n"
         "🔧 Tech: Flutter | Vercel\n"
         "🚀 Status: Live & Active",
-    "github": "https://github.com/yourusername/NewPortfolio",
+    "github": "https://github.com/Nilesh-Prajapat/PortFolio-v2",
     "image": "assets/images/portfolion.webp",
     "imageFirst": true,
   },
@@ -158,7 +158,7 @@ final List<Map<String, dynamic>> projectsSmall = [
         "⚡ Features: Assignments, student profiles, exam results.\n"
         "🔧 Tech: Flutter | MongoDB | Node.js | Gemini API\n"
         "✅ Status: Completed",
-    "github": "https://github.com/yourusername/ClassHub",
+    "github": "https://github.com/Nilesh-Prajapat/class_hub",
     "image": "assets/images/classhub.webp",
     "imageFirst": false,
   },
@@ -174,7 +174,7 @@ final List<Map<String, dynamic>> projectsSmall = [
         "📂 Static portfolio app with projects, skills & contact info.\n"
         "🔧 Tech: Flutter\n"
         "📌 Status: Archived",
-    "github": "https://github.com/yourusername/OldPortfolio",
+    "github": "https://github.com/Nilesh-Prajapat/PortFolio",
     "image": "assets/images/Portfolio.webp",
     "imageFirst": true,
   },
