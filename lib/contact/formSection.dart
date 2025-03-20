@@ -123,7 +123,6 @@ class _FormSectionState extends State<FormSection> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: sectionSpacing * 0.8),
           Text(
             isLargeScreen ? "Drop a Mail" : "Contact Me",
             textAlign: TextAlign.start,
