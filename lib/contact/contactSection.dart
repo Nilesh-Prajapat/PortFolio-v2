@@ -56,9 +56,6 @@ final bool  isLargeScreen = screenWidth >= 850;
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: sectionSpacing * 0.8,
-            ),
             Text(
               "Contact Me",
               textAlign: TextAlign.start,

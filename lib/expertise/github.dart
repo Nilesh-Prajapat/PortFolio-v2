@@ -48,19 +48,8 @@ class GitHubStats extends StatelessWidget {
             ),
             SizedBox(height: headingSpacing),
             Expanded(
-              child: Stack(
-                children: [
-                  InAppWebView(
-                    initialUrlRequest: URLRequest(url: WebUri(url)),
-                  ),
-                  Positioned.fill(
-                    child: AbsorbPointer(
-                      child: Container(
-                        color: Colors.transparent, // Transparent overlay blocking interactions
-                      ),
-                    ),
-                  ),
-                ],
+              child: InAppWebView(
+                initialUrlRequest: URLRequest(url: WebUri(url)),
               ),
             ),
           ],

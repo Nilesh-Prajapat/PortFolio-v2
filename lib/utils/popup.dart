@@ -126,12 +126,12 @@ class _PopupState extends State<Popup> {
                   child: RepaintBoundary(
                     child: GestureDetector(
                       onTap: () {},
-                      onPanUpdate: (details) {
-                        xPos.value = (xPos.value + details.delta.dx)
-                            .clamp(0, screenSize.width - containerWidth);
-                        yPos.value = (yPos.value + details.delta.dy)
-                            .clamp(0, screenSize.height / lock);
-                      },
+                      // onPanUpdate: (details) {
+                      //   xPos.value = (xPos.value + details.delta.dx)
+                      //       .clamp(0, screenSize.width - containerWidth);
+                      //   yPos.value = (yPos.value + details.delta.dy)
+                      //       .clamp(0, screenSize.height / lock);
+                      // },
                       child: Material(
                         color: Colors.transparent,
                         child: Container(
