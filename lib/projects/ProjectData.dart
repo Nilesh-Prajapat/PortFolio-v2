@@ -18,7 +18,7 @@ final List<Map<String, dynamic>> projectsLarge = [
         "   - 🤖 AI-powered study assistance via Gemini API\n\n"
         "🔧 Tech Stack: Flutter | MongoDB | Node.js | Gemini API\n"
         "✅ Status: Completed ✅",
-    "github": "https://github.com/Nilesh-Prajapat/PortFolio-v2",
+    "github": "https://github.com/Nilesh-Prajapat/class_hub",
     "image": "assets/images/classhub_large.webp",
     "imageFirst": false,
   },
@@ -39,7 +39,7 @@ final List<Map<String, dynamic>> projectsLarge = [
         "   - 🚀 Hosted on GitHub (Archived)\n\n"
         "🔧 Tech Stack: Flutter\n"
         "📌 Status: Archived",
-    "github": "https://github.com/Nilesh-Prajapat/class_hub",
+    "github": "https://github.com/Nilesh-Prajapat/PortFolio",
     "image": "assets/images/oldportfolio_large.webp",
     "imageFirst": true,
   },
@@ -61,7 +61,7 @@ final List<Map<String, dynamic>> projectsLarge = [
         "   - 🚀 Hosted on Vercel for seamless performance\n\n"
         "🔧 Tech Stack: Flutter | Vercel\n"
         "✅ Status: Live & Active",
-    "github": "https://github.com/Nilesh-Prajapat/PortFolio",
+    "github": "https://github.com/Nilesh-Prajapat/PortFolio-v2",
     "image": "assets/images/portfolion_large.webp",
     "imageFirst": false,
   },
@@ -69,24 +69,6 @@ final List<Map<String, dynamic>> projectsLarge = [
 
 
 final List<Map<String, dynamic>> projectsMedium = [
-  {
-    "title": "Portfolio (New) (Current Site)",
-    "description":
-    "```shell\n"
-        "nilesh@dev:~\$ cd Portfolio\n"
-        "nilesh@dev:~/Portfolio\$ flutter run\n"
-        "[✔] Running on Web\n"
-        "```\n\n"
-        "🖥️ Portfolio v2.0 – The site you're browsing!\n\n"
-        "📂 A modern Flutter web app with a sleek UI, smooth animations, and adaptive dark/light themes.\n"
-        "⚡ Features: Fully responsive, interactive UI, dynamic transitions, optimized for performance.\n"
-        "🌐 Hosted on: Vercel with automatic deployment.\n"
-        "🔧 Tech Stack: Flutter | Dart | Vercel\n"
-        "🚀 Status: Live & Actively Maintained",
-    "github": "https://github.com/Nilesh-Prajapat/PortFolio-v2",
-    "image": "assets/images/portfolion.webp",
-    "imageFirst": true,
-  },
   {
     "title": "ClassHub",
     "description":
@@ -125,26 +107,30 @@ final List<Map<String, dynamic>> projectsMedium = [
     "image": "assets/images/Portfolio.webp",
     "imageFirst": true,
   },
-];
-
-
-final List<Map<String, dynamic>> projectsSmall = [
   {
-    "title": "Portfolio (New)",
+    "title": "Portfolio (New) (Current Site)",
     "description":
     "```shell\n"
         "nilesh@dev:~\$ cd Portfolio\n"
-        "nilesh@dev:~/Portfolio\$ git push vercel main\n"
-        "[✔] Deployed Successfully\n"
+        "nilesh@dev:~/Portfolio\$ flutter run\n"
+        "[✔] Running on Web\n"
         "```\n\n"
-        "🖥️ Portfolio v2.0 – The Site You're Browsing\n\n"
-        "📌 Built with Flutter, featuring a modern UI, animations, and dark/light themes.\n"
-        "🔧 Tech: Flutter | Vercel\n"
-        "🚀 Status: Live & Active",
+        "🖥️ Portfolio v2.0 – The site you're browsing!\n\n"
+        "📂 A modern Flutter web app with a sleek UI, smooth animations, and adaptive dark/light themes.\n"
+        "⚡ Features: Fully responsive, interactive UI, dynamic transitions, optimized for performance.\n"
+        "🌐 Hosted on: Vercel with automatic deployment.\n"
+        "🔧 Tech Stack: Flutter | Dart | Vercel\n"
+        "🚀 Status: Live & Actively Maintained",
     "github": "https://github.com/Nilesh-Prajapat/PortFolio-v2",
     "image": "assets/images/portfolion.webp",
     "imageFirst": true,
   },
+
+
+];
+
+
+final List<Map<String, dynamic>> projectsSmall = [
   {
     "title": "ClassHub",
     "description":
@@ -178,4 +164,21 @@ final List<Map<String, dynamic>> projectsSmall = [
     "image": "assets/images/Portfolio.webp",
     "imageFirst": true,
   },
+  {
+    "title": "Portfolio (New)",
+    "description":
+    "```shell\n"
+        "nilesh@dev:~\$ cd Portfolio\n"
+        "nilesh@dev:~/Portfolio\$ git push vercel main\n"
+        "[✔] Deployed Successfully\n"
+        "```\n\n"
+        "🖥️ Portfolio v2.0 – The Site You're Browsing\n\n"
+        "📌 Built with Flutter, featuring a modern UI, animations, and dark/light themes.\n"
+        "🔧 Tech: Flutter | Vercel\n"
+        "🚀 Status: Live & Active",
+    "github": "https://github.com/Nilesh-Prajapat/PortFolio-v2",
+    "image": "assets/images/portfolion.webp",
+    "imageFirst": true,
+  },
+
 ];
