@@ -27,14 +27,6 @@ class _ProjectsecState extends State<Projectsec> {
             "assets/images/portfolion.webp",
                 "assets/images/Portfolio.webp",
           ]),
-          SizedBox(
-            height: screenHeight * 0.75, // Ensure the divider has a height
-            child: VerticalDivider(
-              thickness: 2,
-              width: 20, // Space taken by the divider
-              color: isDarkMode ? Colors.white : Colors.black,
-            ),
-          ),
           SizedBox(width: screenWidth * 0.02),
           Flexible(child: ProjectDetailed2())
         ],

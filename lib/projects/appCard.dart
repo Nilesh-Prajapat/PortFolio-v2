@@ -53,10 +53,13 @@ class _AppCardState extends State<AppCard> {
                 );
               },
               options: CarouselOptions(
+
                 height: containerHeight,
+
                 enableInfiniteScroll: true,
                 enlargeCenterPage: true,
                 autoPlay: false,
+                viewportFraction: 1,
                 enlargeFactor: 0.3, // Controls how much the center image enlarges
                 onPageChanged: (index, reason) {
                   setState(() {
