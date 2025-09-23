@@ -36,7 +36,7 @@ class _ContactPageState extends State<ContactPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch, // Make items stretch vertically
                   children: [
-                    Flexible(child: contactSection()),
+                    Flexible(child: ContactSection()),
                     SizedBox(width: sectionSpacing * 0.5),
                     SizedBox(
                       width: 2, // Divider thickness
