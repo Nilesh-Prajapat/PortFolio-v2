@@ -1,14 +1,14 @@
 const String fullAboutMeText = """
 Hi, I'm Nilesh Prajapat!  
 
-**Flutter Developer** | **FPS Gamer** | **Computer Science Student** | **Aspiring Game Developer**  
+**Flutter Developer** | **Computer Science Student** | **Aspiring Game Developer**  
 
-**Education:** Diploma in Computer Science & Engineering **(Graduating June 2025)**  
+**Education:** Completed Diploma in Computer Science & Engineering, currently pursuing **B.Tech CSE at CDGI**  
 
 I am a passionate **Flutter developer** with a keen interest in **building high-performance mobile applications** that offer smooth UI/UX and real-time functionality.  
 
-**Gaming & Competitive Mindset**  
-As an avid **Valorant** and **CS2** player, I thrive in high-stakes, strategy-driven environments that demand precision, quick decision-making, and adaptability—skills I bring into my development work.  
+**Community Involvement**  
+Currently serving as a **Tech Team Member of GDG On Campus CDGI (2025)**, where I collaborate on tech initiatives, events, and projects.  
 
 **Continuous Learning & Growth**  
 I am constantly exploring **app optimization techniques**, **real-time data handling**, and **scalable architectures** to enhance mobile experiences.  
@@ -23,14 +23,13 @@ I’m always open to new opportunities, collaborations, and discussions around m
 const String shortAboutMeText = """
 Hi, I'm Nilesh Prajapat!  
 
-**Flutter Developer** | **FPS Gamer** | **CSE Student** | **Aspiring Game Developer**  
+**Flutter Developer** | **B.Tech CSE Student (CDGI)** | **Aspiring Game Developer**  
 
-**Education:** Diploma in **CSE** **(Graduating June 2025)** 
+**Education:** Completed Diploma in **CSE**, now pursuing **B.Tech at CDGI**  
+
+**Community:** Tech Team Member of **GDG On Campus CDGI 2025**  
 
 Passionate about **Flutter app development**, focusing on **performance, optimization, and real-time functionality**.  
-
-**Gaming Enthusiast**  
-Competitive **Valorant & CS2** player—leveraging strategy, precision, and quick reflexes both in gaming and development.  
 
 **Always Learning**  
 Exploring **real-time data handling** and **scalable mobile solutions**.  
