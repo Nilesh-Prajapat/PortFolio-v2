@@ -1,7 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:port_folio/home/aboutmedata.dart';
 import '../theme/theme.dart';
 import '../utils/textParse.dart';
@@ -42,7 +41,6 @@ class _PopupState extends State<Popup> {
   late Size screenSize;
   late String discription;
 
-
   @override
   void initState() {
     super.initState();
@@ -50,7 +48,6 @@ class _PopupState extends State<Popup> {
     yPos = ValueNotifier(widget.yPos);
     lock = widget.lock;
     discription = widget.discription;
-
     containerWidth = widget.containerWidth;
   }
 
@@ -66,8 +63,8 @@ class _PopupState extends State<Popup> {
       case "aboutMe":
         containerWidth = Utils.containerWidth(context);
         xPos.value = (screenSize.width - containerWidth) / 2;
-        yPos.value = screenSize.width >=850 ? (screenSize.height / 10): (screenSize.height / 6);
-        discription = screenSize.width >=850 ? fullAboutMeText : shortAboutMeText ;
+        yPos.value = screenSize.width >= 850 ? (screenSize.height / 10) : (screenSize.height / 6);
+        discription = screenSize.width >= 850 ? fullAboutMeText : shortAboutMeText;
         lock = 2.6;
         break;
 
@@ -105,9 +102,8 @@ class _PopupState extends State<Popup> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: GestureDetector(
-        onTap: () =>
-            Navigator.of(context).pop(), // Close popup when tapping outside
-        behavior: HitTestBehavior.opaque, // Detects taps on empty areas
+        onTap: () => Navigator.of(context).pop(),
+        behavior: HitTestBehavior.opaque,
         child: Stack(
           children: [
             Positioned.fill(
@@ -126,20 +122,12 @@ class _PopupState extends State<Popup> {
                   child: RepaintBoundary(
                     child: GestureDetector(
                       onTap: () {},
-                      // onPanUpdate: (details) {
-                      //   xPos.value = (xPos.value + details.delta.dx)
-                      //       .clamp(0, screenSize.width - containerWidth);
-                      //   yPos.value = (yPos.value + details.delta.dy)
-                      //       .clamp(0, screenSize.height / lock);
-                      // },
                       child: Material(
                         color: Colors.transparent,
                         child: Container(
                           width: containerWidth,
                           decoration: BoxDecoration(
-                            color: isDarkMode
-                                ? const Color(0xFF1E1E1E)
-                                : const Color(0xFFF5F5F5),
+                            color: isDarkMode ? const Color(0xFF1E1E1E) : const Color(0xFFF5F5F5),
                             borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               BoxShadow(
@@ -159,21 +147,16 @@ class _PopupState extends State<Popup> {
                                 iconSize: iconSize,
                                 isDarkMode: isDarkMode,
                                 onCopy: () {
-                                  Clipboard.setData(
-                                      ClipboardData(text: widget.discription));
+                                  Clipboard.setData(ClipboardData(text: widget.discription));
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
                                         "Copied to clipboard!",
                                         style: TextStyle(
-                                          color: isDarkMode
-                                              ? darkTextColor
-                                              : lightTextColor,
+                                          color: isDarkMode ? darkTextColor : lightTextColor,
                                         ),
                                       ),
-                                      backgroundColor: isDarkMode
-                                          ? Colors.grey[900]
-                                          : Colors.grey[300],
+                                      backgroundColor: isDarkMode ? Colors.grey[900] : Colors.grey[300],
                                     ),
                                   );
                                 },
@@ -184,13 +167,13 @@ class _PopupState extends State<Popup> {
                                 child: RichText(
                                   text: TextSpan(
                                     children: getFormattedText(
-                                        discription,
-                                        isDarkMode: isDarkMode,
-                                        fontSize: baseFontSize),
-                                    style: GoogleFonts.spaceMono(
-                                      color: isDarkMode
-                                          ? darkTextColor
-                                          : lightTextColor,
+                                      discription,
+                                      isDarkMode: isDarkMode,
+                                      fontSize: baseFontSize,
+                                    ),
+                                    style: TextStyle(
+                                      fontFamily: 'SpaceMono',
+                                      color: isDarkMode ? darkTextColor : lightTextColor,
                                       fontSize: baseFontSize,
                                     ),
                                   ),
@@ -243,13 +226,11 @@ class _PopupHeader extends StatelessWidget {
       child: Row(
         children: [
           if (icon is IconData)
-            Icon(icon,
-                color: isDarkMode ? darkTextColor : lightTextColor,
-                size: iconSize)
+            Icon(icon, color: isDarkMode ? darkTextColor : lightTextColor, size: iconSize)
           else if (icon is String)
             Image.asset(icon, width: iconSize, height: iconSize),
           const SizedBox(width: 5),
-          Text(title, style: GoogleFonts.spaceMono(fontSize: 14)),
+          Text(title, style: const TextStyle(fontFamily: 'SpaceMono', fontSize: 14)),
           const Spacer(),
           IconButton(icon: const Icon(Icons.copy), onPressed: onCopy),
           IconButton(icon: const Icon(Icons.close), onPressed: onClose),

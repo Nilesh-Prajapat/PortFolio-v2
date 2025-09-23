@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:port_folio/home/aboutmedata.dart';
 import 'package:port_folio/utils/popup.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -35,7 +34,8 @@ class IntroWidget extends StatelessWidget {
         children: [
           SymbolHighlighter(
             text: "Hello, I'm",
-            style: GoogleFonts.spaceMono(
+            style: TextStyle(
+              fontFamily: 'SpaceMono',
               letterSpacing: 2,
               color: isDarkMode ? darkTextColor : lightTextColor,
               fontSize: Utils.baseFontSize(context) * 0.96,
@@ -45,7 +45,8 @@ class IntroWidget extends StatelessWidget {
           const SizedBox(height: 5),
           Text(
             "Nilesh Prajapat",
-            style: GoogleFonts.spaceMono(
+            style: TextStyle(
+              fontFamily: 'SpaceMono',
               letterSpacing: 1,
               color: isDarkMode ? darkTextColor : lightTextColor,
               fontSize: Utils.nameFontSize(context),
@@ -62,7 +63,8 @@ class IntroWidget extends StatelessWidget {
                 TypewriterAnimatedText(
                   'App Developer',
                   speed: const Duration(milliseconds: 100),
-                  textStyle: GoogleFonts.spaceMono(
+                  textStyle: TextStyle(
+                    fontFamily: 'SpaceMono',
                     color: isDarkMode ? primaryColor : primaryColorLight,
                     letterSpacing: 1,
                     fontSize: Utils.h2TextFontSize(context),
@@ -72,7 +74,8 @@ class IntroWidget extends StatelessWidget {
                 TypewriterAnimatedText(
                   'Student',
                   speed: const Duration(milliseconds: 100),
-                  textStyle: GoogleFonts.spaceMono(
+                  textStyle: TextStyle(
+                    fontFamily: 'SpaceMono',
                     color: isDarkMode ? primaryColor : primaryColorLight,
                     letterSpacing: 1,
                     fontSize: Utils.h2TextFontSize(context),
@@ -80,9 +83,10 @@ class IntroWidget extends StatelessWidget {
                   ),
                 ),
                 TypewriterAnimatedText(
-                  'Gamer',
+                  'Tech Team @GDGOC CDGI',
                   speed: const Duration(milliseconds: 100),
-                  textStyle: GoogleFonts.spaceMono(
+                  textStyle: TextStyle(
+                    fontFamily: 'SpaceMono',
                     color: isDarkMode ? primaryColor : primaryColorLight,
                     letterSpacing: 1,
                     fontSize: Utils.h2TextFontSize(context),
@@ -107,7 +111,6 @@ class IntroWidget extends StatelessWidget {
               ElevatedButton(
                 onPressed: () async {
                   final Uri url = Uri.parse(
-
                       "https://drive.google.com/file/d/193A_WLqQisV4AIEciF4tsN86KNtgN3tG/view?usp=sharing");
 
                   if (await canLaunchUrl(url)) {
@@ -118,11 +121,12 @@ class IntroWidget extends StatelessWidget {
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor:
-                      isDarkMode ? primaryColor : primaryColorLight,
+                  isDarkMode ? primaryColor : primaryColorLight,
                   foregroundColor: Colors.white,
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                  textStyle: GoogleFonts.spaceMono(
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                  textStyle: TextStyle(
+                    fontFamily: 'SpaceMono',
                     fontSize: Utils.buttonFontSize(context),
                     fontWeight: FontWeight.bold,
                   ),
@@ -152,10 +156,11 @@ class IntroWidget extends StatelessWidget {
                   side: BorderSide(
                       color: isDarkMode ? primaryColor : primaryColorLight),
                   foregroundColor:
-                      isDarkMode ? primaryColor : primaryColorLight,
+                  isDarkMode ? primaryColor : primaryColorLight,
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                  textStyle: GoogleFonts.spaceMono(
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                  textStyle: TextStyle(
+                    fontFamily: 'SpaceMono',
                     fontSize: Utils.buttonFontSize(context),
                     fontWeight: FontWeight.bold,
                   ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:port_folio/contact/Contact.dart';
 import 'package:port_folio/projects/Project.dart';
 import 'package:port_folio/home/Home.dart';
@@ -22,7 +21,6 @@ class _NavbarState extends State<Navbar> {
   int selectedIndex = 0;
   final ScrollController _scrollController = ScrollController();
 
-  // Global Keys for Sections
   final GlobalKey _homeKey = GlobalKey();
   final GlobalKey _expertiseKey = GlobalKey();
   final GlobalKey _projectKey = GlobalKey();
@@ -41,7 +39,6 @@ class _NavbarState extends State<Navbar> {
     super.dispose();
   }
 
-  // Detect explicit user scroll
   void _handleScroll() {
     int newIndex = _getClosestSectionIndex();
     if (newIndex != selectedIndex) {
@@ -51,16 +48,15 @@ class _NavbarState extends State<Navbar> {
     }
   }
 
-  // Find the section closest to the top of the screen
   int _getClosestSectionIndex() {
     List<GlobalKey> keys = [_homeKey, _expertiseKey, _projectKey, _contactKey];
 
     double minDistance = double.infinity;
-    int closestIndex = selectedIndex; // Default to current section
+    int closestIndex = selectedIndex;
 
     for (int i = 0; i < keys.length; i++) {
       final RenderBox? box =
-          keys[i].currentContext?.findRenderObject() as RenderBox?;
+      keys[i].currentContext?.findRenderObject() as RenderBox?;
       if (box != null) {
         double offset = box.localToGlobal(Offset.zero).dy;
         double distance = (offset - kToolbarHeight).abs();
@@ -73,7 +69,6 @@ class _NavbarState extends State<Navbar> {
     return closestIndex;
   }
 
-  // Function to scroll to the selected section
   void _scrollToSection(GlobalKey sectionKey) {
     Scrollable.ensureVisible(
       sectionKey.currentContext!,
@@ -84,10 +79,9 @@ class _NavbarState extends State<Navbar> {
 
   @override
   Widget build(BuildContext context) {
-    final bool isDarkMode = Utils.isDarkMode(context);
-    final Size size = Utils.size(context);
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final Size size = MediaQuery.of(context).size;
     final isMobile = size.width < 850;
-
 
     return SafeArea(
       child: Scaffold(
@@ -98,12 +92,13 @@ class _NavbarState extends State<Navbar> {
                 AppBar(
                   title: Padding(
                     padding:
-                        EdgeInsets.symmetric(horizontal: size.width * 0.009),
+                    EdgeInsets.symmetric(horizontal: size.width * 0.009),
                     child: Row(
                       children: [
                         Text(
                           './Nilesh ',
-                          style: GoogleFonts.spaceMono(
+                          style: TextStyle(
+                            fontFamily: 'SpaceMono',
                             fontSize: Utils.heading(context),
                             letterSpacing: 1.0,
                             fontWeight: FontWeight.w500,
@@ -112,12 +107,13 @@ class _NavbarState extends State<Navbar> {
                         ),
                         Text(
                           'Prajapat',
-                          style: GoogleFonts.spaceMono(
+                          style: TextStyle(
+                            fontFamily: 'SpaceMono',
                             fontSize: Utils.heading(context),
                             letterSpacing: 2.0,
                             fontWeight: FontWeight.w700,
                             color:
-                                isDarkMode ? primaryColor : primaryColorLight,
+                            isDarkMode ? primaryColor : primaryColorLight,
                           ),
                         ),
                       ],
@@ -125,24 +121,24 @@ class _NavbarState extends State<Navbar> {
                   ),
                   actions: isMobile
                       ? [
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: size.width * 0.009),
-                            child: _buildMobileMenuButton(isDarkMode),
-                          ),
-                        ]
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: size.width * 0.009),
+                      child: _buildMobileMenuButton(isDarkMode),
+                    ),
+                  ]
                       : [
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: size.width * 0.009),
-                            child: Row(
-                              children: [
-                                ..._buildNavItems(Utils.navItems(context),isDarkMode),
-                                _buildThemeToggleButton(isMobile),
-                              ],
-                            ),
-                          ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: size.width * 0.009),
+                      child: Row(
+                        children: [
+                          ..._buildNavItems(Utils.navItems(context), isDarkMode),
+                          _buildThemeToggleButton(isMobile),
                         ],
+                      ),
+                    ),
+                  ],
                 ),
                 Expanded(
                   child: SingleChildScrollView(
@@ -151,8 +147,7 @@ class _NavbarState extends State<Navbar> {
                       children: [
                         Container(
                             key: _homeKey,
-                            child:
-                                const MainBody(appBarHeight: kToolbarHeight)),
+                            child: const MainBody(appBarHeight: kToolbarHeight)),
                         Container(
                           key: _expertiseKey,
                           child: SkillsPage(),
@@ -165,7 +160,6 @@ class _NavbarState extends State<Navbar> {
                           key: _contactKey,
                           child: ContactPage(),
                         ),
-
                       ],
                     ),
                   ),
@@ -189,9 +183,9 @@ class _NavbarState extends State<Navbar> {
                           padding: EdgeInsets.symmetric(
                               horizontal: size.width * 0.02, vertical: 4),
                           child: TextButton(
-                            style: ButtonStyle(
+                            style: const ButtonStyle(
                                 overlayColor:
-                                    WidgetStateProperty.all(Colors.transparent),
+                                MaterialStatePropertyAll(Colors.transparent),
                                 splashFactory: NoSplash.splashFactory),
                             onPressed: () {
                               setState(() {
@@ -202,14 +196,15 @@ class _NavbarState extends State<Navbar> {
                             },
                             child: Text(
                               item,
-                              style: GoogleFonts.spaceMono(
+                              style: TextStyle(
+                                fontFamily: 'SpaceMono',
                                 color: selectedIndex == index
                                     ? isDarkMode
-                                        ? primaryColor
-                                        : primaryColorLight
+                                    ? primaryColor
+                                    : primaryColorLight
                                     : isDarkMode
-                                        ? darkTextColor
-                                        : lightTextColor,
+                                    ? darkTextColor
+                                    : lightTextColor,
                                 letterSpacing: 2.0,
                                 fontSize: Utils.navItems(context) * 1.1,
                               ),
@@ -251,10 +246,6 @@ class _NavbarState extends State<Navbar> {
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: TextButton(
-          style: const ButtonStyle(
-              // splashFactory: NoSplash.splashFactory,
-              // overlayColor: WidgetStateProperty.all(Colors.transparent),
-              ),
           onPressed: () {
             setState(() {
               selectedIndex = index;
@@ -264,11 +255,12 @@ class _NavbarState extends State<Navbar> {
           child: AnimatedDefaultTextStyle(
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
-            style: GoogleFonts.spaceMono(
+            style: TextStyle(
+              fontFamily: 'SpaceMono',
               color: selectedIndex == index
                   ? isDarkMode
-                      ? primaryColor
-                      : primaryColorLight
+                  ? primaryColor
+                  : primaryColorLight
                   : (isDarkMode ? darkTextColor : lightTextColor),
               letterSpacing: 2.0,
               fontSize: textSize,
@@ -286,7 +278,6 @@ class _NavbarState extends State<Navbar> {
         AssetImage(
             showDropdown ? "assets/icon/close.png" : "assets/icon/menu.png"),
         color: isDarkMode ? Colors.white : Colors.black,
-        // Use correct asset paths
       ),
       onPressed: () {
         setState(() {
@@ -318,9 +309,6 @@ class _NavbarState extends State<Navbar> {
               ),
               onPressed: () {
                 themeProvider.toggleTheme();
-                // if (isMobile) {
-                //   showDropdown = !showDropdown;
-                // }
               },
             ),
           ),

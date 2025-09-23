@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 const Color primaryColor = Color(0xFF2196F3);
 const Color primaryColorLight = Color(0xFFFF6D00);
@@ -9,6 +8,7 @@ const Color darkBackground = Colors.black;
 
 const Color lightTextColor = Colors.black;
 const Color darkTextColor = Colors.white;
+
 ThemeData lightTheme(double screenWidth) {
   return ThemeData(
     brightness: Brightness.light,
@@ -18,7 +18,8 @@ ThemeData lightTheme(double screenWidth) {
       brightness: Brightness.light,
     ),
     scaffoldBackgroundColor: lightBackground,
-    textTheme: GoogleFonts.spaceMonoTextTheme().apply(
+    textTheme: ThemeData.light().textTheme.apply(
+      fontFamily: 'SpaceMono',
       bodyColor: lightTextColor,
       displayColor: lightTextColor,
     ),
@@ -36,7 +37,8 @@ ThemeData lightTheme(double screenWidth) {
       elevation: 0,
       backgroundColor: lightBackground,
       iconTheme: const IconThemeData(color: Colors.black),
-      titleTextStyle: GoogleFonts.spaceMono(
+      titleTextStyle: TextStyle(
+        fontFamily: 'SpaceMono',
         fontSize: screenWidth * 0.03,
         color: Colors.black,
         fontWeight: FontWeight.bold,
@@ -55,7 +57,8 @@ ThemeData darkTheme(double screenWidth) {
       brightness: Brightness.dark,
     ),
     scaffoldBackgroundColor: darkBackground,
-    textTheme: GoogleFonts.spaceMonoTextTheme().apply(
+    textTheme: ThemeData.dark().textTheme.apply(
+      fontFamily: 'SpaceMono',
       bodyColor: darkTextColor,
       displayColor: darkTextColor,
     ),
@@ -71,10 +74,10 @@ ThemeData darkTheme(double screenWidth) {
     appBarTheme: AppBarTheme(
       elevation: 0,
       scrolledUnderElevation: 0,
-
       backgroundColor: darkBackground,
       iconTheme: const IconThemeData(color: Colors.white),
-      titleTextStyle: GoogleFonts.spaceMono(
+      titleTextStyle: TextStyle(
+        fontFamily: 'SpaceMono',
         fontSize: screenWidth * 0.03,
         color: Colors.white,
         fontWeight: FontWeight.bold,

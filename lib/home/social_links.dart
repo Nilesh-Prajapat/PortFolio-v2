@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:port_folio/theme/theme.dart';
 import 'package:port_folio/utils/LayoutConstraints.dart';
 import 'package:port_folio/utils/textParse.dart';
@@ -21,10 +20,12 @@ class SocialLinksWidget extends StatelessWidget {
   Widget build(BuildContext context) {
 
 
-    final TextStyle textStyle = GoogleFonts.spaceMono(
+    final TextStyle textStyle = TextStyle(
+      fontFamily: 'SpaceMono', // Use your downloaded font
       fontSize: Utils.socialTextSize(context),
       color: isDarkMode ? darkTextColor : lightTextColor,
     );
+
 
     final List<Map<String, String>> socialData = [
       {
