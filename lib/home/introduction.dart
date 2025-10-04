@@ -111,7 +111,7 @@ class IntroWidget extends StatelessWidget {
               ElevatedButton(
                 onPressed: () async {
                   final Uri url = Uri.parse(
-                      "https://drive.google.com/file/d/1er_iXo5UKFI2djYdeNaepht__Pz74HqU/view?usp=sharing");
+                      "https://drive.google.com/file/d/1oEsY8uLX-2qwz5zjomHoKVclBM9x5IYW/view?usp=sharing");
 
                   if (await canLaunchUrl(url)) {
                     await launchUrl(url, mode: LaunchMode.externalApplication);
