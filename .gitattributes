@@ -1,2 +1,18 @@
-# Auto detect text files and perform LF normalization
+# ================================
+# GitHub Linguist Configuration
+# ================================
+
+# Ignore platform-specific and generated code
+android/** linguist-vendored
+ios/** linguist-vendored
+linux/** linguist-vendored
+macos/** linguist-vendored
+windows/** linguist-vendored
+web/** linguist-vendored
+build/** linguist-vendored
+
+# Mark main Dart source as primary language
+lib/** linguist-language=Dart
+
+# Normalize line endings for all text files
 * text=auto

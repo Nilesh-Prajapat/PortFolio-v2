@@ -1,13 +1,19 @@
-# Flutter/Dart related
+# ======================
+# Flutter & Dart
+# ======================
 .dart_tool/
 .packages
+.pub-cache/
+.buildlog/
 .flutter-plugins
 .flutter-plugins-dependencies
 .generated/
 build/
 pubspec.lock
 
-# Android related
+# ======================
+# Android
+# ======================
 .gradle/
 local.properties
 *.iml
@@ -15,24 +21,26 @@ local.properties
 *.aab
 *.keystore
 
-# iOS related
+# ======================
+# iOS / macOS
+# ======================
 Pods/
-.flutter-plugins
-.flutter-plugins-dependencies
-Runner.xcworkspace/
 DerivedData/
+Runner.xcworkspace/
 *.xcuserstate
 *.xcuserdatad
 *.ipa
 
-# Web related (if Flutter web)
+# ======================
+# Web / Vercel
+# ======================
+.vercel/
 lib/generated_plugin_registrant.dart
 
-# Vercel deployment files
-.vercel/
-
+# ======================
 # Logs
-logs
+# ======================
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -40,28 +48,51 @@ yarn-error.log*
 firebase-debug.log*
 firebase-debug.*.log*
 
-# Firebase cache
+# ======================
+# Firebase
+# ======================
 .firebase/
+.dataconnect
 
-# Dependency directories
+# Uncomment to keep shared Firebase config
+# .firebaserc
+
+# ======================
+# Dependencies
+# ======================
 node_modules/
 bower_components/
+.npm/
+.yarn/
+.yarn-cache/
 
-# Environment files
+# ======================
+# Environment / Secrets
+# ======================
 .env
 .env.*
 .env.local
 
-# Coverage
+# ======================
+# Test Coverage
+# ======================
 coverage/
 .nyc_output/
 
-# IDE files
+# ======================
+# IDE / Editors
+# ======================
 .vscode/
 .idea/
+*.swp
+*.swo
+*.swn
 
-# Misc
+# ======================
+# System / Misc
+# ======================
 .DS_Store
+Thumbs.db
 *.pid
 *.seed
 *.pid.lock
