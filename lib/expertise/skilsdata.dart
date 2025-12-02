@@ -1,54 +1,6 @@
 final List<Map<String, String>> skills = [
   // **Frontend Development**
-  {
-    "name": "HTML",
-    "icon": "assets/icon/skills/html.png",
-    "description": """[root@developer ~]\$ Web Dev Starts Here... 🏗️
 
-My coding journey in **web development** began with HTML.
-
-🔍 Started with simple static pages and gradually learned about **semantic HTML & responsiveness**.
-
-📜 This laid the foundation for my **frontend development skills** before moving on to CSS & JavaScript."""
-  },
-  {
-    "name": "CSS",
-    "icon": "assets/icon/skills/css.png",
-    "description": """🎨 Styling the Web... 
-
-Once I had HTML down, I realized my websites were too plain. Time for **CSS magic!**  
-
-🖌️ Learned **Flexbox, Grid, Animations, and Transitions** to make layouts more dynamic.
-
-🚀 Later, I explored frameworks like **Tailwind** and **Bootstrap** for faster UI development."""
-  },
-
-  // **Programming Languages**
-  {
-    "name": "Python",
-    "icon": "assets/icon/skills/python.png",
-    "description": """🐍 Exploring Programming with Python... 
-
-I learned Python **alongside web development**, making it my first true programming language.
-
-🔹 It introduced me to **problem-solving, logic-building, and automation**.
-
-🔧 Used it for **small scripts, data processing, and quick prototyping**.
-
-💡 Even after learning other languages, Python remains my **go-to for scripting and backend work**."""
-  },
-
-  {
-    "name": "JavaScript",
-    "icon": "assets/icon/skills/js.png",
-    "description": """🖥️ Making the Web Interactive... 
-
-After mastering HTML & CSS, I wanted my websites to be **dynamic**, so I picked up JavaScript.
-
-🔄 Learned **ES6+, async programming, and DOM manipulation**.
-
-🛠️ Used JS for **interactive projects** and later transitioned into **backend development with Node.js**."""
-  },
 
   {
     "name": "Flutter",
